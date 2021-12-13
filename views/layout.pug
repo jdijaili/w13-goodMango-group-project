@@ -2,7 +2,18 @@ doctype html
 html
   head
       block head
-        title="Express Starter App"
+        title=title
         link(rel='stylesheet' href='/stylesheets/reset.css')
   body
-    block content
+    nav(class='navbar')
+      a(class='home' href='/') GoodMango
+      button(class='home-button' type='button') 
+          //- span logo go here 
+      if locals.authenticated
+          span(class='greeting') Welcome #{user.username}!
+          form(class='logout-form' action='/users/logout' method='post')
+            button(class='logout-button' type='submit') Logout
+      else      
+          a(class='login-button' href='/users/login') Login
+          a(class='signup-button' href='/users/signup') Sign Up 
+      block content
