@@ -1,0 +1,14 @@
+
+.mangas-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.manga-box {
+
+}
+
+.manga-cover {
+  width: 200px;
+  height: auto;
+}
