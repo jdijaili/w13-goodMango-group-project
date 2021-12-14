@@ -5,14 +5,23 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   list-style-type: none;
+  margin: 0;
 }
 
-/* .manga-box {
+.manga-box li{
+  text-align: center;
+}
 
-} */
+.manga-box {
+  margin-bottom: 50px;
+}
+
 
 .manga-cover {
-  padding: 10px;
+  margin: auto;
+  display: block;
+
+  padding: 5px;
   width: 200px;
-  height: auto;
+  height: 300px;
 }
