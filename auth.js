@@ -39,7 +39,9 @@ const requireAuth = (req, res, next) => {
 
 const logoutUser = (req, res) => {
     delete req.session.auth;
-    res.redirect("/");
+    req.session.save(() => {
+      res.redirect("/");
+    })
   };
 
 module.exports = { loginUser, restoreUser, logoutUser, requireAuth }
