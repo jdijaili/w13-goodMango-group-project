@@ -1,24 +1,24 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Bookshelf extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
+  const Bookshelf = sequelize.define('Bookshelf', {
+    userId: {
+      allowNull: false,
+      type: DataTypes.INTEGER,
+    },
+    name: {
+      allowNull: false,
+      type: DataTypes.STRING(100)
     }
+  }, {});
+  Bookshelf.associate = function(models) {
+    const columnMapping = {
+      through: "MangaBookshelfJoin",
+      otherKey: "mangaId",
+      foreignKey: "bookshelfId"
+    }
+
+    Bookshelf.belongsToMany(models.Manga, columnMapping);
+    Bookshelf.belongsTo(models.User, { foreignKey: "userId" });
   };
-  Bookshelf.init({
-    userId: DataTypes.INTEGER,
-    name: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'Bookshelf',
-  });
   return Bookshelf;
 };

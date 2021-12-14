@@ -1,18 +1,21 @@
 'use strict';
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('MangaGenreJoins', {
+  up: (queryInterface, Sequelize) => {
+    return queryInterface.createTable('Bookshelves', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      mangaId: {
+      userId: {
+        allowNull: false,
+        references: { model: "Users" },
         type: Sequelize.INTEGER
       },
-      genreId: {
-        type: Sequelize.INTEGER
+      name: {
+        allowNull: false,
+        type: Sequelize.STRING(100)
       },
       createdAt: {
         allowNull: false,
@@ -24,7 +27,7 @@ module.exports = {
       }
     });
   },
-  down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('MangaGenreJoins');
+  down: (queryInterface, Sequelize) => {
+    return queryInterface.dropTable('Bookshelves');
   }
 };
