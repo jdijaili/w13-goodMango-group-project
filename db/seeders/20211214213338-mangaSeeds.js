@@ -2,12 +2,6 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    /*
-      Add altering commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      */
     return queryInterface.bulkInsert('Mangas', [
       { title: "One Piece", imgSrc: "https://pbs.twimg.com/media/EXTqmFnXQAAudF0.jpg", author: "Eiichiro Oda", description: "One Piece is a Shonen action-adventure manga written and drawn by Eiichiro Oda, serialized in the Weekly Shonen Jump. Set in a fantasy world dominated by pirates, it mainly depicts the adventures of Monkey D. Luffy, a headstrong young captain with the power to stretch like rubber.", year: 1997, createdAt: new Date(), updatedAt: new Date() },
       { title: "Sailor Moon", imgSrc: "http://prodimage.images-bn.com/pimages/9781612620084_p0_v2_s1200x630.jpg", author: "Naoko Takeuchi", description: "The series follows the adventures of the titular protagonist whose civilian name is Usagi Tsukino, a middle school student who is given the power to become the Pretty Soldier. Joined by other Sailor Soldiers, she defends Earth against an assortment of evil villains.", year: 1991, createdAt: new Date(), updatedAt: new Date() },
@@ -51,12 +45,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    /*
-      Add reverting commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.bulkDelete('People', null, {});
-    */
+      return queryInterface.bulkDelete('Mangas', null, {});
   }
 };
