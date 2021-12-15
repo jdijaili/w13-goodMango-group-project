@@ -1,0 +1,10 @@
+.welcome {
+    display: flex;
+    justify-content: center;
+    margin-top: 500px;
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: 50px;
+}
