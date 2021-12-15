@@ -1,0 +1,16 @@
+extends layout.pug
+
+block head
+  title=title
+  link(rel='stylesheet' href='/stylesheets/reset.css')
+//-   link(rel='stylesheet' href='/stylesheets/manga-detail.css')
+
+block content
+    div
+        h1 My Mangas
+    div
+        button(class="add-button" type="submit") New Bookshelf
+        ul(class="bookshelves-container")
+            each bookshelf in bookshelves
+                div(class="bookshelf-box")
+                    li= bookshelf.name
