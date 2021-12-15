@@ -12,4 +12,10 @@ router.get('/', asyncHandler(async (req, res) => {
   res.render('mangas', { title: "Mangas", mangas });
 }));
 
+router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
+  const mangaId = parseInt(req.params.id, 10);
+  const manga = await db.Manga.findByPk(mangaId);
+  res.render('manga-detail', { title: `${manga.title} Summary`, manga });
+}));
+
 module.exports = router;
