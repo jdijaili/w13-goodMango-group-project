@@ -1,0 +1,57 @@
+.logo {
+    margin: 0;
+    width: 95px;
+    height: 90px;
+}
+
+.welcome {
+    display: flex;
+    align-items: flex-end;
+}
+
+.navbar {
+    background: #58554f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    /* padding-bottom: 0; */
+}
+
+a {
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.home {
+    font-weight: bold;
+    color: rgb(214, 57, 0);
+    font-size: 18pt;
+    /* padding-top: 10px; */
+    /* padding-bottom: 10px; */
+    padding: 0px 15px;
+}
+
+.bookshelves-button {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding: 0px 15px;
+}
+
+.mangas-button {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding: 0px 15px;
+}
+
+.login-button {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding: 0px 15px;
+}
+
+.signup-button {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding: 0px 15px;
+}

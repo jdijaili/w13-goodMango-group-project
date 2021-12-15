@@ -1,11 +1,13 @@
 doctype html
 html
   head
+      title=title
+      link(rel='stylesheet' href='/stylesheets/reset.css')
+      link(rel='stylesheet' href='/stylesheets/navbar.css')
       block head
-        title=title
-        link(rel='stylesheet' href='/stylesheets/reset.css')
   body
     nav(class='navbar')
+      img(class="logo" src='../images/logo.png')
       a(class='home' href='/') GoodMango
       a(class='bookshelves-button' href='/bookshelves') My Mangas
       a(class='mangas-button' href='/mangas') Browse Mangas
@@ -17,4 +19,4 @@ html
       else
           a(class='login-button' href='/users/login') Login
           a(class='signup-button' href='/users/signup') Sign Up
-      block content
+    block content

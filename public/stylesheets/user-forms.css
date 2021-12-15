@@ -1,0 +1,36 @@
+
+  .form-container {
+    margin: 0 auto;
+    max-width: 550px;
+    padding: 100px;
+    margin-top: 150px;
+    border-radius: 15px;
+    background-color: rgb(37, 37, 37);
+    box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.207);
+  }
+
+  .form-heading {
+      text-align: center;
+    padding-bottom: 50px;
+  }
+
+  .form-group {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 15px;
+  }
+
+  .form-button {
+    display: flex;
+    justify-content: center;
+    padding-top: 25px;
+  }
+
+  .labels {
+    padding-left: 95px;
+  }
+
+  p {
+      text-align: center;
+      padding-top: 25px;
+  }
