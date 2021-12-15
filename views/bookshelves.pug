@@ -3,15 +3,27 @@ extends layout.pug
 block head
   title=title
   link(rel='stylesheet' href='/stylesheets/reset.css')
-//-   link(rel='stylesheet' href='/stylesheets/manga-detail.css')
+  link(rel='stylesheet' href='/stylesheets/bookshelves.css')
 
 block content
-    div
+    div(id="header")
         h1 My Mangas
     div
-        button(class="add-button" type="submit") Add Bookshelf
+        button(id="add-button" type="submit") Add Bookshelf
+    div(id="form")
+        form(action="/bookshelves", method="post") 
+            input(type="hidden" name="_csrf" value=csrfToken)
+            label(for="name") 
+            input(type="text" name="name")
+            button(type="submit") add 
+    
+
+
     div
         ul(class="bookshelves-container")
             each bookshelf in bookshelves
                 div(class="bookshelf-box")
                     li= bookshelf.name
+
+
+    script(src='/javascripts/add-bookshelf.js' type='module')
