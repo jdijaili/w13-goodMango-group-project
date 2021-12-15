@@ -1,0 +1,20 @@
+extends layout.pug
+
+block head
+  title=title
+  link(rel='stylesheet' href='/stylesheets/reset.css')
+  link(rel='stylesheet' href='/stylesheets/manga-detail.css')
+
+block content
+  div(class="container")
+    div
+      img(class="manga-cover" src=`${manga.imgSrc}` alt=`${manga.title}'s manga cover`)
+
+    div(class="details")
+      h2(class="title") #{manga.title}
+      p(class="year") <span class="year-label">Year:</span> #{manga.year}
+
+      p(class="author") <span class="author-label">Author:</span> #{manga.author}
+
+      h3(class="description-label") Description:
+      p(class="description") #{manga.description}

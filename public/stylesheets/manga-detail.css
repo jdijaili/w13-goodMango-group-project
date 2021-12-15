@@ -1,0 +1,25 @@
+
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 75px 150px;
+}
+
+
+.manga-cover {
+  width: 400px;
+  height: 550px;
+  margin-right: 60px;
+}
+
+.details {
+  padding-top: 25px;
+}
+
+.title {
+  font-size: 50px;
+}
+
+.year-label, .author-label, .description-label {
+  font-weight: bold;
+}

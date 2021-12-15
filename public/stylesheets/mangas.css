@@ -1,0 +1,27 @@
+
+.mangas-container {
+  padding: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  list-style-type: none;
+  margin: 0;
+}
+
+.manga-box li{
+  text-align: center;
+}
+
+.manga-box {
+  margin-bottom: 50px;
+}
+
+
+.manga-cover {
+  margin: auto;
+  display: block;
+
+  padding: 5px;
+  width: 200px;
+  height: 300px;
+}

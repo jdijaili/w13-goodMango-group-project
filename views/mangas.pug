@@ -1,0 +1,14 @@
+extends layout.pug
+
+block head
+  title=title
+  link(rel='stylesheet' href='/stylesheets/reset.css')
+  link(rel='stylesheet' href='/stylesheets/mangas.css')
+
+block content
+  ul(class= "mangas-container")
+    each manga in mangas
+      div(class= "manga-box")
+        li= manga.title
+        a(href=`/mangas/${manga.id}`)
+          img(class= "manga-cover" src=`${manga.imgSrc}` alt=`${manga.title}'s manga cover`)
