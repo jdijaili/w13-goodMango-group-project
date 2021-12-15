@@ -12,9 +12,10 @@
 .navbar {
     background: #58554f;
     display: flex;
+    justify-content: center;
     align-items: center;
-    padding-left: 825px;
-    padding-bottom: 0;
+    margin: auto;
+    /* padding-bottom: 0; */
 }
 
 a {

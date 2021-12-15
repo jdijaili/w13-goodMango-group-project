@@ -3,10 +3,11 @@ include utils.pug
 block head
     link(rel='stylesheet' href='/stylesheets/user-forms.css')
 block content
-    div
     +validationErrorSummary(errors)
     form(action="/users/login" method="post" class="form-container")
         input(type="hidden" name="_csrf" value=csrfToken)
+        h1(class="form-heading") Log into GoodMango
         +field('Email', 'email', "", fieldtype='email')
         +field('Password', 'password', "", fieldtype='password')
-        button(type='submit') Login
+        div(class="form-button")
+            button(type='submit') Login
