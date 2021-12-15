@@ -18,3 +18,8 @@ block content
 
       h3(class="description-label") Description:
       p(class="description") #{manga.description}
+
+    div(class="genreList")
+      ul
+        each genre in genres
+          li= genre.name
