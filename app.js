@@ -14,6 +14,7 @@ const { restoreUser } = require("./auth");
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const mangasRouter = require('./routes/mangas');
+const bookshelvesRouter = require('./routes/bookshelves');
 
 const app = express();
 
@@ -45,6 +46,7 @@ app.use(
   app.use('/', indexRouter);
   app.use('/users', usersRouter);
   app.use('/mangas', mangasRouter);
+  app.use('/bookshelves', bookshelvesRouter);
 
   // catch 404 and forward to error handler
   app.use(function (req, res, next) {
