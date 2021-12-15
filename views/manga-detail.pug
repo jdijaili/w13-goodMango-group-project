@@ -21,4 +21,6 @@ block content
       div(class="genreList")
         ul
           each genre in genres
-            li= genre.name
+            //- mangas/genres/${genre.id}
+            a(href=`/`)
+              li= genre.name
