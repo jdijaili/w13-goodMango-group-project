@@ -44,7 +44,7 @@ router.post('/', csrfProtection, bookshelfValidators, asyncHandler(async (req, r
             name,
             userId
         });
-        res.redirect('/bookshelves')
+        res.json({ message: "Success" })
     } else {
         const errors = validatorErrors.array().map((error) => error.msg);
         res.render('/bookshelves', {
