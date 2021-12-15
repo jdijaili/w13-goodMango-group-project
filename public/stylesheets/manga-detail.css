@@ -5,6 +5,10 @@
   padding: 75px 150px;
 }
 
+.genre-label {
+  font-weight: bold;
+  padding-bottom: 10px;
+}
 
 .manga-cover {
   width: 400px;
