@@ -13,8 +13,12 @@ block content
     div(class="details")
       h2(class="title") #{manga.title}
       p(class="year") <span class="year-label">Year:</span> #{manga.year}
-
       p(class="author") <span class="author-label">Author:</span> #{manga.author}
 
       h3(class="description-label") Description:
       p(class="description") #{manga.description}
+      h3(class="genre-label") Genre:
+      div(class="genreList")
+        ul
+          each genre in genres
+            li= genre.name
