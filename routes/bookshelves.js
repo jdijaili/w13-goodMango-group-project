@@ -18,7 +18,7 @@ router.get('/', csrfProtection, asyncHandler(async (req, res) => {
             model: db.Manga
         }]
     });
-
+    console.log(bookshelves)
     res.render('bookshelves', { title: 'Bookshelves', bookshelves, csrfToken: req.csrfToken() });
 }));
 
