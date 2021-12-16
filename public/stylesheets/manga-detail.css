@@ -56,3 +56,11 @@
   padding-left: 25px;
   padding-right: 75px;
 }
+
+.addToBookshelfForm {
+  padding-top: 50px;
+}
+
+select, button {
+  margin-left: 15px;
+}
