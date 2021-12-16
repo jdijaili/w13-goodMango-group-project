@@ -17,6 +17,7 @@ const mangasRouter = require('./routes/mangas');
 const bookshelvesRouter = require('./routes/bookshelves');
 const apisRouter = require('./routes/apis');
 const genresRouter = require('./routes/genres');
+const mangaBookshelfJoinsRouter = require('./routes/mangaBookshelfJoin');
 
 const app = express();
 
@@ -53,6 +54,7 @@ app.use(
   app.use('/bookshelves', bookshelvesRouter);
   app.use('/api', apisRouter);
   app.use('/genres', genresRouter);
+  app.use('/mangaBookshelfJoins', mangaBookshelfJoinsRouter);
 
   // catch 404 and forward to error handler
   app.use(function (req, res, next) {
