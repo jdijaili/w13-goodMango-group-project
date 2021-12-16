@@ -31,3 +31,5 @@ block content
           each bookshelf in bookshelves
             option(value=bookshelf.id) #{bookshelf.name}
         button(type="submit") Add
+
+      form(class="addReviewForm" method="post" action="/api/reviews")
