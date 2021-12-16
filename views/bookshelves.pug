@@ -12,7 +12,6 @@ block content
         button(id="add-button" type="submit") Add Bookshelf
     div(id="form")
         form(action="/bookshelves", method="post")
-            input(type="hidden" name="_csrf" value=csrfToken)
             label(for="name")
             input(type="text" name="name" id="add-bookshelf")
             button(type="submit" id="submit-button") add

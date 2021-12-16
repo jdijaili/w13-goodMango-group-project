@@ -19,8 +19,7 @@ window.addEventListener('DOMContentLoaded', e => {
     submitBtn.addEventListener('click', async (e) => {
         e.preventDefault();
 
-        const val = document.getElementById('add-bookshelf').value
-        console.log(val);
+        const val = document.getElementById('add-bookshelf').value;
 
         const res = await fetch('/api/bookshelves', {
             method: "POST",
@@ -28,8 +27,7 @@ window.addEventListener('DOMContentLoaded', e => {
             body: JSON.stringify({ name: val })
         })
 
-        const data = res.json();
-        // console.log(JSON.parse(data));
+        const data = await res.json();
 
         if (data.message === "Success") {
             const bookshelf = document.createElement("div");

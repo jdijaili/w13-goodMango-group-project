@@ -16,14 +16,11 @@ const bookshelfValidators = [
         .withMessage('Bookshelf must not be more than 100 characters long'),
 ];
 
-router.post('/api/bookshelves', csrfProtection, bookshelfValidators, asyncHandler(async (req, res) => {
-    console.log('plz werkkkkkkkkkkkkkkkkk')
+router.post('/bookshelves', bookshelfValidators, asyncHandler(async (req, res) => {
     const { name } = req.body;
     const { userId } = req.session.auth;
 
     const validatorErrors = validationResult(req);
-
-    console.log(name, userId);
 
     if (validatorErrors.isEmpty()) {
         await db.Bookshelf.create({
@@ -31,9 +28,6 @@ router.post('/api/bookshelves', csrfProtection, bookshelfValidators, asyncHandle
             userId
         });
 
-        console.log('after createeeeeeeee');
-
-        // res.redirect('/api/bookshelves');
         res.json({ message: "Success" });
     } else {
         const errors = validatorErrors.array().map((error) => error.msg);
