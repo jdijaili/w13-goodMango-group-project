@@ -12,6 +12,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   MangaBookshelfJoin.associate = function(models) {
     // associations can be defined here
+    MangaBookshelfJoin.belongsTo(models.Manga, {foreignKey: 'mangaId'});
+    MangaBookshelfJoin.belongsTo(models.Bookshelf, {foreignKey: 'bookshelfId'});
   };
   return MangaBookshelfJoin;
 };

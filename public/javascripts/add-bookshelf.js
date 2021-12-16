@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', e => {
     const addBookshelfBtn = document.getElementById("add-button");
-    addBookshelfBtn.addEventListener("click", async (e) => {
+    addBookshelfBtn.addEventListener("click", (e) => {
 
         const addButton = document.getElementById("add-button")
         addButton.style.display = "none"
@@ -29,7 +29,7 @@ window.addEventListener('DOMContentLoaded', e => {
 
         const data = await res.json();
 
-        if (data.message === "Success") {
+        if (data.message === "Create Successful") {
             const bookshelf = document.createElement("div");
             const li = document.createElement("li");
             const ulParent = document.getElementById("bookshelves-container");
