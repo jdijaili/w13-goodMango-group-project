@@ -12,15 +12,21 @@ router.get('/', asyncHandler(async (req, res) => {
   res.render('mangas', { title: "Mangas", mangas });
 }));
 
-router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
+router.get('/:id(\\d+)', csrfProtection, asyncHandler(async (req, res) => {
   const mangaId = parseInt(req.params.id, 10);
+  const { userId } = req.session.auth;
+  const bookshelves = await db.Bookshelf.findAll({
+    where: {
+      userId
+    }
+  });
   // Find manga by mangaId and return associated genres
   const mangaGenres = await db.Manga.findByPk(mangaId, {
     include: db.Genre
   });
   // console.log(mangaGenres.Genres[0].name);
   const manga = await db.Manga.findByPk(mangaId);
-  res.render( 'manga-detail', { title: `${manga.title} Summary`, manga, genres: mangaGenres.Genres });
+  res.render( 'manga-detail', { title: `${manga.title} Summary`, csrfToken: req.csrfToken(), manga, genres: mangaGenres.Genres, bookshelves });
 }));
 
 

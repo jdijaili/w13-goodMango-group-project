@@ -24,9 +24,10 @@ block content
                 div(class="bookshelf-box")
                     li= bookshelf.name
     div(id="bookshelf-display")
-        button(id="edit-button" type="submit") Edit Bookshelf 
+        button(id="edit-button" type="submit") Edit Bookshelf
         ul(id="manga-list")
             each bookshelf in bookshelves
                 div(id="manga-box")
-                    li= bookshelf.Manga.title
+                    each manga in bookshelf.Mangas
+                        li= manga.title
     script(src='/javascripts/add-bookshelf.js' type='module')
