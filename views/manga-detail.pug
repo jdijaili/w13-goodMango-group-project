@@ -2,8 +2,8 @@ extends layout.pug
 
 block head
   title=title
-  link(rel='stylesheet' href='/stylesheets/reset.css')
   link(rel='stylesheet' href='/stylesheets/manga-detail.css')
+  link(rel='stylesheet' href='/stylesheets/reset.css')
 
 block content
   div(class="container")
@@ -15,12 +15,11 @@ block content
       p(class="year") <span class="year-label">Year:</span> #{manga.year}
       p(class="author") <span class="author-label">Author:</span> #{manga.author}
 
-      h3(class="description-label") Description:
+      p(class="description-label") <span class="description-label">Description:</span>
       p(class="description") #{manga.description}
-      h3(class="genre-label") Genre:
+      p(class="genre-label") <span class="genre-label">Genre:</span>
       div(class="genreList")
         ul
           each genre in genres
-            //- mangas/genres/${genre.id}
-            a(href=`/`)
+            a(href=`/genres/${genre.id}`)
               li= genre.name
