@@ -1,7 +1,5 @@
 window.addEventListener('DOMContentLoaded', e => {
-
     const addBookshelfBtn = document.getElementById("add-button");
-
     addBookshelfBtn.addEventListener("click", async (e) => {
 
         const addButton = document.getElementById("add-button")
@@ -14,21 +12,33 @@ window.addEventListener('DOMContentLoaded', e => {
 
         const form = document.getElementById("form")
         form.style.display = "block"
+
     })
 
-
     const submitBtn = document.getElementById("submit-button");
-    submitBtn.addEventListener('click', async(e) => {
+    submitBtn.addEventListener('click', async (e) => {
         e.preventDefault();
 
-        const res = await fetch('/bookshelves', {
-            method: "POST"
-        });
+        const val = document.getElementById('add-bookshelf').value;
 
-        const data = res.json();
+        const res = await fetch('/api/bookshelves', {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name: val })
+        })
+
+        const data = await res.json();
 
         if (data.message === "Success") {
-            const bookshelf = document.getElementById()
+            const bookshelf = document.createElement("div");
+            const li = document.createElement("li");
+            const ulParent = document.getElementById("bookshelves-container");
+
+            li.innerText = val;
+
+            bookshelf.appendChild(li);
+            ulParent.appendChild(bookshelf);
+
         }
 
     })
