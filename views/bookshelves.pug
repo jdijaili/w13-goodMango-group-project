@@ -22,7 +22,13 @@ block content
         ul(id="bookshelves-container")
             each bookshelf in bookshelves
                 div(class="bookshelf-box")
-                    li= bookshelf.name
-
-
+                    li(id=`bookshelfName-${bookshelf.id}`)= bookshelf.name
+                    button(id=bookshelf.id type="submit").edit-btn Edit Bookshelf
+    div(id="bookshelf-display")
+        ul(id="manga-list")
+            each bookshelf in bookshelves
+                div(id="manga-box")
+                    each manga in bookshelf.Mangas
+                        li= manga.title
     script(src='/javascripts/add-bookshelf.js' type='module')
+    script(src='/javascripts/edit-bookshelf.js' type='module')

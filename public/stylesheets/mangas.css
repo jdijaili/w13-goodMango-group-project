@@ -40,3 +40,8 @@
   transform: scale(1.05);
   transition-duration: 0.3s;
 }
+
+.genre-heading {
+  text-align: center;
+  padding: 30px;
+}

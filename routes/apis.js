@@ -28,7 +28,30 @@ router.post('/bookshelves', bookshelfValidators, asyncHandler(async (req, res) =
             userId
         });
 
-        res.json({ message: "Success" });
+        res.json({ message: "Create Successful" });
+    } else {
+        const errors = validatorErrors.array().map((error) => error.msg);
+        res.render('/bookshelves', {
+            title: 'My Mangas',
+            errors,
+            csrfToken: req.csrfToken()
+        });
+    }
+}))
+
+router.put('/bookshelves/:id(\\d+)', bookshelfValidators, asyncHandler(async (req, res) => {
+    const { name } = req.body;
+    const { userId } = req.session.auth;
+
+    const validatorErrors = validationResult(req);
+
+    if (validatorErrors.isEmpty()) {
+        await db.Bookshelf.update({
+            name,
+            userId
+        });
+
+        res.json({ message: "Update Successful" });
     } else {
         const errors = validatorErrors.array().map((error) => error.msg);
         res.render('/bookshelves', {

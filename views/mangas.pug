@@ -6,6 +6,8 @@ block head
   link(rel='stylesheet' href='/stylesheets/mangas.css')
 
 block content
+  if title === "Genres"
+    h1(class="genre-heading") #{genre.name} Mangas (#{mangas.length})
   ul(class= "mangas-container")
     each manga in mangas
       div(class= "manga-box")
