@@ -8,8 +8,8 @@ block content
     form(action="/users/signup" method="post" class="form-container")
         input(type='hidden' name='_csrf' value=csrfToken)
         h1(class="form-heading") Sign up for GoodMango
-        +field('Username', 'username', user.username)
-        +field('Email', 'email', user.email, fieldtype='email')
+        +field('Username', 'username', user.username, placeholder="name")
+        +field('Email', 'email', user.email, fieldtype='email', placeholder="you@yours.com")
         +field('Password', 'password', "", fieldtype='password')
         +field('Confirm Password', 'confirmPassword', "", fieldtype='password')
         div(class="form-button")

@@ -13,7 +13,7 @@ html
       a(class='mangas-button' href='/mangas') Browse Mangas
           //- span logo go here
       if locals.authenticated
-          span(class='greeting') Welcome #{user.username}!
+          span(class='greeting') Welcome, #{user.username} !
           form(class='logout-form' action='/users/logout' method='post')
             button(class='logout-button' type='submit') Logout
       else
