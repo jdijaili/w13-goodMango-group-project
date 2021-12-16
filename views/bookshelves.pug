@@ -23,6 +23,10 @@ block content
             each bookshelf in bookshelves
                 div(class="bookshelf-box")
                     li= bookshelf.name
-
-
+    div(id="bookshelf-display")
+        button(id="edit-button" type="submit") Edit Bookshelf 
+        ul(id="manga-list")
+            each bookshelf in bookshelves
+                div(id="manga-box")
+                    li= bookshelf.Manga.title
     script(src='/javascripts/add-bookshelf.js' type='module')
