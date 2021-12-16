@@ -1,6 +1,8 @@
 
 .mangas-container {
-  padding: 50px;
+  padding-top: 20px;
+  padding-left: 765px;
+  padding-right: 765px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
@@ -9,6 +11,11 @@
 }
 
 .manga-box li{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 13pt;
+  color: white;
+  padding-bottom: 10px;
   text-align: center;
 }
 
@@ -16,12 +23,20 @@
   margin-bottom: 50px;
 }
 
+.manga-box:hover {
+  text-decoration: underline;
+}
 
 .manga-cover {
   margin: auto;
   display: block;
-
+  transition-duration: 0.3s;
   padding: 5px;
-  width: 200px;
-  height: 300px;
+  width: 250px;
+  height: 400px;
+}
+
+.manga-cover:hover {
+  transform: scale(1.05);
+  transition-duration: 0.3s;
 }

@@ -7,7 +7,9 @@ block content
     form(action="/users/login" method="post" class="form-container")
         input(type="hidden" name="_csrf" value=csrfToken)
         h1(class="form-heading") Log into GoodMango
-        +field('Email', 'email', "", fieldtype='email')
+        +field('Email', 'email', "", fieldtype='email', placeholder="you@yours.com")
         +field('Password', 'password', "", fieldtype='password')
         div(class="form-button")
             button(type='submit') Login
+        div
+            p: a(href='/users/signup') Already a member?

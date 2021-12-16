@@ -10,12 +10,14 @@
 }
 
 .navbar {
+    /* position: fixed;
+    top: 0;
+    width: 100%; */
     background: #58554f;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: auto;
-    /* padding-bottom: 0; */
 }
 
 a {
@@ -24,34 +26,64 @@ a {
 }
 
 .home {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bold;
     color: rgb(214, 57, 0);
-    font-size: 18pt;
+    font-size: 20pt;
     /* padding-top: 10px; */
     /* padding-bottom: 10px; */
     padding: 0px 15px;
 }
 
-.bookshelves-button {
+.bookshelves-button, .mangas-button, .login-button, .signup-button, .greeting {
+    color: white;
     padding-top: 10px;
     padding-bottom: 10px;
     padding: 0px 15px;
 }
 
-.mangas-button {
+.logout-button {
+    color: white;
     padding-top: 10px;
     padding-bottom: 10px;
     padding: 0px 15px;
+    margin-left: 15px;
 }
 
-.login-button {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding: 0px 15px;
+.bookshelves-button:hover {
+    transform: scale(1.03);
+    color: rgb(214, 57, 0, 0.603);
 }
 
-.signup-button {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding: 0px 15px;
+.mangas-button:hover {
+    transform: scale(1.03);
+    color: rgb(214, 57, 0, 0.603);
 }
+
+.login-button:hover {
+    transform: scale(1.03);
+    color: rgb(214, 57, 0, 0.603);
+}
+
+.signup-button:hover {
+    transform: scale(1.03);
+    color: rgba(214, 57, 0, 0.603);
+}
+
+.home:hover {
+    animation: shake 0.5s;
+  }
+
+  @keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    /* 30% { transform: translate(3px, 2px) rotate(0deg); } */
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    /* 70% { transform: translate(3px, 1px) rotate(-1deg); } */
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    /* 90% { transform: translate(1px, 2px) rotate(0deg); } */
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }

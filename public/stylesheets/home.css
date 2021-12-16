@@ -7,4 +7,10 @@
 
 h1 {
     font-size: 50px;
+    transition-duration: 1.5s;
+}
+
+h1:hover {
+    transform: scale(2.0);
+    transition-duration: 1.5s;
 }
