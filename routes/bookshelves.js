@@ -12,7 +12,7 @@ router.get('/', csrfProtection, asyncHandler(async (req, res) => {
     const bookshelves = await db.Bookshelf.findAll({
         include: [db.Manga]
     });
-
+    console.log(bookshelves)
     res.render('bookshelves', { title: 'Bookshelves', bookshelves, csrfToken: req.csrfToken() });
 }));
 
