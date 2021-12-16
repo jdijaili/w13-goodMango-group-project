@@ -1,8 +1,8 @@
 
 .mangas-container {
   padding-top: 20px;
-  padding-left: 765px;
-  padding-right: 765px;
+  /* padding-left: 765px;
+  padding-right: 765px; */
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
@@ -14,7 +14,7 @@
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: bold;
   font-size: 13pt;
-  color: white;
+  color: default;
   padding-bottom: 10px;
   text-align: center;
 }
