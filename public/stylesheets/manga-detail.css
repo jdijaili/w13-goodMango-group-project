@@ -2,17 +2,18 @@
 .container {
   display: flex;
   justify-content: center;
-  padding: 75px 150px;
+  padding: 150px 200px;
+  padding-left: 650px;
 }
 
 .genre-label {
-  font-weight: bold;
+  padding-top: 30px;
   padding-bottom: 10px;
 }
 
 .manga-cover {
   width: 400px;
-  height: 550px;
+  height: 625px;
   margin-right: 60px;
 }
 
@@ -24,7 +25,7 @@
   font-size: 50px;
 }
 
-.year-label, .author-label, .description-label {
+.year-label, .author-label, .description-label .genre-label{
   font-weight: bold;
 }
 
@@ -38,14 +39,17 @@
   text-decoration: none;
 }
 
-.genreList li:hover {
-  border-bottom-color: #2f6d50;
-  transition: border-bottom-color .3s ease-out;
-  transform: scaleX(1);
-  transform-origin: left;
-}
-
 .genreList li {
   margin-right: 15px;
-  border-bottom: 5px solid #409970;
+  border-bottom: 3.5px solid #409970;
+}
+
+.genreList li:hover {
+  transform: scale(1.05);
+  border-bottom: 5.2px solid #409970;
+}
+
+.description {
+  padding-left: 25px;
+  padding-right: 360px;
 }

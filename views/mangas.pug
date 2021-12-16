@@ -9,6 +9,6 @@ block content
   ul(class= "mangas-container")
     each manga in mangas
       div(class= "manga-box")
-        li= manga.title
         a(href=`/mangas/${manga.id}`)
+          li= manga.title
           img(class= "manga-cover" src=`${manga.imgSrc}` alt=`${manga.title}'s manga cover`)
