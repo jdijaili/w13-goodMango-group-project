@@ -4,7 +4,6 @@ include utils.pug
 block head
     link(rel='stylesheet' href='/stylesheets/user-forms.css')
 block content
-    +validationErrorSummary(errors)
     form(action="/users/signup" method="post" class="form-container")
         input(type='hidden' name='_csrf' value=csrfToken)
         h1(class="form-heading") Sign up for GoodMango
@@ -13,6 +12,7 @@ block content
         +field('Password', 'password', "", fieldtype='password')
         +field('Confirm Password', 'confirmPassword', "", fieldtype='password')
         div(class="form-button")
-            button(type='submit') Submit
+            button(type='submit') Sign up!
         div
             p: a(href='/users/login') Already have an account?
+        +validationErrorSummary(errors)

@@ -1,5 +1,7 @@
 extends layout.pug
 
+include utils.pug
+
 block head
   title=title
   link(rel='stylesheet' href='/stylesheets/manga-detail.css')
@@ -34,3 +36,6 @@ block content
           button(type="submit") Add
 
       form(class="addReviewForm" method="post" action="/api/reviews")
+        input(type="hidden" name="_csrf" value=csrfToken)
+        +field("Add a Review", "review", null, fieldType="textarea", placeholder="Leave a Review...")
+      button(class="submitReview" type="submit") Submit

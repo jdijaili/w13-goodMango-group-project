@@ -1,3 +1,7 @@
 h1 {
     color: #555555;
 }
+
+html {
+    background-color: rgba(128, 128, 128, 0.418);
+}
