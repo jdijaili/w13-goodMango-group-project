@@ -2,6 +2,7 @@ window.addEventListener('DOMContentLoaded', e => {
 
   const submitReviewBtn = document.querySelector(".submitReview");
 
+  // When we submit a review, fetch the api to make POST a new review
   submitReviewBtn.addEventListener("click", async (e) => {
     e.preventDefault();
 
@@ -19,7 +20,7 @@ window.addEventListener('DOMContentLoaded', e => {
     const data = await res.json();
     console.log("In Event Listener", data);
     if (data.message === "Create Successful") {
-
+      // If the review was created, create the review html elements and show it on the screen
       const editReviewBtn = document.createElement("button");
       editReviewBtn.innerText = "edit";
 
@@ -30,7 +31,9 @@ window.addEventListener('DOMContentLoaded', e => {
       const reviewBoxEle = document.createElement("li");
       reviewBoxEle.setAttribute("class", "reviewBox");
 
+      // On the edit review button
       editReviewBtn.addEventListener("click", async (e) => {
+        // Create a form with textarea, submit and cancel buttons to edit our review
         const editForm = document.createElement("form");
         editForm.setAttribute("id", `editForm-${data.reviewId}`);
         // editForm.setAttribute("method", "put");
@@ -48,7 +51,9 @@ window.addEventListener('DOMContentLoaded', e => {
         cancelEditBtn.setAttribute("name", data.reviewId);
         cancelEditBtn.innerText = "Cancel"
 
+        // cancel edit review button
         cancelEditBtn.addEventListener("click", async (e) => {
+          // remove the form we just created
           e.preventDefault();
 
           const editFormDelete = document.getElementById(`editForm-${data.reviewId}`);
