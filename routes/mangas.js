@@ -16,6 +16,14 @@ router.get('/:id(\\d+)', csrfProtection, asyncHandler(async (req, res) => {
   const mangaId = parseInt(req.params.id, 10);
 
   let bookshelves = [];
+  let reviews = [];
+
+  // todo query for reviews to render them on the page
+  reviews = await db.Review.findAll({
+    where: {mangaId},
+    include: db.User,
+    order: [['updatedAt', "DESC"]]
+  });
 
   if(req.session.auth) {
     const { userId } = req.session.auth;
@@ -31,7 +39,13 @@ router.get('/:id(\\d+)', csrfProtection, asyncHandler(async (req, res) => {
   });
 
   const manga = await db.Manga.findByPk(mangaId);
-  res.render( 'manga-detail', { title: `${manga.title} Summary`, csrfToken: req.csrfToken(), manga, genres: mangaGenres.Genres, bookshelves });
+  res.render( 'manga-detail', {
+    title: `${manga.title} Summary`,
+    csrfToken: req.csrfToken(),
+    manga,
+    genres: mangaGenres.Genres,
+    bookshelves,
+    reviews });
 }));
 
 
