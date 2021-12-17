@@ -13,9 +13,11 @@ html
       a(class='mangas-button' href='/mangas') Browse Mangas
           //- span logo go here
       if locals.authenticated
-          span(class='greeting') Welcome, #{user.username} !
+          span(class="welcome-greeting") Welcome,
+          span(class='greeting-name') #{user.username} !
           form(class='logout-form' action='/users/logout' method='post')
-            button(class='logout-button' type='submit') Logout
+            button(class='logout-button' type='submit')
+              img(class="logoutimg" src='../images/logout.png' type="submit")
       else
           a(class='login-button' href='/users/login') Login
           a(class='signup-button' href='/users/signup') Sign Up

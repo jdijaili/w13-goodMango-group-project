@@ -1,17 +1,24 @@
 
+body, html {
+  height: 100%;
+  background-color: rgba(128, 128, 128, 0.281);
+}
+
 .container {
+  height: 100%;
+  background-color: rgba(128, 128, 128, 0.281);
   display: flex;
   justify-content: center;
-  padding: 150px 200px;
-  /* padding-left: 650px; */
+  padding: 100px 600px;
 }
 
 .genre-label {
-  padding-top: 30px;
+  padding-top: 20px;
   padding-bottom: 10px;
 }
 
 .manga-cover {
+  box-shadow: 4px 4px 6px 5px rgba(0, 0, 0, 0.527);
   width: 400px;
   height: 625px;
   margin-right: 60px;
@@ -23,15 +30,20 @@
 
 .title {
   font-size: 50px;
+  text-shadow: 0 3px 3px rgb(0 0 0 / 50%);
 }
 
 .year-label,
 .author-label,
 .description-label,
 .genre-label {
+  text-shadow: 0 0.5px 0.5px rgb(0 0 0 / 50%);
+  padding-right: 15px;
+  font-size: 14pt;
+  /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
   font-weight: bold;
+  color: rgb(214, 57, 0);
 }
-
 
 .genreList ul {
   display: flex;
@@ -49,7 +61,6 @@
 
 .genreList li:hover {
   transform: scale(1.05);
-  border-bottom: 5.2px solid #409970;
 }
 
 .description {
@@ -63,4 +74,115 @@
 
 select, button {
   margin-left: 15px;
+}
+
+.addReviewForm {
+  padding-top: 50px;
+}
+
+textarea {
+  resize: none;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  padding-bottom: 5%;
+  padding-right: 50%;
+}
+
+.labels {
+  font-size: 14pt;
+  font-weight: bold;
+}
+
+.submitReview {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-left: 63.5%;
+}
+
+
+
+
+/* Media queries */
+
+@media all and (orientation:portrait) {
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    padding-right: 10px;
+    padding-left: 150px;
+    /* justify-content: center; */
+    /* padding: 100px 600px; */
+  }
+
+  textarea {
+    resize: none;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    padding-bottom: 5%;
+    padding-right: 50%;
+  }
+
+  .submitReview {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: 62.5%;
+  }
+
+}
+
+@media all and (orientation:landscape) {
+
+  .container {
+    display: flex;
+    justify-content: center;
+    padding: 100px 600px;
+  }
+
+  textarea {
+    resize: none;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    padding-bottom: 5%;
+    padding-right: 50%;
+  }
+
+  .submitReview {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: 63.5%;
+  }
+
+}
+
+@media screen and (min-width: 500px) and (max-height: 1210px) {
+  body, html {
+    height: 105%;
+    background-color: rgba(128, 128, 128, 0.281);
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    padding: 100px 300px;
+    height: 100%;
+  }
+
+  .submitReview {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: 76%;
+  }
+
 }

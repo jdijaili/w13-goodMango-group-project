@@ -1,5 +1,7 @@
 extends layout.pug
 
+include utils.pug
+
 block head
   title=title
   link(rel='stylesheet' href='/stylesheets/manga-detail.css')
@@ -32,5 +34,20 @@ block content
             each bookshelf in bookshelves
               option(value=bookshelf.id) #{bookshelf.name}
           button(type="submit") Add
+      if locals.authenticated
+        form(class="addReviewForm" method="post" action=`/api/reviews`)
+          input(type="hidden" name="_csrf" value=csrfToken)
+          input(type="hidden" id="reviewMangaId" name="mangaId" value=`${manga.id}`)
+          input(type="hidden" id="reviewUserId" name="mangaId" value=`${user.id}`)
+          +field("Add a Review", "review", null, fieldType="textarea", placeholder="Leave a Review...")
+        button(class="submitReview" type="submit") Submit
 
-      form(class="addReviewForm" method="post" action="/api/reviews")
+      div(class="reviews")
+        h2(id="review-heading") Reviews (#{reviews.length})
+        ul(id="reviewsContainer")
+          each review in reviews
+            li(class="reviewBox")
+              p(class="reviewUsernameDate") #{review.User.username} <span class="reviewDate">#{review.updatedAt.toDateString()}</span>
+              p(class="actualReview") #{review.review}
+
+  script(src='/javascripts/add-review.js' type='module')

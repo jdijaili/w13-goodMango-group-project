@@ -16,10 +16,10 @@ router.get('/', csrfProtection, asyncHandler(async (req, res) => {
         },
         include: [{
             model: db.Manga
-        }]
+        }],
+        order: [['createdAt', "DESC"]]
     });
-    console.log(bookshelves)
-    res.render('bookshelves', { title: 'Bookshelves', bookshelves, csrfToken: req.csrfToken() });
+    res.render('bookshelves', { title: 'Bookshelves', bookshelves });
 }));
 
 module.exports = router;

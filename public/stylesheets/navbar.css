@@ -4,12 +4,27 @@
     height: 90px;
 }
 
+.greeting-name {
+    color: rgb(248, 66, 0);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 16pt;
+    margin-right: 10px;
+}
+
 .welcome {
     display: flex;
     align-items: flex-end;
 }
 
+.welcome-greeting {
+    color: white;
+    font-size: 16pt;
+    margin-right: 5px;
+    margin-left: 10px;
+}
+
 .navbar {
+    box-shadow: 0px 0px 10px 6px rgba(248, 66, 0, 0.911);
     /* position: fixed;
     top: 0;
     width: 100%; */
@@ -28,48 +43,62 @@ a {
 .home {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bold;
-    color: rgb(214, 57, 0);
+    color: rgb(248, 66, 0);
     font-size: 20pt;
     /* padding-top: 10px; */
     /* padding-bottom: 10px; */
     padding: 0px 15px;
 }
 
-.bookshelves-button, .mangas-button, .login-button, .signup-button, .greeting {
+.bookshelves-button, .mangas-button, .greeting {
     color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding: 0px 15px;
+}
+
+.login-button, .signup-button {
+    color: rgb(248, 66, 0);
     padding-top: 10px;
     padding-bottom: 10px;
     padding: 0px 15px;
 }
 
 .logout-button {
+    margin: 0;
+    border: none;
+    background:none;
+}
+
+.logoutimg {
     color: white;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding: 0px 15px;
-    margin-left: 15px;
+    margin: 0;
+    width: 60px;
+    height: 55px;
+}
+
+.logoutimg:hover {
+    transform: scale(1.2);
 }
 
 .bookshelves-button:hover {
-    transform: scale(1.03);
-    color: rgb(214, 57, 0, 0.603);
+    color: rgb(248, 66, 0);
 }
 
 .mangas-button:hover {
-    transform: scale(1.03);
-    color: rgb(214, 57, 0, 0.603);
+    color: rgb(248, 66, 0);
 }
 
 .login-button:hover {
-    transform: scale(1.03);
-    color: rgb(214, 57, 0, 0.603);
+    transform: scale(1.2);
 }
 
 .signup-button:hover {
-    transform: scale(1.03);
-    color: rgba(214, 57, 0, 0.603);
+    transform: scale(1.2);
 }
 
+
+/* home "GoodMangos" animation */
 .home:hover {
     animation: shake 0.5s;
   }
