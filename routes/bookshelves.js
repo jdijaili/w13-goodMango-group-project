@@ -19,7 +19,7 @@ router.get('/', csrfProtection, asyncHandler(async (req, res) => {
         }],
         order: [['createdAt', "DESC"]]
     });
-    res.render('bookshelves', { title: 'Bookshelves', bookshelves, csrfToken: req.csrfToken() });
+    res.render('bookshelves', { title: 'Bookshelves', bookshelves });
 }));
 
 module.exports = router;

@@ -34,8 +34,7 @@ router.post('/bookshelves', bookshelfValidators, asyncHandler(async (req, res) =
         const errors = validatorErrors.array().map((error) => error.msg);
         res.render('/bookshelves', {
             title: 'My Mangas',
-            errors,
-            csrfToken: req.csrfToken()
+            errors
         });
     }
 }));
@@ -44,7 +43,6 @@ router.put('/bookshelves/:id(\\d+)', bookshelfValidators, asyncHandler(async (re
     const { name } = req.body;
     const shelfId = parseInt(req.params.id, 10);
 
-    console.log('in the apiiiiii');
     const bookshelf = await db.Bookshelf.findByPk(shelfId);
 
     const validatorErrors = validationResult(req);
@@ -56,7 +54,6 @@ router.put('/bookshelves/:id(\\d+)', bookshelfValidators, asyncHandler(async (re
 
         await bookshelf.save();
 
-        console.log(update)
         res.json({ message: "Edit Successful", bookshelfId: shelfId});
     } else {
         const errors = validatorErrors.array().map((error) => error.msg);
@@ -67,9 +64,21 @@ router.put('/bookshelves/:id(\\d+)', bookshelfValidators, asyncHandler(async (re
     }
 }));
 
+// const deleteValidators = [
+//     check()
+// ]
+
 router.delete('/bookshelves/:id(\\d+)', asyncHandler( async(req, res) => {
     const bookshelfId = parseInt(req.params.id, 10);
-    
+    const bookshelf = await db.Bookshelf.findByPk(bookshelfId);
+
+    if (bookshelf) {
+        const deltedBookshelf = await bookshelf.destroy();
+
+        res.json({ message: "Delete Successful" });
+    } else {
+        res.json({ message: "This bookshelf does not exist"});
+    }
 }))
 
 module.exports = router;
