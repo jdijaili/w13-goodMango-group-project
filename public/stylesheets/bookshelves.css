@@ -1,3 +1,11 @@
 #form {
     display: none;
 }
+
+.bookshelfBox {
+    margin: 15px;
+}
+
+.bookshelfLi {
+    list-style: none;
+}

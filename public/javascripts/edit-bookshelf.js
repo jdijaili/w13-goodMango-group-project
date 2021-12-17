@@ -1,21 +1,38 @@
 window.addEventListener('DOMContentLoaded', e => {
     const editBtn = document.querySelectorAll('.edit-btn');
-    for(let i = 0; i < editBtn.length; i++) {
+    for (let i = 0; i < editBtn.length; i++) {
         const btn = editBtn[i];
-        btn.addEventListener('click', async (e) => {
-            const input = document.createElement('input')
-            const editBtn = document.createElement('button')
 
-            const 
+        btn.addEventListener('click', async (e) => {
+            e.preventDefault();
+
+            const bookshelfId = e.target.name;
+
+            const input = document.getElementById(`input-${bookshelfId}`);
+            console.log(input);
+
+            input.style.display = "block";
+
+            const submitBtn = document.getElementById(`submit-${bookshelfId}`);
+            console.log(submitBtn)
+            submitBtn.style.display = "block";
         })
 
-        .addEventListener('click', async (e) => {
-            e.preventDefault()
+    }
 
-            const bookshelfId = e.target.id
-            const val = document.getElementById('add-bookshelf').value;
 
-            const res = await fetch(`/api/${bookshelfId}`, {
+    const submits = document.querySelectorAll('.submit-btn');
+    for (let i = 0; i < submits.length; i++) {
+        const btn = submits[i];
+
+        btn.addEventListener('click', async (e) => {
+            e.preventDefault();
+
+            const bookshelfId = e.target.name;
+            console.log(bookshelfId);
+            const val = document.getElementById(`input-${bookshelfId}`).value;
+
+            const res = await fetch(`/api/bookshelves/${bookshelfId}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name: val })
