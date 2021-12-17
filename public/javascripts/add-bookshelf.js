@@ -19,7 +19,7 @@ window.addEventListener('DOMContentLoaded', e => {
     submitBtn.addEventListener('click', async (e) => {
         e.preventDefault();
 
-        const val = document.getElementById('add-bookshelf').value;
+        let val = document.getElementById('add-bookshelf').value;
 
         const res = await fetch('/api/bookshelves', {
             method: "POST",
@@ -87,15 +87,13 @@ window.addEventListener('DOMContentLoaded', e => {
                         bookshelf.innerText = val;
                     }
                 })
+
             })
-
-            console.log(data);
-            // create event listener for dynamically rendered submit button
-
 
             bookshelf.appendChild(editBtn);
             bookshelf.appendChild(input);
             bookshelf.appendChild(submitBtn);
+
         }
 
     })

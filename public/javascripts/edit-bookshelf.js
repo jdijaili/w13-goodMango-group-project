@@ -16,6 +16,8 @@ window.addEventListener('DOMContentLoaded', e => {
             const submitBtn = document.getElementById(`submit-${bookshelfId}`);
             console.log(submitBtn)
             submitBtn.style.display = "block";
+
+            btn.style.display = "none";
         })
 
     }
@@ -41,8 +43,17 @@ window.addEventListener('DOMContentLoaded', e => {
             const data = await res.json();
 
             if (data.message === "Edit Successful") {
-                const bookshelf = document.getElementById(`bookshelfName-${bookshelfId}`)
-                bookshelf.innerText = val
+                const bookshelf = document.getElementById(`bookshelfName-${bookshelfId}`);
+                bookshelf.innerText = val;
+
+                const inputEle = document.getElementById(`input-${bookshelfId}`);
+                inputEle.style.display = "none";
+
+                const submitBtnEle = document.getElementById(`submit-${bookshelfId}`);
+                submitBtnEle.style.display = "none";
+
+                const editBtnEle = document.getElementById(`edit-${bookshelfId}`);
+                editBtnEle.style.display = "block";
             }
         })
     }

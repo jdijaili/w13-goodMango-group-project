@@ -38,7 +38,7 @@ router.post('/bookshelves', bookshelfValidators, asyncHandler(async (req, res) =
             csrfToken: req.csrfToken()
         });
     }
-}))
+}));
 
 router.put('/bookshelves/:id(\\d+)', bookshelfValidators, asyncHandler(async (req, res) => {
     const { name } = req.body;
@@ -65,6 +65,11 @@ router.put('/bookshelves/:id(\\d+)', bookshelfValidators, asyncHandler(async (re
             errors
         });
     }
+}));
+
+router.delete('/bookshelves/:id(\\d+)', asyncHandler( async(req, res) => {
+    const bookshelfId = parseInt(req.params.id, 10);
+    
 }))
 
 module.exports = router;
