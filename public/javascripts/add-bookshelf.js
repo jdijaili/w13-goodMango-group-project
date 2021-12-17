@@ -70,6 +70,9 @@ window.addEventListener('DOMContentLoaded', e => {
                 const submitBtn = document.getElementById(`submit-${data.bookshelfId}`);
                 submitBtn.style.display = "inline";
 
+                const editBtnEle = document.getElementById(`edit-${data.bookshelfId}`);
+                editBtnEle.style.display = "none";
+
                 submitBtn.addEventListener("click", async (e) => {
                     const val = document.getElementById(`input-${idForSubmit}`).value;
 
@@ -85,6 +88,15 @@ window.addEventListener('DOMContentLoaded', e => {
                         const bookshelf = document.getElementById(`bookshelfName-${data.bookshelfId}`);
                         console.log(bookshelf);
                         bookshelf.innerText = val;
+
+                        const input = document.getElementById(`input-${data.bookshelfId}`);
+                        input.style.display = "none";
+
+                        const submitBtn = document.getElementById(`submit-${data.bookshelfId}`);
+                        submitBtn.style.display = "none";
+
+                        const editBtnEle = document.getElementById(`edit-${data.bookshelfId}`);
+                        editBtnEle.style.display = "block";
                     }
                 })
 
