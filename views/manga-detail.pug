@@ -23,11 +23,14 @@ block content
           each genre in genres
             a(href=`/genres/${genre.id}`)
               li= genre.name
-    form(method="post" action="/mangaBookshelfJoins")
-      input(type="hidden" name="_csrf" value=csrfToken)
-      input(type="hidden" name="mangaId" value=`${manga.id}`)
-      label(for="bookshelfId") Add to Bookshelf v
-      select(name="bookshelfId" value=`${bookshelves[0].id}` required)
-        each bookshelf in bookshelves
-          option(value=bookshelf.id) #{bookshelf.name}
-      button(type="submit") Add
+      if (bookshelves.length)
+        form(class="addToBookshelfForm" method="post" action="/mangaBookshelfJoins")
+          input(type="hidden" name="_csrf" value=csrfToken)
+          input(type="hidden" name="mangaId" value=`${manga.id}`)
+          label(for="bookshelfId") Add to Bookshelf
+          select(name="bookshelfId" value=`${bookshelves[0].id}` required)
+            each bookshelf in bookshelves
+              option(value=bookshelf.id) #{bookshelf.name}
+          button(type="submit") Add
+
+      form(class="addReviewForm" method="post" action="/api/reviews")
