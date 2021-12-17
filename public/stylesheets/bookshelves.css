@@ -14,3 +14,28 @@ body, html {
     height: 100%;
     background-color: rgba(128, 128, 128, 0.281);
 }
+
+h2 {
+    font-size: larger;
+    font-weight: bold;
+    color: rgb(255, 94, 0);
+}
+
+#bookshelf-display {
+    padding: 20px 40px;
+}
+
+#manga-box {
+    border-top: 1px solid black;
+    list-style: none;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+#manga-image {
+    max-width: 100px;
+    max-height: 125px;
+    padding-top: 10px;
+}

@@ -18,21 +18,30 @@ block content
 
 
 
-    div
-        ul(id="bookshelves-container")
-            each bookshelf in bookshelves
-                div(id=`bookshelfBox-${id=bookshelf.id}`).bookshelfBox
-                    li(id=`bookshelfName-${bookshelf.id}` class="bookshelfLi")= bookshelf.name
-                    button(id=`edit-${bookshelf.id}` name=`${bookshelf.id}`).edit-btn Edit Bookshelf
-                    button(id=`delete-${bookshelf.id}` name=`${bookshelf.id}`).delete-btn Delete Bookshelf
-                    input(type="text" id=`input-${bookshelf.id}` style="display: none")
-                    button(type="submit" id=`submit-${bookshelf.id}` name=`${bookshelf.id}` style="display: none").submit-btn Submit
+
     div(id="bookshelf-display")
         ul(id="manga-list")
             each bookshelf in bookshelves
+                h2= bookshelf.name
+                    div(id=`bookshelfBox-${id=bookshelf.id}`).bookshelfBox
+                        //- li(id=`bookshelfName-${bookshelf.id}` class="bookshelfLi")= bookshelf.name
+                        button(id=`edit-${bookshelf.id}` name=`${bookshelf.id}`).edit-btn Edit Bookshelf
+                        button(id=`delete-${bookshelf.id}` name=`${bookshelf.id}`).delete-btn Delete Bookshelf
+                        input(type="text" id=`input-${bookshelf.id}` style="display: none")
+                        button(type="submit" id=`submit-${bookshelf.id}` name=`${bookshelf.id}` style="display: none").submit-btn Submit
                 div(id="manga-box")
                     each manga in bookshelf.Mangas
-                        li= manga.title
+                        div
+                            img(src=manga.imgSrc, alt=`image of ${manga.title}'s manga cover` id="manga-image")
+                        div(id="manga-title")
+                            p= manga.title
+                        div(id="manga-author")
+                            p= manga.author
+                        div(id="manga-year")
+                            p= manga.year
+                        div
+                            button(id=`delete-${manga.id}`).manga-delete-btn Delete Manga
+
     script(src='/javascripts/add-bookshelf.js' type='module')
     script(src='/javascripts/edit-bookshelf.js' type='module')
     script(src='/javascripts/delete-bookshelf.js' type='module')

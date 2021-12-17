@@ -64,10 +64,6 @@ router.put('/bookshelves/:id(\\d+)', bookshelfValidators, asyncHandler(async (re
     }
 }));
 
-// const deleteValidators = [
-//     check()
-// ]
-
 router.delete('/bookshelves/:id(\\d+)', asyncHandler( async(req, res) => {
     const bookshelfId = parseInt(req.params.id, 10);
     const bookshelf = await db.Bookshelf.findByPk(bookshelfId);
@@ -79,6 +75,11 @@ router.delete('/bookshelves/:id(\\d+)', asyncHandler( async(req, res) => {
     } else {
         res.json({ message: "This bookshelf does not exist"});
     }
-}))
+}));
+
+router.delete('/bookshelves/:id(\\d+)/mangas/:id(\\d+)', asyncHandler( async(req, res) => {
+    const bookshelfId = parseInt(req.params.id, 10);
+    console.log(bookshelfId);
+}));
 
 module.exports = router;
