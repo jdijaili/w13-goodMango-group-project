@@ -21,9 +21,11 @@ block content
     div
         ul(id="bookshelves-container")
             each bookshelf in bookshelves
-                div(class="bookshelf-box")
-                    li(id=`bookshelfName-${bookshelf.id}`)= bookshelf.name
-                    button(id=bookshelf.id type="submit").edit-btn Edit Bookshelf
+                div(id=`bookshelfBox-${id=bookshelf.id}`).bookshelfBox
+                    li(id=`bookshelfName-${bookshelf.id}` class="bookshelfLi")= bookshelf.name
+                    button(id=`edit-${bookshelf.id}` name=`${bookshelf.id}` type="submit").edit-btn Edit Bookshelf
+                    input(type="text" id=`input-${bookshelf.id}` style="display: none")
+                    button(type="submit" id=`submit-${bookshelf.id}` name=`${bookshelf.id}` style="display: none").submit-btn Submit
     div(id="bookshelf-display")
         ul(id="manga-list")
             each bookshelf in bookshelves

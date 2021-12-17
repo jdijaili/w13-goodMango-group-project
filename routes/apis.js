@@ -23,12 +23,13 @@ router.post('/bookshelves', bookshelfValidators, asyncHandler(async (req, res) =
     const validatorErrors = validationResult(req);
 
     if (validatorErrors.isEmpty()) {
-        await db.Bookshelf.create({
+        const newBookshelf = await db.Bookshelf.create({
             name,
             userId
         });
 
-        res.json({ message: "Create Successful" });
+        console.log(newBookshelf.id);
+        res.json({ message: "Create Successful", bookshelfId: newBookshelf.id });
     } else {
         const errors = validatorErrors.array().map((error) => error.msg);
         res.render('/bookshelves', {
@@ -37,29 +38,38 @@ router.post('/bookshelves', bookshelfValidators, asyncHandler(async (req, res) =
             csrfToken: req.csrfToken()
         });
     }
-}))
+}));
 
 router.put('/bookshelves/:id(\\d+)', bookshelfValidators, asyncHandler(async (req, res) => {
     const { name } = req.body;
-    const { userId } = req.session.auth;
+    const shelfId = parseInt(req.params.id, 10);
+
+    console.log('in the apiiiiii');
+    const bookshelf = await db.Bookshelf.findByPk(shelfId);
 
     const validatorErrors = validationResult(req);
 
     if (validatorErrors.isEmpty()) {
-        await db.Bookshelf.update({
-            name,
-            userId
+        const update = await bookshelf.update({
+            name
         });
 
-        res.json({ message: "Update Successful" });
+        await bookshelf.save();
+
+        console.log(update)
+        res.json({ message: "Edit Successful", bookshelfId: shelfId});
     } else {
         const errors = validatorErrors.array().map((error) => error.msg);
         res.render('/bookshelves', {
             title: 'My Mangas',
-            errors,
-            csrfToken: req.csrfToken()
+            errors
         });
     }
+}));
+
+router.delete('/bookshelves/:id(\\d+)', asyncHandler( async(req, res) => {
+    const bookshelfId = parseInt(req.params.id, 10);
+    
 }))
 
 module.exports = router;
