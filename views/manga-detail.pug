@@ -46,8 +46,10 @@ block content
         h2(id="review-heading") Reviews (#{reviews.length})
         ul(id="reviewsContainer")
           each review in reviews
-            li(class="reviewBox")
+            li(class="reviewBox" name=`${review.id}` id=`box-${review.id}`)
               p(class="reviewUsernameDate") #{review.User.username} <span class="reviewDate">#{review.updatedAt.toDateString()}</span>
               p(class="actualReview") #{review.review}
-
+            if locals.authenticated && user.id === review.userId
+              button(class="editReview" name=`${review.id}` id=`edit-${review.id}`) edit
   script(src='/javascripts/add-review.js' type='module')
+  script(src='/javascripts/edit-review.js' type='module')

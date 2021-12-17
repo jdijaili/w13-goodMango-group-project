@@ -125,13 +125,13 @@ router.post('/reviews', reviewValidators, asyncHandler(async (req, res) => {
             review
         });
 
-        res.json({ message: "Create Successful", review: newReview, user });
+        res.json({ message: "Create Successful", review: newReview, user, reviewId: newReview.id });
 
     } else {
         const errors = validatorErrors.array().map((error) => error.msg);
         res.render( 'manga-detail', {
             title: `${manga.title} Summary`,
-            csrfToken: req.csrfToken(),
+            // csrfToken: req.csrfToken(),
             manga,
             genres: mangaGenres.Genres,
             bookshelves,
