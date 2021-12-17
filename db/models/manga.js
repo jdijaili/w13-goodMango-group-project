@@ -39,6 +39,10 @@ module.exports = (sequelize, DataTypes) => {
 
     Manga.belongsToMany(models.Genre, columnMapping2);
 
+    Manga.hasMany(models.Review, { foreignKey: "mangaId" });
+    Manga.hasMany(models.Vote, { foreignKey: "mangaId" });
+
+
   };
   return Manga;
 };

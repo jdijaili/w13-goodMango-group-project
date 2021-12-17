@@ -106,7 +106,7 @@ router.get("/login", csrfProtection, (req, res) => {
 router.post("/login", csrfProtection, loginValidators, asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
-  const errors = [];
+  let errors = [];
 
   const validatorErrors = validationResult(req);
 

@@ -9,3 +9,8 @@
 .bookshelfLi {
     list-style: none;
 }
+
+body, html {
+    height: 100%;
+    background-color: rgba(128, 128, 128, 0.281);
+}
