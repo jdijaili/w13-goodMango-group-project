@@ -23,7 +23,8 @@ block content
             each bookshelf in bookshelves
                 div(id=`bookshelfBox-${id=bookshelf.id}`).bookshelfBox
                     li(id=`bookshelfName-${bookshelf.id}` class="bookshelfLi")= bookshelf.name
-                    button(id=`edit-${bookshelf.id}` name=`${bookshelf.id}` type="submit").edit-btn Edit Bookshelf
+                    button(id=`edit-${bookshelf.id}` name=`${bookshelf.id}`).edit-btn Edit Bookshelf
+                    button(id=`delete-${bookshelf.id}` name=`${bookshelf.id}`).delete-btn Delete Bookshelf
                     input(type="text" id=`input-${bookshelf.id}` style="display: none")
                     button(type="submit" id=`submit-${bookshelf.id}` name=`${bookshelf.id}` style="display: none").submit-btn Submit
     div(id="bookshelf-display")
@@ -34,3 +35,4 @@ block content
                         li= manga.title
     script(src='/javascripts/add-bookshelf.js' type='module')
     script(src='/javascripts/edit-bookshelf.js' type='module')
+    script(src='/javascripts/delete-bookshelf.js' type='module')

@@ -9,7 +9,6 @@ window.addEventListener('DOMContentLoaded', e => {
             const bookshelfId = e.target.name;
 
             const input = document.getElementById(`input-${bookshelfId}`);
-            console.log(input);
 
             input.style.display = "block";
 
@@ -31,7 +30,6 @@ window.addEventListener('DOMContentLoaded', e => {
             e.preventDefault();
 
             const bookshelfId = e.target.name;
-            console.log(bookshelfId);
             const val = document.getElementById(`input-${bookshelfId}`).value;
 
             const res = await fetch(`/api/bookshelves/${bookshelfId}`, {
@@ -53,7 +51,7 @@ window.addEventListener('DOMContentLoaded', e => {
                 submitBtnEle.style.display = "none";
 
                 const editBtnEle = document.getElementById(`edit-${bookshelfId}`);
-                editBtnEle.style.display = "block";
+                editBtnEle.style.display = "inline";
             }
         })
     }
