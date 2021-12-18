@@ -52,6 +52,7 @@ window.addEventListener('DOMContentLoaded', e => {
             // append the eles to dynamically render on the browser
             bookshelfTitleH2.appendChild(bookshelf);
             bookshelfContainerDiv.appendChild(bookshelfTitleH2);
+            bookshelfContainerDiv.appendChild(bookshelf);
             ulParent.prepend(bookshelfContainerDiv);
 
             // create edit input and hide it at the time of creation
@@ -86,14 +87,11 @@ window.addEventListener('DOMContentLoaded', e => {
             // add event listener to the newly created bookshelf so that it can have the dynamic edit functionality as well
             editBtn.addEventListener("click", async (e) => {
 
-                const input = document.getElementById(`input-${data.bookshelfId}`);
                 input.style.display = "block";
 
-                const submitBtn = document.getElementById(`submit-${data.bookshelfId}`);
                 submitBtn.style.display = "inline";
 
-                const editBtnEle = document.getElementById(`edit-${data.bookshelfId}`);
-                editBtnEle.style.display = "none";
+                editBtn.style.display = "none";
 
                 // add event listener to the newly created bookshelf so that it can have the dynamic submit functionality as well
                 submitBtn.addEventListener("click", async (e) => {
@@ -115,11 +113,9 @@ window.addEventListener('DOMContentLoaded', e => {
                         console.log(data.bookshelfId);
                         console.log(input)
                         input.style.display = "none";
-
                         submitBtn.style.display = "none";
 
-                        editBtnEle.style.display = "block";
-
+                        editBtn.style.display = "block"
                         delteBtn.style.display = "inline";
                     }
                 });
