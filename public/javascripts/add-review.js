@@ -9,7 +9,6 @@ window.addEventListener('DOMContentLoaded', e => {
     let reviewValue = document.getElementById('review').value;
     let mangaId = document.getElementById('reviewMangaId').value;
     let userId = document.getElementById('reviewUserId').value;
-    console.log(reviewValue);
 
     const res = await fetch('/api/reviews', {
       method: "POST",
@@ -18,7 +17,6 @@ window.addEventListener('DOMContentLoaded', e => {
     })
 
     const data = await res.json();
-    console.log("In Event Listener", data);
     if (data.message === "Create Successful") {
       // If the review was created, create the review html elements and show it on the screen
       const editReviewBtn = document.createElement("button");
@@ -27,43 +25,43 @@ window.addEventListener('DOMContentLoaded', e => {
       editReviewBtn.setAttribute("type", "submit");
 
       const reviewsContainer = document.getElementById("reviewsContainer");
-      console.log(reviewsContainer);
       const reviewBoxEle = document.createElement("li");
       reviewBoxEle.setAttribute("class", "reviewBox");
+
+      const reviewEle = document.createElement("p");
+      reviewEle.setAttribute("class", "actualReview");
+      reviewEle.setAttribute("id", `review-${data.review.id}`);
+      reviewEle.innerText = data.review.review;
 
       // On the edit review button
       editReviewBtn.addEventListener("click", async (e) => {
         // Create a form with textarea, submit and cancel buttons to edit our review
         const editForm = document.createElement("form");
         editForm.setAttribute("id", `editForm-${data.reviewId}`);
-        // editForm.setAttribute("method", "put");
-        // editForm.setAttribute("action", `/api/reviews/${data.reviewId}`);
+
         const theReview = document.getElementById(`review-${data.reviewId}`);
         const editReviewArea = document.createElement("textarea");
         editReviewArea.setAttribute("name", "review");
-        editReviewArea.setAttribute("value", data.review.review)
-        editReviewArea.innerText = data.review.review;
+        editReviewArea.setAttribute("value", reviewEle.innerText)
+
+        editReviewArea.innerText = reviewEle.innerText;
 
         const submitEditBtn = document.createElement("button");
         submitEditBtn.setAttribute("type", "submit");
         submitEditBtn.innerText = "Submit"
 
         const reviewId = data.reviewId;
-        const actualReview = data.review.review;
 
         submitEditBtn.addEventListener("click", async(e) => {
           e.preventDefault();
-          console.log("IN ADD-REVIEW SUBMIT EDIT BTN");
           const res = await fetch(`/api/reviews/${reviewId}`, {
               method: 'PUT',
               headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ review: actualReview, mangaId, userId })
+              body: JSON.stringify({ review: editReviewArea.value, mangaId, userId })
           });
 
           const data = await res.json();
           if (data.message === "Edit Successful") {
-            // console.log(reviewId);
-
             theReview.innerText = data.review;
             editForm.remove();
             editReviewBtn.style.display = "block";
@@ -106,10 +104,6 @@ window.addEventListener('DOMContentLoaded', e => {
       const reviewDate = new Date(data.review.updatedAt);
 
       updatedAtEle.innerText = reviewDate.toDateString();
-
-      const reviewEle = document.createElement("p");
-      reviewEle.setAttribute("class", "actualReview");
-      reviewEle.innerText = data.review.review;
 
       reviewsContainer.prepend(reviewBoxEle);
       reviewBoxEle.appendChild(userEle);
