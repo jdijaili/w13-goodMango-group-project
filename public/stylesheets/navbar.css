@@ -59,7 +59,7 @@ a {
     padding: 0px 15px;
 }
 
-.login-button, .signup-button {
+.login-button, .signup-button, #demo-button {
     color: rgb(248, 66, 0);
     padding-top: 10px;
     padding-bottom: 10px;

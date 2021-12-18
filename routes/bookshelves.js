@@ -9,17 +9,25 @@ const db = require('../db/models');
 // const Manga = require('../db/models/manga')
 
 router.get('/', csrfProtection, asyncHandler(async (req, res) => {
-    const { userId } = req.session.auth;
-    const bookshelves = await db.Bookshelf.findAll({
-        where: {
-            userId
-        },
-        include: [{
-            model: db.Manga
-        }],
-        order: [['createdAt', "DESC"]]
-    });
-    res.render('bookshelves', { title: 'Bookshelves', bookshelves });
+
+    if (req.session.auth) {
+        const { userId } = req.session.auth;
+
+        const bookshelves = await db.Bookshelf.findAll({
+            where: {
+                userId
+            },
+            include: [{
+                model: db.Manga
+            }],
+            order: [['createdAt', "DESC"]]
+        });
+        
+        res.render('bookshelves', { title: 'Bookshelves', bookshelves });
+    } else {
+        res.redirect('/users/login');
+    }
+
 }));
 
 module.exports = router;
