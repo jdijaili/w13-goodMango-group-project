@@ -51,6 +51,7 @@ window.addEventListener('DOMContentLoaded', e => {
 
         const submitEditBtn = document.createElement("button");
         submitEditBtn.setAttribute("type", "submit");
+        submitEditBtn.setAttribute("class", "submitEditReview");
         submitEditBtn.innerText = "Submit"
 
         const reviewId = data.reviewId;
