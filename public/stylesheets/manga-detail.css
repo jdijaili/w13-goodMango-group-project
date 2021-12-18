@@ -1,11 +1,13 @@
 
-* {
-  background-color: default;
-}
-
 body, html {
-  /* height: 100%; */
-  /* background-color: rgba(128, 128, 128, 0.281); */
+  /* The image used */
+  background-color: rgba(128, 128, 128, 0.281);
+  /* Full height */
+  height: 100%;
+  /* Center and scale the image nicely */
+  /* background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; */
 }
 
 .container {
@@ -158,14 +160,21 @@ textarea {
   color: rgb(248, 66, 0);
 }
 
-#reviewsContainer {
-  /* margin-bottom: 30%; */
-}
+
+
 
 
 /* Media queries */
 
 @media all and (orientation:portrait) {
+
+  .editReview {
+    margin-bottom: 25px;
+  }
+
+  .reviewDate {
+    margin-left: 68.5%;
+  }
 
   body, html {
     height: 100%;
@@ -201,6 +210,21 @@ textarea {
 }
 
 @media all and (orientation:landscape) {
+  body, html {
+    /* The image used */
+    background-color: rgba(128, 128, 128, 0.281);
+    /* Full height */
+    height: 100%;
+    /* Center and scale the image nicely */
+    /* background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
+  }
+
+  .editReview {
+    margin-bottom: 35px;
+  }
+
   .reviewDate {
     margin-left: 68.5%;
   }
@@ -236,6 +260,16 @@ textarea {
 }
 
 @media screen and (min-width: 500px) and (max-height: 1210px) {
+  body, html {
+    /* The image used */
+    background-color: rgba(128, 128, 128, 0.281);
+    /* Full height */
+    height: 100%;
+    /* Center and scale the image nicely */
+    /* background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
+  }
 
   .reviewDate {
     margin-left: 54%;
