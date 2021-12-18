@@ -1,4 +1,6 @@
 body, html {
+    margin: 0;
+    padding: 0;
     height: 100%;
     background-color: rgba(128, 128, 128, 0.281);
 }
@@ -23,11 +25,14 @@ body, html {
 }
 
 .video {
-    display: flex;
+    /* display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 75px;
-    /* margin-bottom: 15px; */
+    margin-top: 75px; */
+    position: fixed;
+    z-index: -99;
+    width: 100%;
+    height: 100%;
 }
 
 h1 {
@@ -41,12 +46,14 @@ h1 {
 }
 
 .welcome {
-    text-shadow: 0 3px 3px rgb(0 0 0 / 55%);
+    /* text-shadow: 0 3px 3px rgb(0 0 0 / 55%);
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 75px;
+    margin-top: 75px; */
+    display: flex;
+    justify-content: left;
 }
 
 .welcome-mango {
@@ -55,3 +62,15 @@ h1 {
     height: 40px;
     padding-left: 15px;
 }
+
+body, html {
+    height: 100%;
+  }
+
+  body {
+    /* background-image: url("../images/342259.jpg"); */
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:100%;
+  }
