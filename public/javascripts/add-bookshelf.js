@@ -113,18 +113,14 @@ window.addEventListener('DOMContentLoaded', e => {
                         bookshelf.innerText = val;
 
                         console.log(data.bookshelfId);
-                        const input = document.getElementById(`input-${data.bookshelfId}`);
                         console.log(input)
                         input.style.display = "none";
 
-                        const submitBtn = document.getElementById(`submit-${data.bookshelfId}`);
                         submitBtn.style.display = "none";
 
-                        const editBtnEle = document.getElementById(`edit-${data.bookshelfId}`);
                         editBtnEle.style.display = "block";
 
-                        const deleteBtnEle = document.getElementById(`delete-${data.bookshelfId}`);
-                        deleteBtnEle.style.display = "inline";
+                        delteBtn.style.display = "inline";
                     }
                 });
 
