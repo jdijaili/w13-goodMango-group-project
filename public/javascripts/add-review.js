@@ -38,14 +38,40 @@ window.addEventListener('DOMContentLoaded', e => {
         editForm.setAttribute("id", `editForm-${data.reviewId}`);
         // editForm.setAttribute("method", "put");
         // editForm.setAttribute("action", `/api/reviews/${data.reviewId}`);
-
+        const theReview = document.getElementById(`review-${data.reviewId}`);
         const editReviewArea = document.createElement("textarea");
         editReviewArea.setAttribute("name", "review");
-        editReviewArea.setAttribute("value", data.review)
+        editReviewArea.setAttribute("value", data.review.review)
+        editReviewArea.innerText = data.review.review;
 
         const submitEditBtn = document.createElement("button");
         submitEditBtn.setAttribute("type", "submit");
         submitEditBtn.innerText = "Submit"
+
+        const reviewId = data.reviewId;
+        const actualReview = data.review.review;
+
+        submitEditBtn.addEventListener("click", async(e) => {
+          e.preventDefault();
+          console.log("IN ADD-REVIEW SUBMIT EDIT BTN");
+          const res = await fetch(`/api/reviews/${reviewId}`, {
+              method: 'PUT',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ review: actualReview, mangaId, userId })
+          });
+
+          const data = await res.json();
+          if (data.message === "Edit Successful") {
+            // console.log(reviewId);
+
+            theReview.innerText = data.review;
+            editForm.remove();
+            editReviewBtn.style.display = "block";
+
+          }
+      });
+
+
         const cancelEditBtn = document.createElement("button");
         cancelEditBtn.setAttribute("class", "cancelEditReview");
         cancelEditBtn.setAttribute("name", data.reviewId);

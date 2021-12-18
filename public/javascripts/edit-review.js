@@ -12,19 +12,46 @@ window.addEventListener('DOMContentLoaded', e => {
             const reviewId = btn.name;
 
             const reviewBoxEle = document.getElementById(`box-${reviewId}`)
-            const theReview = document.getElementsByClassName("actualReview")[0].innerText;
+            const theReview = document.getElementById(`review-${reviewId}`);
 
-            // editForm.setAttribute("method", "put");
+            // editForm.setAttribute("method", "put")
             editForm.setAttribute("id", `editForm-${reviewId}`);
             // editForm.setAttribute("action", `/api/reviews/${reviewId}`);
 
             const editReviewArea = document.createElement("textarea");
             editReviewArea.setAttribute("name", "review");
-            editReviewArea.setAttribute("value", theReview)
+            editReviewArea.setAttribute("value", theReview.innerText)
+
+            editReviewArea.innerText = theReview.innerText;
+
 
             const submitEditBtn = document.createElement("button");
             submitEditBtn.setAttribute("type", "submit");
             submitEditBtn.innerText = "Submit"
+
+            submitEditBtn.addEventListener("click", async(e) => {
+                e.preventDefault();
+                let mangaId = document.getElementById('reviewMangaId').value;
+                let userId = document.getElementById('reviewUserId').value;
+
+                const res = await fetch(`/api/reviews/${reviewId}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ review: editReviewArea.value, mangaId, userId })
+                });
+
+                const data = await res.json();
+
+                if (data.message === "Edit Successful") {
+
+                    theReview.innerText = editReviewArea.value;
+                    const editFormDelete = document.getElementById(`editForm-${reviewId}`);
+                    editFormDelete.remove();
+                    btn.style.display = "block";
+
+                }
+            });
+
 
             const cancelEditBtn = document.createElement("button");
             cancelEditBtn.setAttribute("class", "cancelEditReview");

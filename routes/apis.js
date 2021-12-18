@@ -19,9 +19,7 @@ const bookshelfValidators = [
 const reviewValidators = [
     check('review')
         .exists({ checkFalsy: true })
-        .withMessage('Please provide a review')
-        .isLength({ min: 20 })
-        .withMessage('Please provide a review longer than 20 characters'),
+        .withMessage('Please provide a review'),
 ];
 
 router.post('/bookshelves', bookshelfValidators, asyncHandler(async (req, res) => {
@@ -94,7 +92,6 @@ router.post('/reviews', reviewValidators, asyncHandler(async (req, res) => {
     console.log(req.body);
 
     mangaId = parseInt(mangaId, 10);
-    // userId = parseInt(userId, 10);
 
     let bookshelves = [];
     let reviews = [];
@@ -131,7 +128,6 @@ router.post('/reviews', reviewValidators, asyncHandler(async (req, res) => {
         const errors = validatorErrors.array().map((error) => error.msg);
         res.render( 'manga-detail', {
             title: `${manga.title} Summary`,
-            // csrfToken: req.csrfToken(),
             manga,
             genres: mangaGenres.Genres,
             bookshelves,
@@ -141,6 +137,57 @@ router.post('/reviews', reviewValidators, asyncHandler(async (req, res) => {
 
     }
 
+}));
+
+router.put("/reviews/:id(\\d+)", reviewValidators, asyncHandler(async(req, res) => {
+    let { review, mangaId, userId } = req.body;
+    const reviewId = parseInt(req.params.id, 10);
+
+    const reviewRecord = await db.Review.findByPk(reviewId);
+
+    mangaId = parseInt(mangaId, 10);
+
+    let bookshelves = [];
+    let reviews = [];
+    let user;
+
+    const manga = await db.Manga.findByPk(mangaId);
+
+    if(req.session.auth) {
+        const { userId } = req.session.auth;
+        bookshelves = await db.Bookshelf.findAll({
+            where: {
+                userId
+            }
+        });
+        user = await db.User.findByPk(userId);
+      }
+      // Find manga by mangaId and return associated genres
+      const mangaGenres = await db.Manga.findByPk(mangaId, {
+        include: db.Genre
+      });
+
+    const validatorErrors = validationResult(req);
+
+    if (validatorErrors.isEmpty()) {
+        const update = await reviewRecord.update({
+            review
+        });
+
+        await reviewRecord.save();
+
+        res.json({ message: "Edit Successful", review });
+    } else {
+        const errors = validatorErrors.array().map((error) => error.msg);
+        res.render( 'manga-detail', {
+            title: `${manga.title} Summary`,
+            manga,
+            genres: mangaGenres.Genres,
+            bookshelves,
+            reviews,
+            errors
+        });
+    }
 }));
 
 module.exports = router;
