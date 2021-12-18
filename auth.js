@@ -4,11 +4,10 @@ const loginUser = (req, res, user) => {
   req.session.auth = {
     userId: user.id,
   };
+  req.session.save(() => res.redirect("/"));
 };
 
 const restoreUser = async (req, res, next) => {
-    // console.log(req.session);
-
     if (req.session.auth) {
       const { userId } = req.session.auth;
 
