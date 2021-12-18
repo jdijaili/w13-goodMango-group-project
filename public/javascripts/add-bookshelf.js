@@ -140,8 +140,9 @@ window.addEventListener('DOMContentLoaded', e => {
                 if (data.message === "Delete Successful") {
                     console.log(bookshelfId);
                     const bookshelf = document.getElementById(`bookshelfBox-${bookshelfId}`);
-                    console.log(bookshelf);
+
                     bookshelf.remove();
+                    bookshelfContainerDiv.remove();
                 }
             })
 
