@@ -13,7 +13,7 @@ window.addEventListener('DOMContentLoaded', e => {
             input.style.display = "block";
 
             const submitBtn = document.getElementById(`submit-${bookshelfId}`);
-            console.log(submitBtn)
+
             submitBtn.style.display = "block";
 
             btn.style.display = "none";
@@ -39,9 +39,10 @@ window.addEventListener('DOMContentLoaded', e => {
             })
 
             const data = await res.json();
-
+            console.log(data);
             if (data.message === "Edit Successful") {
                 const bookshelf = document.getElementById(`bookshelfName-${bookshelfId}`);
+                console.log(bookshelf)
                 bookshelf.innerText = val;
 
                 const inputEle = document.getElementById(`input-${bookshelfId}`);
