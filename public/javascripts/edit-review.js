@@ -8,25 +8,24 @@ window.addEventListener('DOMContentLoaded', e => {
         const btn = editReviewBtn[i];
 
         btn.addEventListener('click', async (e) => {
-            const editForm = document.createElement("form");
             const reviewId = btn.name;
+            const editForm = document.createElement("form");
+            editForm.setAttribute("id", `editForm-${reviewId}`);
 
             const reviewBoxEle = document.getElementById(`box-${reviewId}`)
             const theReview = document.getElementById(`review-${reviewId}`);
 
-            // editForm.setAttribute("method", "put")
-            editForm.setAttribute("id", `editForm-${reviewId}`);
-            // editForm.setAttribute("action", `/api/reviews/${reviewId}`);
 
             const editReviewArea = document.createElement("textarea");
             editReviewArea.setAttribute("name", "review");
             editReviewArea.setAttribute("value", theReview.innerText)
-
             editReviewArea.innerText = theReview.innerText;
 
 
             const submitEditBtn = document.createElement("button");
             submitEditBtn.setAttribute("type", "submit");
+            submitEditBtn.setAttribute("class", "submitEditReview");
+
             submitEditBtn.innerText = "Submit"
 
             submitEditBtn.addEventListener("click", async(e) => {

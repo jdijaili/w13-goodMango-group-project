@@ -24,7 +24,7 @@ window.addEventListener('DOMContentLoaded', e => {
       // If the review was created, create the review html elements and show it on the screen
       const editReviewBtn = document.createElement("button");
       editReviewBtn.innerText = "edit";
-
+      editReviewBtn.setAttribute("class", "editReview");
       editReviewBtn.setAttribute("type", "submit");
 
       const reviewsContainer = document.getElementById("reviewsContainer");
@@ -113,6 +113,7 @@ window.addEventListener('DOMContentLoaded', e => {
       // create delete review button
       const deleteReviewBtn = document.createElement("button");
       deleteReviewBtn.setAttribute("name", data.reviewId);
+      deleteReviewBtn.setAttribute("class", "deleteReview");
       deleteReviewBtn.innerText = "delete";
       // event listener for delete review button
       deleteReviewBtn.addEventListener('click', async(e) => {
