@@ -9,10 +9,10 @@ html
     nav(class='navbar')
       img(class="logo" src='../images/logo.png')
       a(class='home' href='/') GoodMango
-      a(class='bookshelves-button' href='/bookshelves') My Mangas
       a(class='mangas-button' href='/mangas') Browse Mangas
           //- span logo go here
       if locals.authenticated
+          a(class='bookshelves-button' href='/bookshelves') My Mangas
           span(class="welcome-greeting") Welcome,
           span(class='greeting-name') #{user.username} !
           form(class='logout-form' action='/users/logout' method='post')
