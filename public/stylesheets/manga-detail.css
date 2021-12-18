@@ -7,6 +7,13 @@ body, html {
   background-size: cover;
 }
 
+.reviews {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  background-color: rgba(206, 206, 206, 0.616)
+}
+
 .container {
   height: 100%;
   /* margin-top: 5%; for fixed navbar */
@@ -314,7 +321,7 @@ textarea {
     padding-bottom: 3px;
     padding-left: 5px;
     padding-right: 5px;
-    margin-left: 81.5%;
+    margin-left: 70.5%;
   }
 
   .actualReview {

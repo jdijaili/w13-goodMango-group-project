@@ -15,8 +15,7 @@ html
         span(class="welcome-greeting") Welcome,
         span(class='greeting-name') #{user.username} !
         form(class='logout-form' action='/users/logout' method='post')
-          button(class='logout-button' type='submit')
-            img(class="logoutimg" src='../images/logout.png' type="submit")
+          button(class='logout-button' type='submit') logout
       else
           a(class='login-button' href='/users/login') Login
           a(class='signup-button' href='/users/signup') Sign Up
