@@ -86,6 +86,7 @@ window.addEventListener('DOMContentLoaded', e => {
           editReviewBtn.style.display = "block"
         })
 
+
         editForm.appendChild(editReviewArea);
         editForm.appendChild(submitEditBtn);
         editForm.appendChild(cancelEditBtn);
@@ -103,14 +104,36 @@ window.addEventListener('DOMContentLoaded', e => {
 
       const reviewDate = new Date(data.review.updatedAt);
 
-      updatedAtEle.innerText = reviewDate.toDateString();
+      updatedAtEle.innerText = reviewDate.toLocaleString();
+
+
+      // create delete review button
+      const deleteReviewBtn = document.createElement("button");
+      deleteReviewBtn.setAttribute("name", data.reviewId);
+      deleteReviewBtn.innerText = "delete";
+      // event listener for delete review button
+      deleteReviewBtn.addEventListener('click', async(e) => {
+        const reviewId = e.target.name;
+        const res = await fetch(`/api/reviews/${reviewId}`, {
+          method: "DELETE"
+        });
+
+        const data = await res.json();
+
+        if (data.message === "Delete Successful") {
+            reviewBoxEle.remove();
+            editReviewBtn.remove();
+            deleteReviewBtn.remove();
+        }
+      });
+
 
       reviewsContainer.prepend(reviewBoxEle);
       reviewBoxEle.appendChild(userEle);
       userEle.appendChild(updatedAtEle);
       reviewBoxEle.appendChild(reviewEle);
       reviewBoxEle.appendChild(editReviewBtn);
-
+      reviewBoxEle.appendChild(deleteReviewBtn);
     }
   });
 });

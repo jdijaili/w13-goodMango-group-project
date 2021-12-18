@@ -49,9 +49,11 @@ block content
             each review in reviews
               li(class="reviewBox" name=`${review.id}` id=`box-${review.id}`)
                 img(class="review-mango" src='../images/upvote.png')
-                p(class="reviewUsernameDate") #{review.User.username} <span class="reviewDate">#{review.updatedAt.toDateString()}</span>
+                p(class="reviewUsernameDate") #{review.User.username} <span class="reviewDate">#{review.updatedAt.toLocaleString()}</span>
                   p(class="actualReview" id=`review-${review.id}`) #{review.review}
               if locals.authenticated && user.id === review.userId
                 button(class="editReview" name=`${review.id}` id=`edit-${review.id}`) edit
+                button(class="deleteReview" name=`${review.id}` id=`delete-${review.id}`) delete
   script(src='/javascripts/add-review.js' type='module')
   script(src='/javascripts/edit-review.js' type='module')
+  script(src='/javascripts/delete-review.js' type='module')

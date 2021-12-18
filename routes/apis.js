@@ -70,10 +70,6 @@ router.put('/bookshelves/:id(\\d+)', bookshelfValidators, asyncHandler(async (re
     }
 }));
 
-// const deleteValidators = [
-//     check()
-// ]
-
 router.delete('/bookshelves/:id(\\d+)', asyncHandler( async(req, res) => {
     const bookshelfId = parseInt(req.params.id, 10);
     const bookshelf = await db.Bookshelf.findByPk(bookshelfId);
@@ -189,5 +185,18 @@ router.put("/reviews/:id(\\d+)", reviewValidators, asyncHandler(async(req, res) 
         });
     }
 }));
+
+router.delete('/reviews/:id(\\d+)', asyncHandler( async(req, res) => {
+    const reviewId = parseInt(req.params.id, 10);
+    const review = await db.Review.findByPk(reviewId);
+
+    if (review) {
+        await review.destroy();
+
+        res.json({ message: "Delete Successful" });
+    } else {
+        res.json({ message: "This review does not exist"});
+    }
+}))
 
 module.exports = router;
