@@ -2,7 +2,6 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    background-color: rgba(128, 128, 128, 0.281);
 }
 
 .img-zoom-container {
@@ -65,12 +64,4 @@ h1 {
 
 body, html {
     height: 100%;
-  }
-
-  body {
-    /* background-image: url("../images/342259.jpg"); */
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size:100%;
   }

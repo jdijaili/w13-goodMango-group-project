@@ -1,9 +1,11 @@
 
 .logo {
-    /* box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.609); */
+    display: flex;
+    align-content: center;
     margin: 0;
-    width: 95px;
-    height: 90px;
+    width: 80px;
+    height: 75px;
+
 }
 
 .greeting-name {
@@ -28,13 +30,16 @@
 .navbar {
     box-shadow: 0px 0px 10px 6px rgba(248, 66, 0, 0.911);
     /* position: fixed;
-    top: 0;
-    width: 100%; */
+    width: 100%;
+    height: 75px;
+    background-color: #eee;
+    top: 0; */
     background: #58554f;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* margin: auto; */
+    /* margin-bottom: 20%; */
+    /* padding-bottom: 20%; */
 }
 
 a {
@@ -73,8 +78,8 @@ a {
 }
 
 .logoutimg {
-    color: white;
-    margin: 0;
+    /* color: white; */
+    /* margin: 0; */
     width: 60px;
     height: 55px;
 }

@@ -6,14 +6,14 @@ block head
   link(rel='stylesheet' href='/stylesheets/bookshelves.css')
 
 block content
-    div(id="header")
+    div(class="label" id="header")
         h1 My Mangas
     div
-        button(id="add-button" type="submit") Add Bookshelf
+        button(id="add-button" type="submit") 🥭 Add Bookshelf 🥭
     div(id="form")
         form(action="/bookshelves", method="post")
             label(for="name")
-            input(type="text" name="name" id="add-bookshelf")
+            input(class="label" type="text" name="name" id="add-bookshelf")
             button(type="submit" id="submit-button") add
 
 
@@ -26,7 +26,7 @@ block content
                     h2(id=`bookshelfName-${bookshelf.id}`)= bookshelf.name
                     div(id=`bookshelfBox-${id=bookshelf.id}`).bookshelfBox
                         button(id=`edit-${bookshelf.id}` name=`${bookshelf.id}`).edit-btn Edit Bookshelf
-                        button(id=`delete-${bookshelf.id}` name=`${bookshelf.id}`).delete-btn Delete Bookshelf
+                        button(class="delete-button" id=`delete-${bookshelf.id}` name=`${bookshelf.id}`).delete-btn delete
                         input(type="text" id=`input-${bookshelf.id}` style="display: none")
                         button(type="submit" id=`submit-${bookshelf.id}` name=`${bookshelf.id}` style="display: none").submit-btn Submit
                     div(id="manga-container")
@@ -35,13 +35,17 @@ block content
                                 div
                                     img(src=manga.imgSrc, alt=`image of ${manga.title}'s manga cover` id="manga-image")
                                 div(id="manga-title")
+                                    label(class="title-label" for="manga-title") Title
                                     p= manga.title
                                 div(id="manga-author")
+                                    label(class="author-label" for="manga-author") Author
                                     p= manga.author
                                 div(id="manga-year")
+                                    label(class="year-label" for="manga-year") Release Year
                                     p= manga.year
                                 div
-                                    button(id=`delete-${manga.id}` name=manga.id value=bookshelf.id).manga-delete-btn Delete Manga
+                                    button(class="delete-btn" id=`delete-${manga.id}` name=manga.id value=bookshelf.id).manga-delete-btn delete
+                                        img(class="Ximg" src='../images/X.png')
 
     script(src='/javascripts/add-bookshelf.js' type='module')
     script(src='/javascripts/edit-bookshelf.js' type='module')
