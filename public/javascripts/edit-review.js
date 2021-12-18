@@ -1,4 +1,7 @@
 window.addEventListener('DOMContentLoaded', e => {
+
+    // For all the edit review buttons, add a click event listener
+    // to create a form with textarea, submit, and cancel buttons
     const editReviewBtn = document.querySelectorAll('.editReview');
     // console.log(editReviewBtn);
     for (let i = 0; i < editReviewBtn.length; i++) {
@@ -28,6 +31,14 @@ window.addEventListener('DOMContentLoaded', e => {
             cancelEditBtn.setAttribute("name", reviewId);
             cancelEditBtn.innerText = "Cancel"
 
+            cancelEditBtn.addEventListener("click", async(e) => {
+                e.preventDefault();
+                const editFormDelete = document.getElementById(`editForm-${reviewId}`);
+
+                editFormDelete.remove();
+                btn.style.display = "block"
+            })
+
             editForm.appendChild(editReviewArea);
             editForm.appendChild(submitEditBtn);
             editForm.appendChild(cancelEditBtn);
@@ -38,16 +49,16 @@ window.addEventListener('DOMContentLoaded', e => {
 
     }
 
-    const cancelReviewBtn = document.querySelectorAll('.cancelEditReview');
-    // console.log(editReviewBtn);
-    for (let i = 0; i < cancelReviewBtn.length; i++) {
-        const btn = cancelReviewBtn[i];
+    // const cancelReviewBtn = document.querySelectorAll('.cancelEditReview');
+    // // console.log(editReviewBtn);
+    // for (let i = 0; i < cancelReviewBtn.length; i++) {
+    //     const btn = cancelReviewBtn[i];
 
-        btn.addEventListener("click", async(e) => {
-            const reviewId = btn.name;
-            const editFormDelete = document.getElementById(`editForm-${reviewId}`);
+    //     btn.addEventListener("click", async(e) => {
+    //         const reviewId = btn.name;
+    //         const editFormDelete = document.getElementById(`editForm-${reviewId}`);
 
-            editFormDelete.remove();
-        })
-    }
+    //         editFormDelete.remove();
+    //     })
+    // }
 })
