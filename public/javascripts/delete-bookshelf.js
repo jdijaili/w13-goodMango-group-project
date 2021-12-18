@@ -15,7 +15,7 @@ window.addEventListener("DOMContentLoaded", e => {
             const data = await res.json();
 
             if (data.message === "Delete Successful") {
-                const bookshelf = document.getElementById(`bookshelfBox-${bookshelfId}`);
+                const bookshelf = document.getElementById(`bookshelf-container-${bookshelfId}`);
                 bookshelf.remove();
             }
         })

@@ -31,25 +31,36 @@ window.addEventListener('DOMContentLoaded', e => {
         const data = await res.json();
 
         if (data.message === "Create Successful") {
+            // create a new container div
+            const bookshelfContainerDiv = document.createElement("div");
+            bookshelfContainerDiv.setAttribute("id", `bookshelf-container-${data.bookshelfId}`)
+            bookshelfContainerDiv.style.borderBottom = "1px solid black"
+
+            // create a new h2 for the bookshelf title
+            const bookshelfTitleH2 = document.createElement("h2");
+            bookshelfTitleH2.setAttribute("id", `bookshelfName-${data.bookshelfId}`);
+            bookshelfTitleH2.innerText = val;
+
+            // create div to hold the edit bookshelf, delete bookshelf, edit input box, and submit edit buttons
             const bookshelf = document.createElement("div");
             bookshelf.setAttribute("class", "bookshelfBox");
             bookshelf.setAttribute("id", `bookshelfBox-${data.bookshelfId}`);
 
-            const li = document.createElement("li");
-            li.setAttribute("id", `bookshelfName-${data.bookshelfId}`);
-            li.style.listStyle = "none";
+            // get the parent element to append newly create eles
+            const ulParent = document.getElementById("manga-list");
 
-            const ulParent = document.getElementById("bookshelves-container");
+            // append the eles to dynamically render on the browser
+            bookshelfTitleH2.appendChild(bookshelf);
+            bookshelfContainerDiv.appendChild(bookshelfTitleH2);
+            bookshelfContainerDiv.appendChild(bookshelf);
+            ulParent.prepend(bookshelfContainerDiv);
 
-            li.innerText = val;
-
-            bookshelf.appendChild(li);
-            ulParent.prepend(bookshelf);
-
+            // create edit input and hide it at the time of creation
             const input = document.createElement('input');
             input.setAttribute("id", `input-${data.bookshelfId}`);
             input.style.display = "none";
 
+            // create submit button and hide it at the time of creation
             const submitBtn = document.createElement('button');
             submitBtn.setAttribute("id", `submit-${data.bookshelfId}`);
             submitBtn.setAttribute("name", `${data.bookshelfId}`);
@@ -57,11 +68,13 @@ window.addEventListener('DOMContentLoaded', e => {
             submitBtn.style.display = "none";
             submitBtn.innerText = "Submit";
 
+            // create edit button and hide it at the time of creation
             const editBtn = document.createElement('button');
             editBtn.setAttribute("id", `edit-${data.bookshelfId}`);
             editBtn.setAttribute("name", `${data.bookshelfId}`);
             editBtn.innerText = 'Edit Bookshelf';
 
+            // create delete button and hide it at the time of creation
             const delteBtn = document.createElement('button');
             delteBtn.setAttribute("id", `delete-${data.bookshelfId}`);
             delteBtn.setAttribute("name", `${data.bookshelfId}`);
@@ -71,21 +84,20 @@ window.addEventListener('DOMContentLoaded', e => {
 
             const bookshelfId = data.bookshelfId;
 
+            // add event listener to the newly created bookshelf so that it can have the dynamic edit functionality as well
             editBtn.addEventListener("click", async (e) => {
 
-                const input = document.getElementById(`input-${data.bookshelfId}`);
                 input.style.display = "block";
 
-                const submitBtn = document.getElementById(`submit-${data.bookshelfId}`);
                 submitBtn.style.display = "inline";
 
-                const editBtnEle = document.getElementById(`edit-${data.bookshelfId}`);
-                editBtnEle.style.display = "none";
+                editBtn.style.display = "none";
 
+                // add event listener to the newly created bookshelf so that it can have the dynamic submit functionality as well
                 submitBtn.addEventListener("click", async (e) => {
-                    const val = document.getElementById(`input-${idForSubmit}`).value;
+                    const val = document.getElementById(`input-${bookshelfId}`).value;
 
-                    const res = await fetch(`/api/bookshelves/${idForSubmit}`, {
+                    const res = await fetch(`/api/bookshelves/${bookshelfId}`, {
                         method: 'PUT',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ name: val })
@@ -98,24 +110,25 @@ window.addEventListener('DOMContentLoaded', e => {
                         console.log(bookshelf);
                         bookshelf.innerText = val;
 
-                        const input = document.getElementById(`input-${data.bookshelfId}`);
+                        console.log(data.bookshelfId);
+                        console.log(input)
                         input.style.display = "none";
-
-                        const submitBtn = document.getElementById(`submit-${data.bookshelfId}`);
                         submitBtn.style.display = "none";
 
-                        const editBtnEle = document.getElementById(`edit-${data.bookshelfId}`);
-                        editBtnEle.style.display = "block";
+                        editBtn.style.display = "block"
+                        delteBtn.style.display = "inline";
                     }
                 });
 
             });
 
+            // append the newly created eles to the new bookshelf
             bookshelf.appendChild(editBtn);
             bookshelf.appendChild(input);
             bookshelf.appendChild(submitBtn);
             bookshelf.appendChild(delteBtn);
 
+            // add event listener to the newly created bookshelf so that it can have the dynamic delete functionality as well
             delteBtn.addEventListener('click', async (e) => {
                 console.log("-------------", bookshelfId)
                 const res = await fetch(`/api/bookshelves/${bookshelfId}`, {
@@ -127,12 +140,13 @@ window.addEventListener('DOMContentLoaded', e => {
                 if (data.message === "Delete Successful") {
                     console.log(bookshelfId);
                     const bookshelf = document.getElementById(`bookshelfBox-${bookshelfId}`);
-                    console.log(bookshelf);
+
                     bookshelf.remove();
+                    bookshelfContainerDiv.remove();
                 }
             })
 
-
+            // hide these eles so that they don't automatically appear when a new bookshelf is created
             const addShelfText = document.getElementById('addShelf-text');
             const formEle = document.getElementById("form");
             formEle.style.display = "none"
