@@ -5,6 +5,7 @@ window.addEventListener('DOMContentLoaded', e => {
   // When we submit a review, fetch the api to make POST a new review
   submitReviewBtn.addEventListener("click", async (e) => {
     e.preventDefault();
+    const form = getElementById
 
     let reviewValue = document.getElementById('review').value;
     let mangaId = document.getElementById('reviewMangaId').value;
