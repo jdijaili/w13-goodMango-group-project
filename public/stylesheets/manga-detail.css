@@ -109,10 +109,11 @@ textarea {
 }
 
 .reviewDate {
-  margin-left: 50%;
+  margin-left: 75%;
 }
 
 .reviewBox {
+  margin-top: 30px;
   list-style: none;
 }
 
@@ -129,9 +130,22 @@ textarea {
 }
 
 .actualReview {
-  text-decoration: underline;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-left: 30px;
+  border: 1px solid black;
+  padding-top: 25px;
+  padding-bottom: 45px;
+}
+
+.editReview {
+  font-size: 12pt;
+  border: none;
+  background: none;
+  margin-left: 96%;
+}
+
+.editReview:hover {
+  transform: scale(1.2);
+  color: rgb(248, 66, 0);
 }
 
 
