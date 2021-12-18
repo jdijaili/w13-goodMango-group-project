@@ -77,9 +77,27 @@ router.delete('/bookshelves/:id(\\d+)', asyncHandler( async(req, res) => {
     }
 }));
 
-router.delete('/bookshelves/:id(\\d+)/mangas/:id(\\d+)', asyncHandler( async(req, res) => {
+router.delete('/bookshelves/:id(\\d+)/mangas/:manga(\\d+)', asyncHandler( async(req, res) => {
     const bookshelfId = parseInt(req.params.id, 10);
-    console.log(bookshelfId);
+    const mangaId = parseInt(req.params.manga, 10);
+    console.log("~~~~~~~~~~~~~~~~~~~~",bookshelfId, mangaId)
+
+    const mangaBookshelf = await db.MangaBookshelfJoin.findOne({
+        where: {
+            mangaId,
+            bookshelfId
+        }
+    })
+    
+    if (mangaBookshelf) {
+        const deletedRecord = await mangaBookshelf.destroy();
+        console.log(deletedRecord)
+
+        res.json({ message: 'Delete Successful'})
+    } else {
+        res.json({ message: "Delete Unsuccessful"})
+    }
+
 }));
 
 module.exports = router;
