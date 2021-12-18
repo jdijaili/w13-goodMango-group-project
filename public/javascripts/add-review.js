@@ -5,7 +5,8 @@ window.addEventListener('DOMContentLoaded', e => {
   // When we submit a review, fetch the api to make POST a new review
   submitReviewBtn.addEventListener("click", async (e) => {
     e.preventDefault();
-    const form = getElementById
+    const form = document.getElementById("addReviewForm");
+
 
     let reviewValue = document.getElementById('review').value;
     let mangaId = document.getElementById('reviewMangaId').value;
@@ -19,6 +20,7 @@ window.addEventListener('DOMContentLoaded', e => {
 
     const data = await res.json();
     if (data.message === "Create Successful") {
+      form.reset()
       // If the review was created, create the review html elements and show it on the screen
       const editReviewBtn = document.createElement("button");
       editReviewBtn.innerText = "edit";
