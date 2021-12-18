@@ -139,12 +139,11 @@ router.post("/logout", (req, res) => {
 });
 
 // router to log in as demo user
-router.post("/login/demo", asyncHandler(async(req, res) => {
+router.get("/login/demo", asyncHandler(async(req, res) => {
   let email = "demouser@gmail.com";
   let password = "ilovemangos";
   const user = await db.User.findOne({where: {email}});
-  loginUser(req, res, user);
-  return res.redirect("/");
+  return loginUser(req, res, user);
 }));
 
 module.exports = router;
