@@ -34,8 +34,26 @@ block content
             each bookshelf in bookshelves
               option(value=bookshelf.id) #{bookshelf.name}
           button(type="submit") Add
+      if locals.authenticated
+        form(id="addReviewForm" class="addReviewForm" method="post" action=`/api/reviews`)
+          input(type="hidden" name="_csrf" value=csrfToken)
+          input(type="hidden" id="reviewMangaId" name="mangaId" value=`${manga.id}`)
+          input(type="hidden" id="reviewUserId" name="mangaId" value=`${user.id}`)
+          +field("Add a Review", "review", null, fieldType="textarea", placeholder="Leave a Review...")
+        button(class="submitReview" type="submit") Submit
 
-      form(class="addReviewForm" method="post" action="/api/reviews")
-        input(type="hidden" name="_csrf" value=csrfToken)
-        +field("Add a Review", "review", null, fieldType="textarea", placeholder="Leave a Review...")
-      button(class="submitReview" type="submit") Submit
+      div(class="reviews")
+        h2(id="review-heading") Reviews (#{reviews.length})
+        div(class="reviewbox")
+          ul(id="reviewsContainer")
+            each review in reviews
+              li(class="reviewBox" name=`${review.id}` id=`box-${review.id}`)
+                p(class="reviewUsernameDate") #{review.User.username} 🥭 <span class="reviewDate">#{review.updatedAt.toLocaleString()}</span>
+                  p(class="actualReview" id=`review-${review.id}`) #{review.review}
+              if locals.authenticated && user.id === review.userId
+                  //- div("editDeleteContainer")
+                  button(class="editReview" name=`${review.id}` id=`edit-${review.id}`) edit
+                  button(class="deleteReview" name=`${review.id}` id=`delete-${review.id}`) delete
+  script(src='/javascripts/add-review.js' type='module')
+  script(src='/javascripts/edit-review.js' type='module')
+  script(src='/javascripts/delete-review.js' type='module')

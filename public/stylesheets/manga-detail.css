@@ -1,12 +1,18 @@
 
 body, html {
-  height: 100%;
+  /* The image used */
   background-color: rgba(128, 128, 128, 0.281);
+  /* Full height */
+  height: 100%;
+  /* Center and scale the image nicely */
+  /* background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; */
 }
 
 .container {
   height: 100%;
-  background-color: rgba(128, 128, 128, 0.281);
+  /* background-color: rgba(128, 128, 128, 0.281); */
   display: flex;
   justify-content: center;
   padding: 100px 600px;
@@ -100,7 +106,81 @@ textarea {
   padding-left: 5px;
   padding-right: 5px;
   margin-left: 63.5%;
+  border: none;
+  background: none;
 }
+
+.submitReview:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  color: rgb(248, 66, 0);
+}
+
+#review-heading {
+  font-size: 16pt;
+  margin-top: 30px;
+  padding-bottom: 10px;
+}
+
+.reviewDate {
+  margin-left: 60.2%;
+}
+
+.reviewBox {
+  margin-top: 30px;
+  list-style: none;
+}
+
+.review-mango {
+
+  height: 2%;
+  width: 2%;
+}
+
+.reviewUsernameDate {
+  font-size: 15pt;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
+  color: rgb(248, 66, 0);
+  margin-left: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.actualReview {
+  padding-right: 0;
+  padding-left: 20px;
+  border: 1px solid black;
+  padding-top: 25px;
+  padding-bottom: 45px;
+}
+
+.editReview {
+  font-size: 12pt;
+  border: none;
+  background: none;
+  margin-left: 88%;
+}
+
+.deleteReview {
+  padding-left: 0;
+  font-size: 12pt;
+  border: none;
+  background: none;
+}
+
+.deleteReview:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  color: rgb(248, 66, 0);
+}
+
+.editReview:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  color: rgb(248, 66, 0);
+}
+
 
 
 
@@ -109,22 +189,22 @@ textarea {
 
 @media all and (orientation:portrait) {
 
-  .container {
-    display: flex;
-    flex-direction: column;
-    padding-right: 10px;
-    padding-left: 150px;
-    /* justify-content: center; */
-    /* padding: 100px 600px; */
+  .editReview {
+    margin-bottom: 25px;
+  }
+
+  body, html {
+    height: 100%;
+    /* background-color: rgba(128, 128, 128, 0.281); */
   }
 
   textarea {
     resize: none;
     padding: 10px;
     margin-top: 10px;
-    margin-bottom: 5px;
-    padding-bottom: 5%;
-    padding-right: 50%;
+    /* margin-bottom: 5px; */
+    /* padding-bottom: 5%; */
+    padding-right: 30%;
   }
 
   .submitReview {
@@ -132,12 +212,35 @@ textarea {
     padding-bottom: 3px;
     padding-left: 5px;
     padding-right: 5px;
-    margin-left: 62.5%;
+    margin-left: 43.5%;
   }
 
 }
 
 @media all and (orientation:landscape) {
+  body, html {
+    /* The image used */
+    background-color: rgba(128, 128, 128, 0.281);
+    /* Full height */
+    height: 100%;
+    /* Center and scale the image nicely */
+    /* background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
+  }
+
+  .editReview {
+    margin-bottom: 35px;
+  }
+
+  .reviewDate {
+    margin-left: 60.2%;
+  }
+
+  body, html {
+    height: 100%;
+    /* background-color: rgba(128, 128, 128, 0.281); */
+  }
 
   .container {
     display: flex;
@@ -159,17 +262,46 @@ textarea {
     padding-bottom: 3px;
     padding-left: 5px;
     padding-right: 5px;
-    margin-left: 63.5%;
+    margin-left: 64%;
   }
 
 }
 
 @media screen and (min-width: 500px) and (max-height: 1210px) {
+  body, html {
+    /* The image used */
+    background-color: rgba(128, 128, 128, 0.281);
+    /* Full height */
+    /* height: 100%; */
+    /* Center and scale the image nicely */
+    /* background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
+  }
+
+  .reviewDate {
+    margin-left: 54%;
+  }
+  .editReview {
+    font-size: 12pt;
+    border: none;
+    background: none;
+    margin-left: 74.5%;
+    margin-bottom: 25px;
+  }
+
+  .deleteReview {
+    padding-left: 0;
+    font-size: 12pt;
+    border: none;
+    background: none;
+  }
 
   .container {
     display: flex;
     justify-content: center;
     padding: 100px 300px;
+    height: 100%;
   }
 
   .submitReview {
@@ -177,6 +309,14 @@ textarea {
     padding-bottom: 3px;
     padding-left: 5px;
     padding-right: 5px;
-    margin-left: 67.5%;
+    margin-left: 81.5%;
+  }
+
+  .actualReview {
+    padding-right: 0;
+    padding-left: 20px;
+    border: 1px solid black;
+    padding-top: 25px;
+    padding-bottom: 45px;
   }
 }

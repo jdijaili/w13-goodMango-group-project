@@ -1,6 +1,6 @@
 .mangas-container {
   /* The image used */
-  background-color: rgba(128, 128, 128, 0.281);;
+  background-color: rgba(128, 128, 128, 0.281);
   /* Full height */
   height: 100%;
   /* Center and scale the image nicely */
@@ -116,8 +116,8 @@
 
   .mangas-container {
     padding-top: 80px;
-    padding-left: 20%;
-    padding-right: 20%;
+    padding-left: 15%;
+    padding-right: 15%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
