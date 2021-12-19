@@ -1,16 +1,193 @@
+
 #form {
     display: none;
-}
-
-.bookshelfBox {
-    margin: 15px;
+    text-align: center;
+    align-content: center;
+    margin-bottom: 3%;
 }
 
 .bookshelfLi {
     list-style: none;
 }
 
-body, html {
-    height: 100%;
-    background-color: rgba(128, 128, 128, 0.281);
+html {
+    background: url("https://www.desktopbackground.org/download/2560x960/2010/11/12/109699_anime-silhouette_2560x1024_h.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+h1 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 45pt;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    display: flex;
+    justify-content: center;
+    color: rgb(255, 94, 0);
 }
+
+h2 {
+    font-size: 20pt;
+    font-weight: bold;
+    color: rgb(255, 94, 0);
+}
+
+.label {
+    text-align: center;
+    align-content: center;
+}
+
+#bookshelf-display {
+    height: 100%;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+#manga-container {
+    background-color: rgba(245, 245, 245, 0.418);
+    padding-top: 75px;
+    padding-bottom: 45px;
+    border-top: 2px black solid;
+}
+
+.manga-box {
+    list-style: none;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+#manga-image {
+    max-width: 110px;
+    max-height: 160px;
+    padding-top: 10px;
+}
+
+.edit-btn {
+    font-size: 12pt;
+}
+
+.edit-btn:hover {
+    cursor: pointer;
+    color: rgb(248, 66, 0);
+}
+
+.delete-button {
+    font-size: 12pt;
+    border: none;
+    background: none;
+}
+
+.delete-btn {
+    margin-left: 10px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border: none;
+    background: none;
+}
+
+.delete-button:hover {
+    cursor: pointer;
+    color: rgb(248, 66, 0);
+}
+
+.Ximg {
+    padding-left: 5px;
+    height: 7%;
+    width: 7%;
+}
+
+.manga-delete-btn {
+    font-size: 12pt;
+}
+
+.manga-delete-btn:hover {
+    cursor: pointer;
+    animation: shake 0.2s;
+}
+
+#manga-image:hover {
+    animation: shake 0.3s;
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    /* 30% { transform: translate(3px, 2px) rotate(0deg); } */
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    /* 70% { transform: translate(3px, 1px) rotate(-1deg); } */
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    /* 90% { transform: translate(1px, 2px) rotate(0deg); } */
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }
+
+p {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 13pt;
+    margin-left: 40px;
+    margin-right: 40px;
+    padding-right: 0;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.title-label, .author-label, .year-label {
+    font-weight: bold;
+    font-size: 16pt;
+    margin-left: 40px;
+    text-decoration: 2px underline;
+}
+
+#add-button {
+    padding-bottom: 2.5%;
+    border: none;
+    background: none;
+    font-size: 22pt;
+    margin-left: 44.5%;
+}
+
+#add-button:hover {
+    animation: shake 0.15s;
+    cursor: pointer;
+    color: rgb(248, 66, 0);
+}
+
+
+
+/* Media queries */
+
+@media all and (orientation:portrait) {
+
+
+  }
+
+  @media all and (orientation:landscape) {
+
+    html {
+        background: url("https://www.desktopbackground.org/download/2560x960/2010/11/12/109699_anime-silhouette_2560x1024_h.jpg") no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+      }
+
+  }
+
+  @media screen and (min-width: 500px) and (max-height: 1210px) {
+    #add-button {
+        border: none;
+        background: none;
+        font-size: 22pt;
+        margin-left: 41.5%;
+    }
+  }

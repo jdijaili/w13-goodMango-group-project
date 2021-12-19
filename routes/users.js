@@ -117,8 +117,7 @@ router.post("/login", csrfProtection, loginValidators, asyncHandler(async (req, 
       const match = await bcrypt.compare(password, user.hashedPassword.toString())
 
       if (match) {
-        loginUser(req, res, user);
-        return res.redirect("/");
+        return loginUser(req, res, user);
       }
     }
 
@@ -138,5 +137,13 @@ router.post("/login", csrfProtection, loginValidators, asyncHandler(async (req, 
 router.post("/logout", (req, res) => {
   logoutUser(req, res);
 });
+
+// router to log in as demo user
+router.get("/login/demo", asyncHandler(async(req, res) => {
+  let email = "demouser@gmail.com";
+  let password = "ilovemangos";
+  const user = await db.User.findOne({where: {email}});
+  return loginUser(req, res, user);
+}));
 
 module.exports = router;
