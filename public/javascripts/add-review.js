@@ -20,6 +20,10 @@ window.addEventListener('DOMContentLoaded', e => {
 
     const data = await res.json();
     if (data.message === "Create Successful") {
+      // update review counter
+      const reviewCount = document.getElementById("review-counter");
+      reviewCount.innerText = parseInt(reviewCount.innerText, 10) + 1;
+
       form.reset()
       // If the review was created, create the review html elements and show it on the screen
       const editReviewBtn = document.createElement("button");
@@ -124,9 +128,12 @@ window.addEventListener('DOMContentLoaded', e => {
         const data = await res.json();
 
         if (data.message === "Delete Successful") {
-            reviewBoxEle.remove();
-            editReviewBtn.remove();
-            deleteReviewBtn.remove();
+          // update review count
+          const reviewCount = document.getElementById("review-counter");
+          reviewCount.innerText = parseInt(reviewCount.innerText, 10) - 1;
+          reviewBoxEle.remove();
+          editReviewBtn.remove();
+          deleteReviewBtn.remove();
         }
       });
 
