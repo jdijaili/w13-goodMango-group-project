@@ -47,8 +47,8 @@ block content
                                     label(class="year-label" for="manga-year") Release Year
                                     p= manga.year
                                 div
-                                    button(class="delete-btn" id=`delete-${manga.id}` name=manga.id value=bookshelf.id).manga-delete-btn delete
-                                        img(class="Ximg" src='../images/X.png')
+                                    button(class="delete-btn" id=`delete-${manga.id}` name=manga.id value=bookshelf.id).manga-delete-btn ❌
+                                        //- img(class="Ximg" src='../images/X.png')
 
     script(src='/javascripts/add-bookshelf.js' type='module')
     script(src='/javascripts/edit-bookshelf.js' type='module')

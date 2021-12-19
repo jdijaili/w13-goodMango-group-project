@@ -34,7 +34,6 @@ window.addEventListener('DOMContentLoaded', e => {
         const data = await res.json();
 
         if (data.message === "Create Successful") {
-
             // create a new container div
             const bookshelfContainerDiv = document.createElement("div");
             bookshelfContainerDiv.setAttribute("id", `bookshelf-container-${data.bookshelfId}`)
