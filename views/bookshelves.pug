@@ -37,7 +37,8 @@ block content
                         each manga in bookshelf.Mangas
                             div(id=`manga-box-${manga.id}` class="manga-box")
                                 div
-                                    img(src=manga.imgSrc, alt=`image of ${manga.title}'s manga cover` id="manga-image")
+                                    a(href=`/mangas/${manga.id}`)
+                                        img(src=manga.imgSrc, alt=`image of ${manga.title}'s manga cover` id="manga-image")
                                 div(id="manga-title")
                                     label(class="title-label" for="manga-title") Title
                                     p= manga.title

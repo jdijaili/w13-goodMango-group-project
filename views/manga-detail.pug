@@ -44,7 +44,7 @@ block content
         button(class="submitReview" type="submit") Submit
 
       div(class="reviews")
-        h2(id="review-heading") Reviews (#{reviews.length})
+        h2(id="review-heading") Reviews (<span id="review-counter">#{reviews.length}</span>)
         div(class="reviewbox")
           ul(id="reviewsContainer")
             each review in reviews
