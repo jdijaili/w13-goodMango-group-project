@@ -103,6 +103,7 @@ router.delete('/bookshelves/:id(\\d+)', asyncHandler( async(req, res) => {
             await bookshelf.destroy();
 
             res.json({ message: "Delete Successful" });
+            
         } else {
             res.json({ message: "This bookshelf does not exist"});
         }

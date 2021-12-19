@@ -5,6 +5,7 @@ include utils.pug
 block head
   title=title
   link(rel='stylesheet' href='/stylesheets/manga-detail.css')
+  link(rel='stylesheet' href='/stylesheets/navbar.css')
   link(rel='stylesheet' href='/stylesheets/reset.css')
 
 block content
@@ -29,11 +30,11 @@ block content
         form(class="addToBookshelfForm" method="post" action="/mangaBookshelfJoins")
           input(type="hidden" name="_csrf" value=csrfToken)
           input(type="hidden" name="mangaId" value=`${manga.id}`)
-          label(for="bookshelfId") Add to Bookshelf
+          label(for="bookshelfId") Add to Bookshelf :
           select(name="bookshelfId" value=`${bookshelves[0].id}` required)
             each bookshelf in bookshelves
               option(value=bookshelf.id) #{bookshelf.name}
-          button(type="submit") Add
+          button(class="addMangaBtn" type="submit") ➕
       if locals.authenticated
         form(id="addReviewForm" class="addReviewForm" method="post" action=`/api/reviews`)
           input(type="hidden" name="_csrf" value=csrfToken)

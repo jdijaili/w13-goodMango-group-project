@@ -3,6 +3,7 @@ extends layout.pug
 block head
   title=title
   link(rel='stylesheet' href='/stylesheets/reset.css')
+  link(rel='stylesheet' href='/stylesheets/navbar.css')
   link(rel='stylesheet' href='/stylesheets/bookshelves.css')
 
 block content
@@ -21,11 +22,14 @@ block content
 
     div(id="bookshelf-display")
         ul(id="manga-list")
+            if !bookshelves.length
+                h1(id="NoBookshelfMsg") No Bookshleves to display.
+            else
             each bookshelf in bookshelves
                 div(id=`bookshelf-container-${bookshelf.id}` class="bookshelf-container")
                     h2(id=`bookshelfName-${bookshelf.id}`)= bookshelf.name
                     div(id=`bookshelfBox-${id=bookshelf.id}`).bookshelfBox
-                        button(id=`edit-${bookshelf.id}` name=`${bookshelf.id}`).edit-btn Edit Bookshelf
+                        button(id=`edit-${bookshelf.id}` name=`${bookshelf.id}`).edit-btn edit
                         button(class="delete-button" id=`delete-${bookshelf.id}` name=`${bookshelf.id}`).delete-btn delete
                         input(type="text" id=`input-${bookshelf.id}` style="display: none")
                         button(type="submit" id=`submit-${bookshelf.id}` name=`${bookshelf.id}` style="display: none").submit-btn Submit
@@ -45,8 +49,8 @@ block content
                                     label(class="year-label" for="manga-year") Release Year
                                     p= manga.year
                                 div
-                                    button(class="delete-btn" id=`delete-${manga.id}` name=manga.id value=bookshelf.id).manga-delete-btn delete
-                                        img(class="Ximg" src='../images/X.png')
+                                    button(class="delete-btn" id=`delete-${manga.id}` name=manga.id value=bookshelf.id).manga-delete-btn ❌
+                                        //- img(class="Ximg" src='../images/X.png')
 
     script(src='/javascripts/add-bookshelf.js' type='module')
     script(src='/javascripts/edit-bookshelf.js' type='module')
