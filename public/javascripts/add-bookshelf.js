@@ -18,6 +18,9 @@ window.addEventListener('DOMContentLoaded', e => {
 
     const submitBtn = document.getElementById("submit-button");
     submitBtn.addEventListener('click', async (e) => {
+        // Gets rid of the "No Bookshelves to display." message when you create a bookshelf
+        // const noBkShlfMsg = document.getElementById("NoBookshelfMsg");
+        // noBkShlfMsg.style.display = "none";
         e.preventDefault();
 
         let val = document.getElementById('add-bookshelf').value;
@@ -31,6 +34,7 @@ window.addEventListener('DOMContentLoaded', e => {
         const data = await res.json();
 
         if (data.message === "Create Successful") {
+
             // create a new container div
             const bookshelfContainerDiv = document.createElement("div");
             bookshelfContainerDiv.setAttribute("id", `bookshelf-container-${data.bookshelfId}`)

@@ -1,3 +1,6 @@
+body::-webkit-scrollbar {
+  display: none;
+}
 
 body, html {
   background: url("https://www.desktopbackground.org/download/2560x960/2010/11/12/109699_anime-silhouette_2560x1024_h.jpg") no-repeat center center fixed;
@@ -8,6 +11,7 @@ body, html {
 }
 
 .reviews {
+  border: 2px black solid;
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 10px;
@@ -23,6 +27,7 @@ body, html {
 }
 
 .genre-label {
+  margin-top: 5%;
   padding-top: 20px;
   padding-bottom: 10px;
 }
@@ -56,6 +61,7 @@ body, html {
 }
 
 .genreList ul {
+  margin-bottom: 40px;
   display: flex;
   list-style-type: none;
 }
@@ -75,11 +81,11 @@ body, html {
 
 .description {
   padding-left: 25px;
-  padding-right: 75px;
+  padding-right: 200px;
 }
 
 .addToBookshelfForm {
-  padding-top: 50px;
+  padding-top: 25px;
 }
 
 select, button {
@@ -92,11 +98,10 @@ select, button {
 
 textarea {
   resize: none;
-  padding: 10px;
   margin-top: 10px;
   margin-bottom: 5px;
-  padding-bottom: 5%;
-  padding-right: 50%;
+  height: 15%;
+  width: 69%;
 }
 
 .labels {
@@ -110,6 +115,7 @@ textarea {
   padding-left: 5px;
   padding-right: 5px;
   margin-left: 63.5%;
+  margin-bottom: 40px;
   border: none;
   background: none;
 }
@@ -127,7 +133,7 @@ textarea {
 }
 
 .reviewDate {
-  margin-left: 60.2%;
+  margin-left: 55.2%;
 }
 
 .reviewBox {
@@ -165,7 +171,8 @@ textarea {
 }
 
 .deleteReview {
-  padding-left: 0;
+  margin: 7px;
+  padding-left: 5px;
 }
 
 .deleteReview:hover {
@@ -223,8 +230,12 @@ textarea {
 
 @media all and (orientation:landscape) {
 
-  .deleteReview {
-    padding-left: 0;
+  .reviews {
+    border: 2px black solid;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 100px;
+    background-color: rgba(206, 206, 206, 0.616)
   }
 
   html {
@@ -252,7 +263,7 @@ textarea {
   }
 
   .reviewDate {
-    margin-left: 60.2%;
+    margin-left: 55.2%;
   }
 
   body, html {
@@ -268,11 +279,10 @@ textarea {
 
   textarea {
     resize: none;
-    padding: 10px;
     margin-top: 10px;
     margin-bottom: 5px;
-    padding-bottom: 5%;
-    padding-right: 50%;
+    height: 15%;
+    width: 69%;
   }
 
   .submitReview {

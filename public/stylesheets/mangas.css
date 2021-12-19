@@ -1,6 +1,6 @@
-/* li {
-  padding-top: 10%;
-} for fixed navbar */
+body::-webkit-scrollbar {
+  display: none;
+}
 
 html {
   background: url("https://www.desktopbackground.org/download/2560x960/2010/11/12/109699_anime-silhouette_2560x1024_h.jpg") no-repeat center center fixed;

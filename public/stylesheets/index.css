@@ -5,3 +5,7 @@ h1 {
 html {
     background-color: rgba(128, 128, 128, 0.418);
 }
+
+body::-webkit-scrollbar {
+    display: none;
+  }

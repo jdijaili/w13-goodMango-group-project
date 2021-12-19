@@ -21,11 +21,14 @@ block content
 
     div(id="bookshelf-display")
         ul(id="manga-list")
+            if !bookshelves.length
+                h1(id="NoBookshelfMsg") No Bookshleves to display.
+            else
             each bookshelf in bookshelves
                 div(id=`bookshelf-container-${bookshelf.id}` class="bookshelf-container")
                     h2(id=`bookshelfName-${bookshelf.id}`)= bookshelf.name
                     div(id=`bookshelfBox-${id=bookshelf.id}`).bookshelfBox
-                        button(id=`edit-${bookshelf.id}` name=`${bookshelf.id}`).edit-btn Edit Bookshelf
+                        button(id=`edit-${bookshelf.id}` name=`${bookshelf.id}`).edit-btn edit
                         button(class="delete-button" id=`delete-${bookshelf.id}` name=`${bookshelf.id}`).delete-btn delete
                         input(type="text" id=`input-${bookshelf.id}` style="display: none")
                         button(type="submit" id=`submit-${bookshelf.id}` name=`${bookshelf.id}` style="display: none").submit-btn Submit

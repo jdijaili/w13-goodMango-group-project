@@ -1,3 +1,6 @@
+body::-webkit-scrollbar {
+    display: none;
+  }
 
 #form {
     display: none;
@@ -22,6 +25,7 @@ h1 {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 45pt;
     padding-top: 4%;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.274);
     padding-bottom: 4%;
     display: flex;
     justify-content: center;
@@ -29,9 +33,11 @@ h1 {
 }
 
 h2 {
-    font-size: 20pt;
+    font-size: 28pt;
     font-weight: bold;
-    color: rgb(255, 94, 0);
+    color: black;
+    margin-top: 45px;
+    border-bottom: black solid 1px;
 }
 
 .label {
@@ -46,10 +52,10 @@ h2 {
 }
 
 #manga-container {
-    background-color: rgba(245, 245, 245, 0.418);
+    background-color: rgba(245, 245, 245, 0.63);
     padding-top: 75px;
     padding-bottom: 45px;
-    border-top: 2px black solid;
+    border: 2px rgb(248, 66, 0) solid;
 }
 
 .manga-box {
@@ -61,18 +67,24 @@ h2 {
 }
 
 #manga-image {
-    max-width: 110px;
-    max-height: 160px;
-    padding-top: 10px;
+    box-shadow: 0px 0px 6px 5px rgba(0, 0, 0, 0.568);
+    max-width: 130px;
+    max-height: 180px;
+    margin-top: 20px;
+    margin-left: 100px;
+    margin-bottom: 20px;
+
 }
 
 .edit-btn {
-    font-size: 12pt;
+    font-size: 10pt;
+    color: white;
+    background-color: red;
 }
 
 .edit-btn:hover {
     cursor: pointer;
-    color: rgb(248, 66, 0);
+    transform: scale(1.1);
 }
 
 .delete-button {
@@ -83,17 +95,21 @@ h2 {
 
 .delete-btn {
     margin-left: 10px;
-    margin-top: 25px;
+    margin-top: 10px;
     margin-bottom: 25px;
-    padding-top: 25px;
+    padding-top: 0;
     padding-bottom: 25px;
     border: none;
     background: none;
 }
 
+.delete-btn:hover {
+    color: rgba(245, 8, 8, 0.979);
+}
+
 .delete-button:hover {
     cursor: pointer;
-    color: rgb(248, 66, 0);
+    animation: shake 0.2s;
 }
 
 .Ximg {
@@ -102,8 +118,15 @@ h2 {
     width: 7%;
 }
 
+.XMangaimg {
+    margin-top: 10px;
+    height: 1%;
+    width: 1%;
+}
+
 .manga-delete-btn {
-    font-size: 12pt;
+    margin-top: 105px;
+    font-size: 13pt;
 }
 
 .manga-delete-btn:hover {
@@ -131,11 +154,12 @@ h2 {
 
 p {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 13pt;
+    color: rgb(248, 66, 0);
+    font-size: 14.5pt;
     margin-left: 40px;
     margin-right: 40px;
     padding-right: 0;
-    margin-top: 25px;
+    margin-top: 50px;
     margin-bottom: 25px;
     padding-top: 25px;
     padding-bottom: 25px;
@@ -143,6 +167,7 @@ p {
 
 .title-label, .author-label, .year-label {
     font-weight: bold;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.233);
     font-size: 16pt;
     margin-left: 40px;
     text-decoration: 2px underline;
@@ -152,6 +177,7 @@ p {
     padding-bottom: 2.5%;
     border: none;
     background: none;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.37);
     font-size: 22pt;
     margin-left: 44.5%;
 }
