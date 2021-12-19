@@ -3,6 +3,14 @@ body, html {
   background-color: rgba(128, 128, 128, 0.281);
 }
 
+html {
+  background: url("https://www.desktopbackground.org/download/2560x960/2010/11/12/109699_anime-silhouette_2560x1024_h.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 .alert-danger {
   color: red;
 }

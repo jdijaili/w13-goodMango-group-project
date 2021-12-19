@@ -1,6 +1,18 @@
+/* li {
+  padding-top: 10%;
+} for fixed navbar */
+
+html {
+  background: url("https://www.desktopbackground.org/download/2560x960/2010/11/12/109699_anime-silhouette_2560x1024_h.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 .mangas-container {
   /* The image used */
-  background-color: rgba(128, 128, 128, 0.281);
+  /* background-color: rgba(128, 128, 128, 0.281); */
   /* Full height */
   height: 100%;
   /* Center and scale the image nicely */
@@ -82,6 +94,13 @@
 }
 
 @media all and (orientation:landscape) {
+  html {
+    background: url("https://www.desktopbackground.org/download/2560x960/2010/11/12/109699_anime-silhouette_2560x1024_h.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
 
   .manga-box li{
     font-weight: bold;
