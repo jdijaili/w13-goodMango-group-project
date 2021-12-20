@@ -1,6 +1,5 @@
 window.addEventListener('DOMContentLoaded', e => {
     const deletebtns = document.querySelectorAll(".manga-delete-btn");
-    console.log(deletebtns)
 
     for (let i = 0; i < deletebtns.length; i++) {
         const btn = deletebtns[i];
@@ -17,10 +16,12 @@ window.addEventListener('DOMContentLoaded', e => {
 
             if (data.message === "Delete Successful") {
                 const mangaBox = document.getElementById(`manga-box-${mangaId}`);
-                console.log(mangaBox);
-
-
                 mangaBox.remove();
+
+                const mangaContainer = document.getElementById(`manga-container-${bookshelfId}`);
+                if (!mangaContainer.hasChildNodes()) {
+                    mangaContainer.remove();
+                }
             }
         })
 

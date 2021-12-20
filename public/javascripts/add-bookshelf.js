@@ -18,6 +18,9 @@ window.addEventListener('DOMContentLoaded', e => {
 
     const submitBtn = document.getElementById("submit-button");
     submitBtn.addEventListener('click', async (e) => {
+        // Gets rid of the "No Bookshelves to display." message when you create a bookshelf
+        // const noBkShlfMsg = document.getElementById("NoBookshelfMsg");
+        // noBkShlfMsg.style.display = "none";
         e.preventDefault();
 
         let val = document.getElementById('add-bookshelf').value;
@@ -34,7 +37,7 @@ window.addEventListener('DOMContentLoaded', e => {
             // create a new container div
             const bookshelfContainerDiv = document.createElement("div");
             bookshelfContainerDiv.setAttribute("id", `bookshelf-container-${data.bookshelfId}`)
-            bookshelfContainerDiv.style.borderBottom = "1px solid black"
+            // bookshelfContainerDiv.style.borderBottom = "1px solid black"
 
             // create a new h2 for the bookshelf title
             const bookshelfTitleH2 = document.createElement("h2");
@@ -58,6 +61,7 @@ window.addEventListener('DOMContentLoaded', e => {
             // create edit input and hide it at the time of creation
             const input = document.createElement('input');
             input.setAttribute("id", `input-${data.bookshelfId}`);
+            input.setAttribute("class", "input-field");
             input.style.display = "none";
 
             // create submit button and hide it at the time of creation
@@ -71,25 +75,30 @@ window.addEventListener('DOMContentLoaded', e => {
             // create edit button and hide it at the time of creation
             const editBtn = document.createElement('button');
             editBtn.setAttribute("id", `edit-${data.bookshelfId}`);
+            editBtn.setAttribute("class", "edit-btn");
             editBtn.setAttribute("name", `${data.bookshelfId}`);
-            editBtn.innerText = 'Edit Bookshelf';
+            editBtn.innerText = 'Edit';
 
             // create delete button and hide it at the time of creation
             const delteBtn = document.createElement('button');
             delteBtn.setAttribute("id", `delete-${data.bookshelfId}`);
+            delteBtn.setAttribute("class", "delete-btn");
             delteBtn.setAttribute("name", `${data.bookshelfId}`);
             delteBtn.setAttribute("class", "delete-btn");
-            delteBtn.innerText = "Delete Bookshelf";
+            delteBtn.innerText = "Delete";
 
 
             const bookshelfId = data.bookshelfId;
 
             // add event listener to the newly created bookshelf so that it can have the dynamic edit functionality as well
             editBtn.addEventListener("click", async (e) => {
-
+                input.value = bookshelfTitleH2.innerText;
+                input.setAttribute("class", "input-field");
                 input.style.display = "block";
 
                 submitBtn.style.display = "inline";
+
+                delteBtn.style.display = "none";
 
                 editBtn.style.display = "none";
 
@@ -115,7 +124,7 @@ window.addEventListener('DOMContentLoaded', e => {
                         input.style.display = "none";
                         submitBtn.style.display = "none";
 
-                        editBtn.style.display = "block"
+                        editBtn.style.display = "inline"
                         delteBtn.style.display = "inline";
                     }
                 });

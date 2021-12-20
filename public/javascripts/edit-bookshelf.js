@@ -9,14 +9,19 @@ window.addEventListener('DOMContentLoaded', e => {
             const bookshelfId = e.target.name;
 
             const input = document.getElementById(`input-${bookshelfId}`);
-
+            input.value = document.getElementById(`bookshelfName-${bookshelfId}`).innerText;
+            input.setAttribute("class", "input-field");
             input.style.display = "block";
 
             const submitBtn = document.getElementById(`submit-${bookshelfId}`);
 
             submitBtn.style.display = "block";
 
+            const delteBtn = document.getElementById(`delete-${bookshelfId}`);
+
             btn.style.display = "none";
+            delteBtn.style.display = "none";
+
         })
 
     }
@@ -46,6 +51,7 @@ window.addEventListener('DOMContentLoaded', e => {
                 bookshelf.innerText = val;
 
                 const inputEle = document.getElementById(`input-${bookshelfId}`);
+                inputEle.setAttribute("class", 'input-field');
                 inputEle.style.display = "none";
 
                 const submitBtnEle = document.getElementById(`submit-${bookshelfId}`);
@@ -53,6 +59,9 @@ window.addEventListener('DOMContentLoaded', e => {
 
                 const editBtnEle = document.getElementById(`edit-${bookshelfId}`);
                 editBtnEle.style.display = "inline";
+
+                const deleteBtnEle = document.getElementById(`delete-${bookshelfId}`);
+                deleteBtnEle.style.display = "inline";
             }
         })
     }

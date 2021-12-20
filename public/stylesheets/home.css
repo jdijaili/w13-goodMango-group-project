@@ -1,27 +1,6 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-}
-
-.img-zoom-container {
-  position: relative;
-}
-
-.img-zoom-lens {
-  position: absolute;
-  border: 1px solid #d4d4d4;
-  /*set the size of the lens:*/
-  width: 100px;
-  height: 100px;
-}
-
-.zoom-effect {
-  border: 1px solid #d4d4d4;
-  /*set the size of the result div:*/
-  width: 300px;
-  height: 300px;
-}
+body::-webkit-scrollbar {
+    display: none;
+  }
 
 .video {
     /* display: flex;
@@ -64,4 +43,277 @@ h1 {
 
 body, html {
     height: 100%;
+    margin: 0;
+    padding: 0;
+    height: 100%
+  }
+
+
+
+
+  /* // scrolling text animation */
+
+  #scroll-container {
+    overflow: hidden;
+  }
+
+  #scroll-text {
+    transform: translateY(10%);
+    color: rgb(214, 57, 0);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 50pt;
+    font-weight: bolder;
+    margin-top: 10px;
+    text-align: right;
+    /* animation properties */
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+
+    -moz-animation: my-animation 15s linear infinite;
+    -webkit-animation: my-animation 15s linear infinite;
+    animation: my-animation 12s linear infinite;
+    animation-iteration-count: 1;
+  }
+
+  /* for Firefox */
+  @-moz-keyframes my-animation {
+    from { -moz-transform: translateX(100%); }
+    to { -moz-transform: translateX(-100%); }
+  }
+
+  /* for Chrome */
+  @-webkit-keyframes my-animation {
+    from { -webkit-transform: translateX(100%); }
+    to { -webkit-transform: translateX(-100%); }
+  }
+
+  @keyframes my-animation {
+    from {
+      -moz-transform: translateX(100%);
+      -webkit-transform: translateX(100%);
+      transform: translateX(100%);
+    }
+    to {
+      -moz-transform: translateX(-100%);
+      -webkit-transform: translateX(-100%);
+      transform: translateX(-100%);
+    }
+  }
+
+  .logo {
+    margin: 0;
+    width: 95px;
+    height: 90px;
+}
+
+.greeting-name {
+    color: rgb(248, 66, 0);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 16pt;
+    margin-right: 2%;
+}
+
+.welcome {
+    display: flex;
+    align-items: flex-end;
+}
+
+.welcome-greeting {
+    color: white;
+    font-size: 16pt;
+    margin-right: 5px;
+    margin-left: 10px;
+}
+
+.navbar {
+    box-shadow: 0px 0px 10px 6px rgba(248, 66, 0, 0.911);
+    background: #3e434e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.home {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    color: rgb(248, 66, 0);
+    font-size: 20pt;
+    text-decoration: none;
+    /* padding-top: 10px; */
+    /* padding-bottom: 10px; */
+    padding: 0px 15px;
+}
+
+.greeting {
+    margin-top: 8px;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding: 0px 15px;
+}
+
+.bookshelves-button {
+    margin-top: 8px;
+    font-size: 16px;
+    color: white;
+    padding: 0px 15px;
+    display: inline-block;
+    align-content: center;
+    text-decoration: none;
+}
+
+.bookshelves-button::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 4px;
+    background: rgb(248, 66, 0);
+    transition: width .3s;
+}
+
+.bookshelves-button:hover::after {
+    width: 100%;
+}
+
+.mangas-button {
+    margin-top: 8px;
+    font-size: 16px;
+    color: white;
+    padding: 0px 15px;
+    display: inline-block;
+    align-content: center;
+    text-decoration: none;
+}
+
+.mangas-button::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 4px;
+    background: rgb(248, 66, 0);
+    transition: width .3s;
+}
+
+.mangas-button:hover::after {
+    width: 100%;
+}
+
+.logout-button {
+    color: white;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.logout-button::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 4px;
+    background: rgb(248, 66, 0);
+    transition: width .3s;
+}
+
+.logout-button:hover::after {
+    width: 100%;
+}
+
+#demo-button {
+    font-size: 16pt;
+    padding-left: 1%;
+    text-decoration: none;
+    margin-top: 4.5px;
+    color: rgb(248, 66, 0);
+    display: flex;
+    justify-content: flex-end;
+}
+
+#demo-button:hover {
+    text-shadow: 3px 3px 20px rgba(0, 0, 0, 0.397);
+    color: white;
+    transform: scale(1.2);
+
+}
+
+.login-button, .signup-button {
+    text-decoration: none;
+    margin-top: 7px;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding: 0px 15px;
+}
+
+.signup-button::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px;
+    background: rgb(248, 66, 0);
+    transition: width .3s;
+}
+
+.signup-button:hover::after {
+    width: 100%;
+}
+
+.login-button::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px;
+    background: rgb(248, 66, 0);
+    transition: width .3s;
+}
+
+.login-button:hover::after {
+    width: 100%;
+}
+
+.logout-button {
+    margin-top: 8px;
+    font-size: 14pt;
+    /* margin: 0; */
+    border: none;
+    background:none;
+}
+
+.logout-button:hover {
+    cursor: pointer;
+    color: white;
+    transform: scale(1.2);
+}
+
+.login-button:hover {
+    cursor: pointer;
+    color: white;
+    transform: scale(1.2);
+}
+
+.signup-button:hover {
+    cursor: pointer;
+    color: white;
+    transform: scale(1.2);
+}
+
+
+/* home "GoodMangos" animation */
+.home:hover {
+    animation: shake 0.5s;
+  }
+
+
+  @keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    /* 30% { transform: translate(3px, 2px) rotate(0deg); } */
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    /* 70% { transform: translate(3px, 1px) rotate(-1deg); } */
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    /* 90% { transform: translate(1px, 2px) rotate(0deg); } */
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
   }

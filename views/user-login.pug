@@ -2,6 +2,7 @@ extends layout.pug
 include utils.pug
 block head
     link(rel='stylesheet' href='/stylesheets/user-forms.css')
+    link(rel='stylesheet' href='/stylesheets/navbar.css')
 block content
     form(action="/users/login" method="post" class="form-container")
         input(type="hidden" name="_csrf" value=csrfToken)

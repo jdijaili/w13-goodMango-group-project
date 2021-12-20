@@ -7,7 +7,6 @@ window.addEventListener('DOMContentLoaded', e => {
     e.preventDefault();
     const form = document.getElementById("addReviewForm");
 
-
     let reviewValue = document.getElementById('review').value;
     let mangaId = document.getElementById('reviewMangaId').value;
     let userId = document.getElementById('reviewUserId').value;
@@ -19,12 +18,18 @@ window.addEventListener('DOMContentLoaded', e => {
     })
 
     const data = await res.json();
+
     if (data.message === "Create Successful") {
-      form.reset()
+      // update review counter
+      const reviewCount = document.getElementById("review-counter");
+      reviewCount.innerText = parseInt(reviewCount.innerText, 10) + 1;
+
+      form.reset();
+
       // If the review was created, create the review html elements and show it on the screen
       const editReviewBtn = document.createElement("button");
       editReviewBtn.innerText = "edit";
-
+      editReviewBtn.setAttribute("class", "editReview");
       editReviewBtn.setAttribute("type", "submit");
 
       const reviewsContainer = document.getElementById("reviewsContainer");
@@ -35,6 +40,50 @@ window.addEventListener('DOMContentLoaded', e => {
       reviewEle.setAttribute("class", "actualReview");
       reviewEle.setAttribute("id", `review-${data.review.id}`);
       reviewEle.innerText = data.review.review;
+
+      const userEle = document.createElement("p");
+      userEle.setAttribute("class", "reviewUsernameDate");
+      userEle.innerText = data.user.username;
+
+      const updatedAtEle = document.createElement("span");
+      updatedAtEle.setAttribute("class", "reviewDate");
+
+      const reviewDate = new Date(data.review.updatedAt);
+
+      updatedAtEle.innerText = reviewDate.toLocaleString();
+      // create delete review button
+      const deleteReviewBtn = document.createElement("button");
+      deleteReviewBtn.setAttribute("name", data.reviewId);
+      deleteReviewBtn.setAttribute("class", "deleteReview");
+      deleteReviewBtn.innerText = "delete";
+
+
+      reviewsContainer.prepend(reviewBoxEle);
+      reviewBoxEle.appendChild(userEle);
+      userEle.appendChild(updatedAtEle);
+      reviewBoxEle.appendChild(reviewEle);
+      reviewBoxEle.appendChild(editReviewBtn);
+      reviewBoxEle.appendChild(deleteReviewBtn);
+
+      // event listener for delete review button
+      deleteReviewBtn.addEventListener('click', async(e) => {
+        const reviewId = e.target.name;
+        const res = await fetch(`/api/reviews/${reviewId}`, {
+          method: "DELETE"
+        });
+
+        const data = await res.json();
+
+        if (data.message === "Delete Successful") {
+          // update review count
+          const reviewCount = document.getElementById("review-counter");
+          reviewCount.innerText = parseInt(reviewCount.innerText, 10) - 1;
+          reviewBoxEle.remove();
+          editReviewBtn.remove();
+          deleteReviewBtn.remove();
+        }
+      });
+
 
       // On the edit review button
       editReviewBtn.addEventListener("click", async (e) => {
@@ -51,6 +100,7 @@ window.addEventListener('DOMContentLoaded', e => {
 
         const submitEditBtn = document.createElement("button");
         submitEditBtn.setAttribute("type", "submit");
+        submitEditBtn.setAttribute("class", "submitEditReview");
         submitEditBtn.innerText = "Submit"
 
         const reviewId = data.reviewId;
@@ -67,16 +117,15 @@ window.addEventListener('DOMContentLoaded', e => {
           if (data.message === "Edit Successful") {
             theReview.innerText = data.review;
             editForm.remove();
-            editReviewBtn.style.display = "block";
-
+            editReviewBtn.style.display = "inline-block";
+            deleteReviewBtn.style.display = "inline-block";
           }
       });
-
 
         const cancelEditBtn = document.createElement("button");
         cancelEditBtn.setAttribute("class", "cancelEditReview");
         cancelEditBtn.setAttribute("name", data.reviewId);
-        cancelEditBtn.innerText = "Cancel"
+        cancelEditBtn.innerText = "Cancel";
 
         // cancel edit review button
         cancelEditBtn.addEventListener("click", async (e) => {
@@ -86,9 +135,9 @@ window.addEventListener('DOMContentLoaded', e => {
           const editFormDelete = document.getElementById(`editForm-${data.reviewId}`);
 
           editFormDelete.remove();
-          editReviewBtn.style.display = "block"
+          editReviewBtn.style.display = "inline-block"
+          deleteReviewBtn.style.display = "inline-block";
         })
-
 
         editForm.appendChild(editReviewArea);
         editForm.appendChild(submitEditBtn);
@@ -96,47 +145,8 @@ window.addEventListener('DOMContentLoaded', e => {
         reviewBoxEle.appendChild(editForm);
 
         editReviewBtn.style.display = "none";
+        deleteReviewBtn.style.display = "none";
       })
-
-      const userEle = document.createElement("p");
-      userEle.setAttribute("class", "reviewUsernameDate");
-      userEle.innerText = data.user.username;
-
-      const updatedAtEle = document.createElement("span");
-      updatedAtEle.setAttribute("class", "reviewDate");
-
-      const reviewDate = new Date(data.review.updatedAt);
-
-      updatedAtEle.innerText = reviewDate.toLocaleString();
-
-
-      // create delete review button
-      const deleteReviewBtn = document.createElement("button");
-      deleteReviewBtn.setAttribute("name", data.reviewId);
-      deleteReviewBtn.innerText = "delete";
-      // event listener for delete review button
-      deleteReviewBtn.addEventListener('click', async(e) => {
-        const reviewId = e.target.name;
-        const res = await fetch(`/api/reviews/${reviewId}`, {
-          method: "DELETE"
-        });
-
-        const data = await res.json();
-
-        if (data.message === "Delete Successful") {
-            reviewBoxEle.remove();
-            editReviewBtn.remove();
-            deleteReviewBtn.remove();
-        }
-      });
-
-
-      reviewsContainer.prepend(reviewBoxEle);
-      reviewBoxEle.appendChild(userEle);
-      userEle.appendChild(updatedAtEle);
-      reviewBoxEle.appendChild(reviewEle);
-      reviewBoxEle.appendChild(editReviewBtn);
-      reviewBoxEle.appendChild(deleteReviewBtn);
     }
   });
 });
