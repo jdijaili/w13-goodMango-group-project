@@ -9,7 +9,7 @@ window.addEventListener('DOMContentLoaded', e => {
             const bookshelfId = e.target.name;
 
             const input = document.getElementById(`input-${bookshelfId}`);
-
+            input.value = document.getElementById(`bookshelfName-${bookshelfId}`).innerText;
             input.style.display = "block";
 
             const submitBtn = document.getElementById(`submit-${bookshelfId}`);

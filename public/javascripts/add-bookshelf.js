@@ -91,7 +91,7 @@ window.addEventListener('DOMContentLoaded', e => {
 
             // add event listener to the newly created bookshelf so that it can have the dynamic edit functionality as well
             editBtn.addEventListener("click", async (e) => {
-
+                input.value = bookshelfTitleH2.innerText;
                 input.style.display = "block";
 
                 submitBtn.style.display = "inline";
