@@ -52,7 +52,7 @@ h2 {
     padding-right: 20%;
 }
 
-#manga-container {
+.manga-container {
     background-color: rgba(245, 245, 245, 0.63);
     padding-top: 75px;
     padding-bottom: 45px;

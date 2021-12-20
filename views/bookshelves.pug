@@ -34,7 +34,7 @@ block content
                         input(type="text" id=`input-${bookshelf.id}` style="display: none")
                         button(type="submit" id=`submit-${bookshelf.id}` name=`${bookshelf.id}` style="display: none").submit-btn Submit
                     if (bookshelf.Mangas.length)
-                        div(id="manga-container")
+                        div(id=`manga-container-${bookshelf.id}` class="manga-container")
                             each manga in bookshelf.Mangas
                                 div(id=`manga-box-${manga.id}` class="manga-box")
                                     div
