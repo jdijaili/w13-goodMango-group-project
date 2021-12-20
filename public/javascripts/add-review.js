@@ -7,7 +7,6 @@ window.addEventListener('DOMContentLoaded', e => {
     e.preventDefault();
     const form = document.getElementById("addReviewForm");
 
-
     let reviewValue = document.getElementById('review').value;
     let mangaId = document.getElementById('reviewMangaId').value;
     let userId = document.getElementById('reviewUserId').value;
@@ -19,12 +18,14 @@ window.addEventListener('DOMContentLoaded', e => {
     })
 
     const data = await res.json();
+
     if (data.message === "Create Successful") {
       // update review counter
       const reviewCount = document.getElementById("review-counter");
       reviewCount.innerText = parseInt(reviewCount.innerText, 10) + 1;
 
-      form.reset()
+      form.reset();
+
       // If the review was created, create the review html elements and show it on the screen
       const editReviewBtn = document.createElement("button");
       editReviewBtn.innerText = "edit";
@@ -118,15 +119,13 @@ window.addEventListener('DOMContentLoaded', e => {
             editForm.remove();
             editReviewBtn.style.display = "inline-block";
             deleteReviewBtn.style.display = "inline-block";
-
           }
       });
-
 
         const cancelEditBtn = document.createElement("button");
         cancelEditBtn.setAttribute("class", "cancelEditReview");
         cancelEditBtn.setAttribute("name", data.reviewId);
-        cancelEditBtn.innerText = "Cancel"
+        cancelEditBtn.innerText = "Cancel";
 
         // cancel edit review button
         cancelEditBtn.addEventListener("click", async (e) => {
@@ -139,7 +138,6 @@ window.addEventListener('DOMContentLoaded', e => {
           editReviewBtn.style.display = "inline-block"
           deleteReviewBtn.style.display = "inline-block";
         })
-
 
         editForm.appendChild(editReviewArea);
         editForm.appendChild(submitEditBtn);
