@@ -61,6 +61,7 @@ window.addEventListener('DOMContentLoaded', e => {
             // create edit input and hide it at the time of creation
             const input = document.createElement('input');
             input.setAttribute("id", `input-${data.bookshelfId}`);
+            input.setAttribute("class", "input-field");
             input.style.display = "none";
 
             // create submit button and hide it at the time of creation

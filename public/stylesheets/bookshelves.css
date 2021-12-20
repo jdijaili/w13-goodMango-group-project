@@ -77,6 +77,12 @@ h2 {
 
 }
 
+.input-field {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: red;
+}
+
 .edit-btn {
     font-size: 10pt;
     color: white;

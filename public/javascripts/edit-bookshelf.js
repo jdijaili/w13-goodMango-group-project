@@ -50,6 +50,7 @@ window.addEventListener('DOMContentLoaded', e => {
                 bookshelf.innerText = val;
 
                 const inputEle = document.getElementById(`input-${bookshelfId}`);
+                inputEle.setAttribute("class", 'input-field');
                 inputEle.style.display = "none";
 
                 const submitBtnEle = document.getElementById(`submit-${bookshelfId}`);
