@@ -29,6 +29,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser(sessionSecret));
 app.use(express.static(path.join(__dirname, 'public')));
+// app.use(cors({ origin: "http://localhost:8080"}))
 // app.use(express.static(path.join(__dirname, 'images')));
 
 
