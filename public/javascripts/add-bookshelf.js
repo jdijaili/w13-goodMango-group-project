@@ -81,7 +81,7 @@ window.addEventListener('DOMContentLoaded', e => {
             // create delete button and hide it at the time of creation
             const delteBtn = document.createElement('button');
             delteBtn.setAttribute("id", `delete-${data.bookshelfId}`);
-            delteBtn.setAttribute("class", "delete-button");
+            delteBtn.setAttribute("class", "delete-btn");
             delteBtn.setAttribute("name", `${data.bookshelfId}`);
             delteBtn.setAttribute("class", "delete-btn");
             delteBtn.innerText = "Delete";
@@ -95,6 +95,8 @@ window.addEventListener('DOMContentLoaded', e => {
                 input.style.display = "block";
 
                 submitBtn.style.display = "inline";
+
+                delteBtn.style.display = "none";
 
                 editBtn.style.display = "none";
 

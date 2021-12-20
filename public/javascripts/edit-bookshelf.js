@@ -16,7 +16,11 @@ window.addEventListener('DOMContentLoaded', e => {
 
             submitBtn.style.display = "block";
 
+            const delteBtn = document.getElementById(`delete-${bookshelfId}`);
+
             btn.style.display = "none";
+            delteBtn.style.display = "none";
+
         })
 
     }
