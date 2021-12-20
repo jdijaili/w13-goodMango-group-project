@@ -119,6 +119,16 @@ h2 {
     /* animation: shake 0.2s; */
 }
 
+.submit-btn {
+    font-size: 12pt;
+    border: none;
+    background: none;
+}
+
+.submit-btn:hover {
+    color: rgba(245, 8, 8, 0.979);
+}
+
 .Ximg {
     padding-left: 5px;
     height: 6%;
