@@ -12,6 +12,7 @@ window.addEventListener('DOMContentLoaded', e => {
             const editForm = document.createElement("form");
             editForm.setAttribute("id", `editForm-${reviewId}`);
 
+            const deleteReviewBtn = document.getElementById(`delete-${reviewId}`);
             const reviewBoxEle = document.getElementById(`box-${reviewId}`)
             const theReview = document.getElementById(`review-${reviewId}`);
 
@@ -45,8 +46,9 @@ window.addEventListener('DOMContentLoaded', e => {
 
                     theReview.innerText = editReviewArea.value;
                     const editFormDelete = document.getElementById(`editForm-${reviewId}`);
+                    btn.style.display = "inline-block";
+                    deleteReviewBtn.style.display = "inline-block";
                     editFormDelete.remove();
-                    btn.style.display = "block";
 
                 }
             });
@@ -61,8 +63,10 @@ window.addEventListener('DOMContentLoaded', e => {
                 e.preventDefault();
                 const editFormDelete = document.getElementById(`editForm-${reviewId}`);
 
+                btn.style.display = "inline-block"
+                deleteReviewBtn.style.display = "inline-block";
                 editFormDelete.remove();
-                btn.style.display = "block"
+
             })
 
             editForm.appendChild(editReviewArea);
@@ -70,6 +74,8 @@ window.addEventListener('DOMContentLoaded', e => {
             editForm.appendChild(cancelEditBtn);
             reviewBoxEle.appendChild(editForm);
 
+
+            deleteReviewBtn.style.display = "none";
             btn.style.display = "none";
         })
 
