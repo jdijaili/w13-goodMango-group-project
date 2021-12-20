@@ -37,7 +37,7 @@ window.addEventListener('DOMContentLoaded', e => {
             // create a new container div
             const bookshelfContainerDiv = document.createElement("div");
             bookshelfContainerDiv.setAttribute("id", `bookshelf-container-${data.bookshelfId}`)
-            bookshelfContainerDiv.style.borderBottom = "1px solid black"
+            // bookshelfContainerDiv.style.borderBottom = "1px solid black"
 
             // create a new h2 for the bookshelf title
             const bookshelfTitleH2 = document.createElement("h2");
@@ -93,6 +93,7 @@ window.addEventListener('DOMContentLoaded', e => {
             // add event listener to the newly created bookshelf so that it can have the dynamic edit functionality as well
             editBtn.addEventListener("click", async (e) => {
                 input.value = bookshelfTitleH2.innerText;
+                input.setAttribute("class", "input-field");
                 input.style.display = "block";
 
                 submitBtn.style.display = "inline";

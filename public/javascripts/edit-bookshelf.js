@@ -10,6 +10,7 @@ window.addEventListener('DOMContentLoaded', e => {
 
             const input = document.getElementById(`input-${bookshelfId}`);
             input.value = document.getElementById(`bookshelfName-${bookshelfId}`).innerText;
+            input.setAttribute("class", "input-field");
             input.style.display = "block";
 
             const submitBtn = document.getElementById(`submit-${bookshelfId}`);
