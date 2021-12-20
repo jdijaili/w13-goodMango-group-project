@@ -1,9 +1,18 @@
+body::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: url("../images/ANIMEBG.png") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 .mangas-container {
-  /* The image used */
-  background-color: rgba(128, 128, 128, 0.281);
-  /* Full height */
   height: 100%;
-  /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -16,6 +25,7 @@
 }
 
 .manga-box li{
+  margin-top: 30%;
   font-weight: bold;
   font-size: 12pt;
   color: default;
@@ -47,6 +57,7 @@
 }
 
 .genre-heading {
+  margin-top: 3.3%;
   background-color: rgba(248, 66, 0, 0.856);
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: bold;
@@ -82,6 +93,13 @@
 }
 
 @media all and (orientation:landscape) {
+  html {
+    background: url("../images/ANIMEBG.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
 
   .manga-box li{
     font-weight: bold;

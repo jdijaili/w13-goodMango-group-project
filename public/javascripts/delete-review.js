@@ -13,11 +13,15 @@ window.addEventListener('DOMContentLoaded', e => {
       const data = await res.json();
 
       if (data.message === "Delete Successful") {
-          const reviewBox = document.getElementById(`box-${reviewId}`);
-          const editReviewBtn = document.getElementById(`edit-${reviewId}`);
-          reviewBox.remove();
-          editReviewBtn.remove();
-          btn.remove();
+        // update review count
+        const reviewCount = document.getElementById("review-counter");
+        reviewCount.innerText = parseInt(reviewCount.innerText, 10) - 1;
+
+        const reviewBox = document.getElementById(`box-${reviewId}`);
+        const editReviewBtn = document.getElementById(`edit-${reviewId}`);
+        reviewBox.remove();
+        editReviewBtn.remove();
+        btn.remove();
       }
     });
   }

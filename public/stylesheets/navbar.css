@@ -1,3 +1,4 @@
+
 .logo {
     margin: 0;
     width: 95px;
@@ -8,7 +9,7 @@
     color: rgb(248, 66, 0);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 16pt;
-    margin-right: 10px;
+    margin-right: 2%;
 }
 
 .welcome {
@@ -24,20 +25,16 @@
 }
 
 .navbar {
+    z-index: 99;
     box-shadow: 0px 0px 10px 6px rgba(248, 66, 0, 0.911);
-    /* position: fixed;
+    background: #3e434e;
+    position: fixed;
+    width: 100%;
     top: 0;
-    width: 100%; */
-    background: #58554f;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: auto;
-}
-
-a {
-    font-size: 16px;
-    text-decoration: none;
 }
 
 .home {
@@ -45,55 +42,160 @@ a {
     font-weight: bold;
     color: rgb(248, 66, 0);
     font-size: 20pt;
+    text-decoration: none;
     /* padding-top: 10px; */
     /* padding-bottom: 10px; */
     padding: 0px 15px;
 }
 
-.bookshelves-button, .mangas-button, .greeting {
+.greeting {
+    margin-top: 8px;
     color: white;
     padding-top: 10px;
     padding-bottom: 10px;
     padding: 0px 15px;
 }
 
-.login-button, .signup-button, #demo-button {
+.bookshelves-button {
+    margin-top: 8px;
+    font-size: 16px;
+    color: white;
+    padding: 0px 15px;
+    display: inline-block;
+    align-content: center;
+    text-decoration: none;
+}
+
+.bookshelves-button::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 4px;
+    background: rgb(248, 66, 0);
+    transition: width .3s;
+}
+
+.bookshelves-button:hover::after {
+    width: 100%;
+}
+
+.mangas-button {
+    margin-top: 8px;
+    font-size: 16px;
+    color: white;
+    padding: 0px 15px;
+    display: inline-block;
+    align-content: center;
+    text-decoration: none;
+}
+
+.mangas-button::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 4px;
+    background: rgb(248, 66, 0);
+    transition: width .3s;
+}
+
+.mangas-button:hover::after {
+    width: 100%;
+}
+
+.logout-button {
+    color: white;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.logout-button::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 4px;
+    background: rgb(248, 66, 0);
+    transition: width .3s;
+}
+
+.logout-button:hover::after {
+    width: 100%;
+}
+
+#demo-button {
+    font-size: 16pt;
+    padding-left: 1%;
+    text-decoration: none;
+    margin-top: 4.5px;
     color: rgb(248, 66, 0);
+    display: flex;
+    justify-content: flex-end;
+}
+
+#demo-button:hover {
+    text-shadow: 3px 3px 20px rgba(0, 0, 0, 0.397);
+    color: white;
+    transform: scale(1.2);
+
+}
+
+.login-button, .signup-button {
+    text-decoration: none;
+    margin-top: 7px;
+    color: white;
     padding-top: 10px;
     padding-bottom: 10px;
     padding: 0px 15px;
 }
 
+.signup-button::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px;
+    background: rgb(248, 66, 0);
+    transition: width .3s;
+}
+
+.signup-button:hover::after {
+    width: 100%;
+}
+
+.login-button::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px;
+    background: rgb(248, 66, 0);
+    transition: width .3s;
+}
+
+.login-button:hover::after {
+    width: 100%;
+}
+
 .logout-button {
-    margin: 0;
+    margin-top: 8px;
+    font-size: 14pt;
+    /* margin: 0; */
     border: none;
     background:none;
 }
 
-.logoutimg {
+.logout-button:hover {
+    cursor: pointer;
     color: white;
-    margin: 0;
-    width: 60px;
-    height: 55px;
-}
-
-.logoutimg:hover {
     transform: scale(1.2);
 }
 
-.bookshelves-button:hover {
-    color: rgb(248, 66, 0);
-}
-
-.mangas-button:hover {
-    color: rgb(248, 66, 0);
-}
-
 .login-button:hover {
+    cursor: pointer;
+    color: white;
     transform: scale(1.2);
 }
 
 .signup-button:hover {
+    cursor: pointer;
+    color: white;
     transform: scale(1.2);
 }
 
@@ -102,6 +204,7 @@ a {
 .home:hover {
     animation: shake 0.5s;
   }
+
 
   @keyframes shake {
     0% { transform: translate(1px, 1px) rotate(0deg); }

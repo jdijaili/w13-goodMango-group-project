@@ -16,7 +16,7 @@ router.post("/", csrfProtection, asyncHandler(async(req, res) => {
       mangaId,
       bookshelfId
     });
-    res.redirect("/bookshelves");
+    res.redirect("/mangas");
 }))
 
 
