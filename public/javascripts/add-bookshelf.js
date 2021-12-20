@@ -74,15 +74,17 @@ window.addEventListener('DOMContentLoaded', e => {
             // create edit button and hide it at the time of creation
             const editBtn = document.createElement('button');
             editBtn.setAttribute("id", `edit-${data.bookshelfId}`);
+            editBtn.setAttribute("class", "edit-btn");
             editBtn.setAttribute("name", `${data.bookshelfId}`);
-            editBtn.innerText = 'Edit Bookshelf';
+            editBtn.innerText = 'Edit';
 
             // create delete button and hide it at the time of creation
             const delteBtn = document.createElement('button');
             delteBtn.setAttribute("id", `delete-${data.bookshelfId}`);
+            delteBtn.setAttribute("class", "delete-button");
             delteBtn.setAttribute("name", `${data.bookshelfId}`);
             delteBtn.setAttribute("class", "delete-btn");
-            delteBtn.innerText = "Delete Bookshelf";
+            delteBtn.innerText = "Delete";
 
 
             const bookshelfId = data.bookshelfId;
@@ -118,7 +120,7 @@ window.addEventListener('DOMContentLoaded', e => {
                         input.style.display = "none";
                         submitBtn.style.display = "none";
 
-                        editBtn.style.display = "block"
+                        editBtn.style.display = "inline"
                         delteBtn.style.display = "inline";
                     }
                 });
