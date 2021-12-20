@@ -57,6 +57,9 @@ window.addEventListener('DOMContentLoaded', e => {
 
                 const editBtnEle = document.getElementById(`edit-${bookshelfId}`);
                 editBtnEle.style.display = "inline";
+
+                const deleteBtnEle = document.getElementById(`delete-${bookshelfId}`);
+                deleteBtnEle.style.display = "inline";
             }
         })
     }
