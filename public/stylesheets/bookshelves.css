@@ -52,7 +52,7 @@ h2 {
     padding-right: 20%;
 }
 
-#manga-container {
+.manga-container {
     background-color: rgba(245, 245, 245, 0.63);
     padding-top: 75px;
     padding-bottom: 45px;
@@ -74,6 +74,12 @@ h2 {
     margin-top: 20px;
     margin-left: 100px;
     margin-bottom: 20px;
+
+}
+
+.input-field {
+    margin-top: 15px;
+    margin-bottom: 15px;
 
 }
 
@@ -111,6 +117,16 @@ h2 {
 .delete-button:hover {
     cursor: pointer;
     /* animation: shake 0.2s; */
+}
+
+.submit-btn {
+    font-size: 12pt;
+    border: none;
+    background: none;
+}
+
+.submit-btn:hover {
+    color: rgba(245, 8, 8, 0.979);
 }
 
 .Ximg {

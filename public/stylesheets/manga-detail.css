@@ -199,11 +199,15 @@ textarea {
 
 .editReview {
   margin-left: 88%;
+  border: none;
+  background: none;
 }
 
 .deleteReview {
   margin: 7px;
   padding-left: 5px;
+  border: none;
+  background: none;
 }
 
 .deleteReview:hover {
@@ -219,8 +223,17 @@ textarea {
 }
 
 
+.submitEditReview, .cancelEditReview {
+  font-size: 12pt;
+  border: none;
+  background: none;
+}
 
-
+.submitEditReview:hover, .cancelEditReview:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  color: rgb(248, 66, 0);
+}
 
 /* Media queries */
 
@@ -323,10 +336,13 @@ textarea {
 
   .editReview {
     margin-left: 76%;
+    justify-content: flex-end;
   }
 
   .deleteReview {
     padding-left: 8px;
+    justify-content: flex-end;
+
   }
 
   .container {
