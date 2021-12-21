@@ -5,23 +5,41 @@ window.addEventListener('DOMContentLoaded', e => {
         const addButton = document.getElementById("add-button")
         addButton.style.display = "none"
 
-        const p = document.createElement('p')
-        p.setAttribute("id", "addShelf-text");
+        const addShelfText = document.createElement('p')
+        addShelfText.setAttribute("id", "addShelf-text");
         const header = document.getElementById("header")
-        header.appendChild(p)
-        p.innerText = 'Add a shelf:'
+        header.appendChild(addShelfText)
+        addShelfText.innerText = 'Add a shelf:'
 
         const form = document.getElementById("form")
         form.style.display = "block"
+
+        const cancelBookshelfBtn = document.createElement("button");
+        cancelBookshelfBtn.setAttribute("id", "cancelAddBookshelf");
+        cancelBookshelfBtn.innerText = "Cancel";
+
+        header.appendChild(cancelBookshelfBtn);
+
+        // cancel add bookshelf button
+        cancelBookshelfBtn.addEventListener("click", async (e) => {
+            form.style.display = "none";
+            addShelfText.style.display = "none";
+            cancelBookshelfBtn.style.display = "none";
+            addButton.style.display = "block";
+        })
 
     })
 
     const submitBtn = document.getElementById("submit-button");
     submitBtn.addEventListener('click', async (e) => {
-        // Gets rid of the "No Bookshelves to display." message when you create a bookshelf
-        // const noBkShlfMsg = document.getElementById("NoBookshelfMsg");
-        // noBkShlfMsg.style.display = "none";
         e.preventDefault();
+
+        // hide add bookshelf elements: add a shelf text and cancel buttons
+        const cancelBookshelfBtn = document.getElementById("cancelAddBookshelf");
+        cancelBookshelfBtn.style.display = "none";
+
+        const addShelfText = document.getElementById("addShelf-text");
+        addShelfText.style.display = "none";
 
         let val = document.getElementById('add-bookshelf').value;
 
@@ -37,7 +55,6 @@ window.addEventListener('DOMContentLoaded', e => {
             // create a new container div
             const bookshelfContainerDiv = document.createElement("div");
             bookshelfContainerDiv.setAttribute("id", `bookshelf-container-${data.bookshelfId}`)
-            // bookshelfContainerDiv.style.borderBottom = "1px solid black"
 
             // create a new h2 for the bookshelf title
             const bookshelfTitleH2 = document.createElement("h2");
@@ -86,7 +103,6 @@ window.addEventListener('DOMContentLoaded', e => {
             delteBtn.setAttribute("name", `${data.bookshelfId}`);
             delteBtn.setAttribute("class", "delete-btn");
             delteBtn.innerText = "Delete";
-
 
             const bookshelfId = data.bookshelfId;
 
@@ -162,6 +178,11 @@ window.addEventListener('DOMContentLoaded', e => {
             addShelfText.style.display = "none";
             submitBtn.style.display = "none";
             addBookshelfBtn.style.display = "block";
+
+            // clear user input after submitting new bookshelf
+            const form = document.getElementById("form");
+            console.log(form);
+            form.reset();
         }
 
     })
