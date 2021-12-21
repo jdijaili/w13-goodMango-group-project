@@ -11,8 +11,12 @@ block content
         h1 My Mangas
     div
         button(id="add-button" type="submit") 🥭 Add Bookshelf 🥭
-    div(id="form")
-        form(action="/bookshelves", method="post")
+    div(class="newBookshelfDiv")
+        p(id="addShelf-text" style="display: none;") Add a shelf:
+    div(class="cancelButtonDiv")
+        button(id="cancelAddBookshelf" style="display: none;") Cancel
+    div
+        form(action="/bookshelves" method="post" id="form")
             label(for="name")
             input(class="label" type="text" name="name" id="add-bookshelf")
             button(type="submit" id="submit-button") add
@@ -22,9 +26,6 @@ block content
 
     div(id="bookshelf-display")
         ul(id="manga-list")
-            if !bookshelves.length
-                h1(id="NoBookshelfMsg") No Bookshleves to display.
-            else
             each bookshelf in bookshelves
                 div(id=`bookshelf-container-${bookshelf.id}` class="bookshelf-container")
                     h2(id=`bookshelfName-${bookshelf.id}`)= bookshelf.name
