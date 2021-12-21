@@ -5,20 +5,25 @@ window.addEventListener('DOMContentLoaded', e => {
         const addButton = document.getElementById("add-button")
         addButton.style.display = "none"
 
-        const addShelfText = document.createElement('p')
-        addShelfText.setAttribute("id", "addShelf-text");
-        const header = document.getElementById("header")
-        header.appendChild(addShelfText)
-        addShelfText.innerText = 'Add a shelf:'
+        // const addShelfText = document.createElement('p')
+        // addShelfText.setAttribute("id", "addShelf-text");
+        // const header = document.getElementById("header")
+        // header.appendChild(addShelfText)
+        // addShelfText.innerText = 'Add a shelf:'
 
         const form = document.getElementById("form")
         form.style.display = "block"
 
-        const cancelBookshelfBtn = document.createElement("button");
-        cancelBookshelfBtn.setAttribute("id", "cancelAddBookshelf");
-        cancelBookshelfBtn.innerText = "Cancel";
+        // const cancelBookshelfBtn = document.createElement("button");
+        // cancelBookshelfBtn.setAttribute("id", "cancelAddBookshelf");
+        // cancelBookshelfBtn.innerText = "Cancel";
 
-        header.appendChild(cancelBookshelfBtn);
+        // header.appendChild(cancelBookshelfBtn);
+
+        const addShelfText = document.getElementById("addShelf-text");
+        addShelfText.style.display = "block";
+        const cancelBookshelfBtn = document.getElementById("cancelAddBookshelf");
+        cancelBookshelfBtn.style.display = "inline-block";
 
         // cancel add bookshelf button
         cancelBookshelfBtn.addEventListener("click", async (e) => {
@@ -26,6 +31,9 @@ window.addEventListener('DOMContentLoaded', e => {
             addShelfText.style.display = "none";
             cancelBookshelfBtn.style.display = "none";
             addButton.style.display = "block";
+
+            // clear user input after submitting new bookshelf
+            form.reset();
         })
 
     })
@@ -142,6 +150,10 @@ window.addEventListener('DOMContentLoaded', e => {
 
                         editBtn.style.display = "inline"
                         delteBtn.style.display = "inline";
+
+                        // clear user input after submitting new bookshelf
+                        const form = document.getElementById("form");
+                        form.reset();
                     }
                 });
 
@@ -181,7 +193,6 @@ window.addEventListener('DOMContentLoaded', e => {
 
             // clear user input after submitting new bookshelf
             const form = document.getElementById("form");
-            console.log(form);
             form.reset();
         }
 

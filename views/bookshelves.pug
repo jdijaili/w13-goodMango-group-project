@@ -11,6 +11,10 @@ block content
         h1 My Mangas
     div
         button(id="add-button" type="submit") 🥭 Add Bookshelf 🥭
+    div(class="newBookshelfDiv")
+        p(id="addShelf-text" style="display: none;") Add a shelf:
+    div(class="cancelButtonDiv")
+        button(id="cancelAddBookshelf" style="display: none;") Cancel
     div
         form(action="/bookshelves" method="post" id="form")
             label(for="name")
