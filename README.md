@@ -25,9 +25,13 @@ Here, you can find your favorite manga: [GoodMango](https://goodmango.herokuapp.
 ![database-schema]
 
 ## Features
-- Sign up/in and guest/demo login  
-- Manga Bookshelves to view a collection of manga
-- Upvote and downvote for specific manga 
+
+- Create an account 
+- Log in/out and demo user
+- Read important details of mangas 
+- Search mangas with different genres 
+- Logged in users can add bookshelves to view a collection of mangas
+- Logged in users can add reviews to mangas
 
 
 ## Installation
