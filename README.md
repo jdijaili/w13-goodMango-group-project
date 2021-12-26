@@ -16,6 +16,10 @@ Here, you can find your favorite manga: [GoodMango](https://goodmango.herokuapp.
 
 ![mangabookshelves]
 
+### Manga Details
+
+![manga-details]
+
 ### Database Schema 
 
 ![database-schema]
@@ -67,4 +71,5 @@ Here, you can find your favorite manga: [GoodMango](https://goodmango.herokuapp.
 [welcome]: ./images/welcome.png
 [browsemangas]: ./images/browsemangas.png
 [mangabookshelves]: ./images/mangabookshelves.png
+[manga-details]: ./images/manga-details.png
 [database-schema]: ./images/database-schema.png
