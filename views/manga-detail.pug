@@ -57,6 +57,7 @@ block content
                   if locals.authenticated && user.id === review.userId
                       button(class="editReview" name=`${review.id}` id=`edit-${review.id}`) edit
                       button(class="deleteReview" name=`${review.id}` id=`delete-${review.id}`) delete
+      div(class="bottom-margin")
   script(src='/javascripts/add-review.js' type='module')
   script(src='/javascripts/edit-review.js' type='module')
   script(src='/javascripts/delete-review.js' type='module')
