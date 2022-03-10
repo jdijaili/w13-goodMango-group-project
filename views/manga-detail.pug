@@ -36,12 +36,13 @@ block content
               option(value=bookshelf.id) #{bookshelf.name}
           button(class="addMangaBtn" type="submit") ➕
       if locals.authenticated
-        form(id="addReviewForm" class="addReviewForm" method="post" action=`/api/reviews`)
-          input(type="hidden" name="_csrf" value=csrfToken)
-          input(type="hidden" id="reviewMangaId" name="mangaId" value=`${manga.id}`)
-          input(type="hidden" id="reviewUserId" name="mangaId" value=`${user.id}`)
-          +field("Add a Review", "review", null, fieldType="textarea", placeholder="Leave a Review...")
-        button(class="submitReview" type="submit") Submit
+        div(class="review-form-div")
+          form(id="addReviewForm" class="addReviewForm" method="post" action=`/api/reviews`)
+            input(type="hidden" name="_csrf" value=csrfToken)
+            input(type="hidden" id="reviewMangaId" name="mangaId" value=`${manga.id}`)
+            input(type="hidden" id="reviewUserId" name="mangaId" value=`${user.id}`)
+            +field("Add a Review", "review", null, fieldType="textarea", placeholder="Leave a Review...")
+            button(class="submitReview" type="submit") Submit
 
       if (reviews.length)
         div(class="reviews")

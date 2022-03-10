@@ -132,7 +132,7 @@ textarea {
   margin-top: 10px;
   margin-bottom: 5px;
   height: 15%;
-  width: 69%;
+  width: 100%;
 }
 
 .labels {
@@ -140,21 +140,32 @@ textarea {
   font-weight: bold;
 }
 
+.review-form-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.review-form-div .form-control {
+  width: 310px;
+}
+
 .submitReview {
-  padding-top: 3px;
-  padding-bottom: 3px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin-left: 63.5%;
-  margin-bottom: 40px;
-  border: none;
-  background: none;
+  margin: 0;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+  transition: all 0.2s ease-in-out;
+  border: 1px solid gray;
+  border-radius: 3px;
+  position: relative;
+  left: 245px;
 }
 
 .submitReview:hover {
   cursor: pointer;
-  transform: scale(1.2);
-  color: rgb(248, 66, 0);
+  background-color: rgb(248, 66, 0);
+  color: white;
 }
 
 #review-heading {
@@ -259,13 +270,13 @@ textarea {
     padding-right: 30%;
   }
 
-  .submitReview {
+  /* .submitReview {
     padding-top: 3px;
     padding-bottom: 3px;
     padding-left: 5px;
     padding-right: 5px;
     margin-left: 43.5%;
-  }
+  } */
 
 }
 
@@ -315,13 +326,13 @@ textarea {
     width: 69%;
   }
 
-  .submitReview {
+  /* .submitReview {
     padding-top: 3px;
     padding-bottom: 3px;
     padding-left: 5px;
     padding-right: 5px;
     margin-left: 64%;
-  }
+  } */
 
 }
 
@@ -352,13 +363,13 @@ textarea {
     height: 100%;
   }
 
-  .submitReview {
+  /* .submitReview {
     padding-top: 3px;
     padding-bottom: 3px;
     padding-left: 5px;
     padding-right: 5px;
     margin-left: 70.5%;
-  }
+  } */
 
   .actualReview {
     padding-right: 0;
