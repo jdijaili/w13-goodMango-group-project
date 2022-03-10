@@ -125,6 +125,7 @@ select, button {
 
 .addReviewForm {
   padding-top: 50px;
+  width: 100%;
 }
 
 textarea {
@@ -148,7 +149,7 @@ textarea {
 }
 
 .review-form-div .form-control {
-  width: 310px;
+  width: 100%;
 }
 
 .submitReview {
@@ -158,14 +159,18 @@ textarea {
   transition: all 0.2s ease-in-out;
   border: 1px solid gray;
   border-radius: 3px;
-  position: relative;
-  left: 245px;
+
 }
 
 .submitReview:hover {
   cursor: pointer;
   background-color: rgb(248, 66, 0);
   color: white;
+}
+
+.submit-review-div {
+  display: flex;
+  justify-content: flex-end;
 }
 
 #review-heading {

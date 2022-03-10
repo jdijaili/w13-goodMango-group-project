@@ -42,7 +42,8 @@ block content
             input(type="hidden" id="reviewMangaId" name="mangaId" value=`${manga.id}`)
             input(type="hidden" id="reviewUserId" name="mangaId" value=`${user.id}`)
             +field("Add a Review", "review", null, fieldType="textarea", placeholder="Leave a Review...")
-            button(class="submitReview" type="submit") Submit
+            div(class="submit-review-div")
+              button(class="submitReview" type="submit") Submit
 
       if (reviews.length)
         div(class="reviews")
