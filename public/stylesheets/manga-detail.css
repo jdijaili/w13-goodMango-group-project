@@ -240,17 +240,33 @@ textarea {
   color: rgb(248, 66, 0);
 }
 
-
-.submitEditReview, .cancelEditReview {
-  font-size: 12pt;
-  border: none;
-  background: none;
+.editReviewForm {
+  display: flex;
+  flex-direction: column;
 }
 
-.submitEditReview:hover, .cancelEditReview:hover {
+.submitCancelDiv {
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+.submitEditReview, .cancelEditReview {
+  padding: 5px 10px;
+  transition: all .2s ease-in-out;
+  border: 1px solid gray;
+  border-radius: 3px;
+}
+
+.cancelEditReview:hover {
   cursor: pointer;
-  transform: scale(1.2);
   color: rgb(248, 66, 0);
+}
+
+.submitEditReview:hover {
+  cursor: pointer;
+  background-color: rgb(248, 66, 0);
+  color: white;
 }
 
 /* Media queries */
