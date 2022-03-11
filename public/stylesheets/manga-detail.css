@@ -220,6 +220,9 @@ textarea {
   padding-bottom: 45px;
 }
 .edit-delete-review-btns button {
+  border: 1px solid gray;
+  border-radius: 3px;
+  padding: 5px 10px;
   transition: all 0.2s ease-in-out;
 }
 
@@ -230,14 +233,14 @@ textarea {
 
 .deleteReview:hover {
   cursor: pointer;
-  transform: scale(1.1);
-  color: rgb(248, 66, 0);
+  background-color: rgb(248, 66, 0);
+  color: white;
 }
 
 .editReview:hover {
   cursor: pointer;
-  transform: scale(1.1);
-  color: rgb(248, 66, 0);
+  background-color: rgb(248, 66, 0);
+  color: white;
 }
 
 .editReviewForm {
@@ -245,7 +248,13 @@ textarea {
   flex-direction: column;
 }
 
+.editReviewArea {
+  width: 100%;
+}
+
 .submitCancelDiv {
+  margin-top: 5px;
+  margin-bottom: 5px;
   display: flex;
   justify-content: flex-end;
 }
@@ -258,12 +267,7 @@ textarea {
   border-radius: 3px;
 }
 
-.cancelEditReview:hover {
-  cursor: pointer;
-  color: rgb(248, 66, 0);
-}
-
-.submitEditReview:hover {
+.cancelEditReview:hover, .submitEditReview:hover {
   cursor: pointer;
   background-color: rgb(248, 66, 0);
   color: white;

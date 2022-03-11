@@ -18,6 +18,7 @@ window.addEventListener('DOMContentLoaded', e => {
             editForm.setAttribute("id", `editForm-${reviewId}`);
 
             const editReviewArea = document.createElement("textarea");
+            editReviewArea.setAttribute("class", "editReviewArea");
             editReviewArea.setAttribute("name", "review");
             editReviewArea.setAttribute("value", theReview.innerText);
             editReviewArea.innerText = theReview.innerText;
