@@ -55,6 +55,7 @@ block content
                   p(class="reviewUsernameDate") #{review.User.username} 🥭 <span class="reviewDate">#{review.updatedAt.toLocaleString()}</span>
                     p(class="actualReview" id=`review-${review.id}`) #{review.review}
                   if locals.authenticated && user.id === review.userId
+                    div(class="edit-delete-review-btns")
                       button(class="editReview" name=`${review.id}` id=`edit-${review.id}`) edit
                       button(class="deleteReview" name=`${review.id}` id=`delete-${review.id}`) delete
       div(class="bottom-margin")

@@ -43,7 +43,6 @@ label {
 .reviews {
   border: 2px rgb(248, 66, 0) solid;
   margin-top: 50px;
-  /* margin-bottom: 1000px; */
   border-radius: 3px;
   padding-left: 20px;
   padding-right: 20px;
@@ -220,29 +219,24 @@ textarea {
   padding-top: 25px;
   padding-bottom: 45px;
 }
-
-.editReview {
-  margin-left: 88%;
-  border: none;
-  background: none;
+.edit-delete-review-btns button {
+  transition: all 0.2s ease-in-out;
 }
 
-.deleteReview {
-  margin: 7px;
-  padding-left: 5px;
-  border: none;
-  background: none;
+.edit-delete-review-btns {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .deleteReview:hover {
   cursor: pointer;
-  transform: scale(1.2);
+  transform: scale(1.1);
   color: rgb(248, 66, 0);
 }
 
 .editReview:hover {
   cursor: pointer;
-  transform: scale(1.2);
+  transform: scale(1.1);
   color: rgb(248, 66, 0);
 }
 
@@ -263,15 +257,6 @@ textarea {
 
 @media all and (orientation:portrait) {
 
-  .editReview {
-    margin-bottom: 25px;
-    margin-left: 65.5%;
-  }
-
-  .deleteReview {
-    padding-left: 0;
-  }
-
   body, html {
     height: 100%;
   }
@@ -283,25 +268,18 @@ textarea {
     padding-right: 30%;
   }
 
-  /* .submitReview {
-    padding-top: 3px;
-    padding-bottom: 3px;
-    padding-left: 5px;
-    padding-right: 5px;
-    margin-left: 43.5%;
-  } */
 
 }
 
 @media all and (orientation:landscape) {
 
-  /* .reviews {
+  .reviews {
     border: 2px rgb(248, 66, 0) solid;
     padding-left: 20px;
     padding-right: 20px;
     margin-bottom: 100px;
     background-color: rgba(206, 206, 206, 0.616)
-  } */
+  }
 
   html {
     background: url("../images/ANIMEBG.png") no-repeat center center fixed;
@@ -314,11 +292,6 @@ textarea {
   body, html {
     background-color: rgba(128, 128, 128, 0.281);
     height: 100%;
-  }
-
-  .editReview {
-    margin-left: 88%;
-    margin-bottom: 35px;
   }
 
   .reviewDate {
@@ -339,14 +312,6 @@ textarea {
     width: 69%;
   }
 
-  /* .submitReview {
-    padding-top: 3px;
-    padding-bottom: 3px;
-    padding-left: 5px;
-    padding-right: 5px;
-    margin-left: 64%;
-  } */
-
 }
 
 @media screen and (min-width: 500px) and (max-height: 1210px) {
@@ -358,31 +323,12 @@ textarea {
     margin-left: 54%;
   }
 
-  .editReview {
-    margin-left: 76%;
-    justify-content: flex-end;
-  }
-
-  .deleteReview {
-    padding-left: 8px;
-    justify-content: flex-end;
-
-  }
-
   .container {
     display: flex;
     justify-content: center;
     padding: 100px 300px;
     height: 100%;
   }
-
-  /* .submitReview {
-    padding-top: 3px;
-    padding-bottom: 3px;
-    padding-left: 5px;
-    padding-right: 5px;
-    margin-left: 70.5%;
-  } */
 
   .actualReview {
     padding-right: 0;
