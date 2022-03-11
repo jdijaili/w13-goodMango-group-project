@@ -97,6 +97,7 @@ window.addEventListener('DOMContentLoaded', e => {
 
         const theReview = document.getElementById(`review-${data.reviewId}`);
         const editReviewArea = document.createElement("textarea");
+        editReviewArea.setAttribute("class", "editReviewArea");
         editReviewArea.setAttribute("name", "review");
         editReviewArea.setAttribute("value", reviewEle.innerText)
 
@@ -143,9 +144,13 @@ window.addEventListener('DOMContentLoaded', e => {
           deleteReviewBtn.style.display = "inline-block";
         })
 
+        const submitCancelDiv = document.createElement("div");
+        submitCancelDiv.setAttribute("class", "submitCancelDiv");
+
+        submitCancelDiv.appendChild(cancelEditBtn);
+        submitCancelDiv.appendChild(submitEditBtn);
         editForm.appendChild(editReviewArea);
-        editForm.appendChild(submitEditBtn);
-        editForm.appendChild(cancelEditBtn);
+        editForm.appendChild(submitCancelDiv);
         reviewBoxEle.appendChild(editForm);
 
         editReviewBtn.style.display = "none";
