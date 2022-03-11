@@ -58,12 +58,16 @@ window.addEventListener('DOMContentLoaded', e => {
       deleteReviewBtn.innerText = "delete";
 
 
+      const editDeleteReviewDiv = document.createElement("div");
+      editDeleteReviewDiv.setAttribute("class", "edit-delete-review-btns");
+      editDeleteReviewDiv.appendChild(editReviewBtn);
+      editDeleteReviewDiv.appendChild(deleteReviewBtn);
+
       reviewsContainer.prepend(reviewBoxEle);
       reviewBoxEle.appendChild(userEle);
       userEle.appendChild(updatedAtEle);
       reviewBoxEle.appendChild(reviewEle);
-      reviewBoxEle.appendChild(editReviewBtn);
-      reviewBoxEle.appendChild(deleteReviewBtn);
+      reviewBoxEle.appendChild(editDeleteReviewDiv);
 
       // event listener for delete review button
       deleteReviewBtn.addEventListener('click', async(e) => {
