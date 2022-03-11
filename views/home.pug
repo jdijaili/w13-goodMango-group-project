@@ -6,6 +6,14 @@ block head
 block content
     div(class="video")
         iframe(class="anime-video" width="100%" height="100%" src="https://www.youtube.com/embed/gYaJoFGHcNo?controls=0&mute=1&autoplay=1&loop=1", frameborder="0" allowfullscreen)
+    div(class="footer-container")
+        ul(class="footer-list")
+            div(class="dev-container")
+                li(class="dev-text") Vivian Thach
+                li(class="dev-icons")
+                    a(href="https://github.com/bobaguardian")
+                        img(src="", alt="")
+                    a(href="https://www.linkedin.com/in/vivianthach1023/")
     if !locals.authenticated
       div(class="scroll-container")
           div(id="scroll-text") Welcome To GoodMango ! Enjoy your Manga's
