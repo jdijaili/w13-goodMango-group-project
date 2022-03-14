@@ -228,12 +228,13 @@ p {
 }
 
 #add-button {
+    width: 100%;
     padding-bottom: 2.5%;
     border: none;
     background: none;
     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.37);
     font-size: 22pt;
-    margin-left: 44.5%;
+    text-align: center;
 }
 
 #add-button:hover {
@@ -283,6 +284,6 @@ p {
         border: none;
         background: none;
         font-size: 22pt;
-        margin-left: 41.5%;
+        /* margin-left: 41.5%; */
     }
   }
