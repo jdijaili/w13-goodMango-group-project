@@ -222,9 +222,14 @@ p {
     text-decoration: 2px underline;
 }
 
-#add-button {
+.add-bookshelf-div {
     width: 100%;
-    padding-bottom: 2.5%;
+    display: flex;
+    justify-content: center;
+}
+
+#add-button {
+    margin-bottom: 2.5%;
     border: none;
     background: none;
     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.37);
@@ -279,6 +284,5 @@ p {
         border: none;
         background: none;
         font-size: 22pt;
-        /* margin-left: 41.5%; */
     }
   }
