@@ -46,10 +46,8 @@ window.addEventListener('DOMContentLoaded', e => {
             })
 
             const data = await res.json();
-            console.log(data);
             if (data.message === "Edit Successful") {
                 const bookshelf = document.getElementById(`bookshelfName-${bookshelfId}`);
-                console.log(bookshelf)
                 bookshelf.innerText = val;
 
                 const inputEle = document.getElementById(`input-${bookshelfId}`);

@@ -10,7 +10,6 @@ const Manga = require('../db/models/manga')
 
 
 router.post("/", csrfProtection, asyncHandler(async(req, res) => {
-    console.log("Hello?");
     let { mangaId, bookshelfId } = req.body;
     await db.MangaBookshelfJoin.create({
       mangaId,

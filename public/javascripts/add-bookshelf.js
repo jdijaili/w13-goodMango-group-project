@@ -143,14 +143,10 @@ window.addEventListener('DOMContentLoaded', e => {
                         })
 
                         const data = await res.json();
-                        console.log(data)
                         if (data.message === "Edit Successful") {
                             const bookshelf = document.getElementById(`bookshelfName-${data.bookshelfId}`);
-                            console.log(bookshelf);
                             bookshelf.innerText = val;
 
-                            console.log(data.bookshelfId);
-                            console.log(input)
                             input.style.display = "none";
                             submitBtn.style.display = "none";
 
@@ -173,7 +169,6 @@ window.addEventListener('DOMContentLoaded', e => {
 
                 // add event listener to the newly created bookshelf so that it can have the dynamic delete functionality as well
                 delteBtn.addEventListener('click', async (e) => {
-                    console.log("-------------", bookshelfId)
                     const res = await fetch(`/api/bookshelves/${bookshelfId}`, {
                         method: "DELETE"
                     });
@@ -181,7 +176,6 @@ window.addEventListener('DOMContentLoaded', e => {
                     const data = await res.json();
 
                     if (data.message === "Delete Successful") {
-                        console.log(bookshelfId);
                         const bookshelf = document.getElementById(`bookshelfBox-${bookshelfId}`);
 
                         bookshelf.remove();
