@@ -1,6 +1,10 @@
 extends layout
 
+block head
+    link(rel='stylesheet' href='/stylesheets/home.css')
+    link(rel='stylesheet' href='/stylesheets/mangas.css')
+
 block content
-  h1= message
-  h2= error.status
-  pre #{error.stack}
+  div(class="error-message-div")
+    h1(class="error-heading") 404 Not Found
+    h2 Nothing to see here!

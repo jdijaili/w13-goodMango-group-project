@@ -46,6 +46,49 @@ h2 {
     align-content: center;
 }
 
+#add-bookshelf{
+    border-radius: 3px;
+    height: 28px;
+}
+
+
+.add-bookshelf-form {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+}
+
+.submitAddBookshelf,
+.cancelAddBookshelf,
+.editBookshelf,
+.submitEditBookshelf,
+.deleteBookshelf {
+    margin: 0;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    transition: all 0.1s ease-in-out;
+    border: 1px solid gray;
+    border-radius: 3px;
+
+}
+
+.submitAddBookshelf:hover,
+.cancelAddBookshelf:hover,
+.editBookshelf:hover,
+.submitEditBookshelf:hover,
+.deleteBookshelf:hover {
+    cursor: pointer;
+    background-color: rgb(248, 66, 0);
+    color: white;
+}
+
+.editBookshelf,
+.deleteBookshelf {
+    margin-top: 10px;
+}
+
 #bookshelf-display {
     height: 100%;
     padding-left: 20%;
@@ -56,10 +99,14 @@ h2 {
     background-color: rgba(245, 245, 245, 0.63);
     padding-top: 75px;
     padding-bottom: 45px;
-    border: 2px rgb(248, 66, 0) solid;
+    min-width: 750px;
+    margin-bottom: 50px;
+    border-radius: 5px;
+
 }
 
 .manga-box {
+    width: 100%;
     list-style: none;
     padding-left: 20px;
     padding-bottom: 20px;
@@ -72,7 +119,7 @@ h2 {
     max-width: 130px;
     max-height: 180px;
     margin-top: 20px;
-    margin-left: 100px;
+    margin-left: 30px;
     margin-bottom: 20px;
 
 }
@@ -81,23 +128,6 @@ h2 {
     margin-top: 15px;
     margin-bottom: 15px;
 
-}
-
-.edit-btn {
-    font-size: 10pt;
-    color: white;
-    background-color: red;
-}
-
-.edit-btn:hover {
-    cursor: pointer;
-    transform: scale(1.1);
-}
-
-.delete-button {
-    font-size: 12pt;
-    border: none;
-    background: none;
 }
 
 .delete-btn {
@@ -112,11 +142,6 @@ h2 {
 
 .delete-btn:hover {
     color: rgba(245, 8, 8, 0.979);
-}
-
-.delete-button:hover {
-    cursor: pointer;
-    /* animation: shake 0.2s; */
 }
 
 .submit-btn {
@@ -197,13 +222,19 @@ p {
     text-decoration: 2px underline;
 }
 
+.add-bookshelf-div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 #add-button {
-    padding-bottom: 2.5%;
+    margin-bottom: 2.5%;
     border: none;
     background: none;
     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.37);
     font-size: 22pt;
-    margin-left: 44.5%;
+    text-align: center;
 }
 
 #add-button:hover {
@@ -253,6 +284,5 @@ p {
         border: none;
         background: none;
         font-size: 22pt;
-        margin-left: 41.5%;
     }
   }
