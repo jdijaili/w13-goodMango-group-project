@@ -166,13 +166,19 @@ textarea {
   transition: all 0.1s ease-in-out;
   border: 1px solid gray;
   border-radius: 3px;
-
+  z-index: 3;
 }
 
 .submitReview:hover {
   cursor: pointer;
   background-color: rgb(248, 66, 0);
   color: white;
+}
+
+.empty-error-msg {
+  color: red;
+  position: relative;
+  top: -50px;
 }
 
 .submit-review-div {

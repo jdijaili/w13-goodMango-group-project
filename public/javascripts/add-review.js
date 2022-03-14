@@ -159,14 +159,15 @@ window.addEventListener('DOMContentLoaded', e => {
         })
       }
 
-      if (form.childNodes[form.childNodes.length-1].textContent === "Review cannot be empty!") {
+      if (form.childNodes[form.childNodes.length-1].textContent === "* Review cannot be empty!") {
         form.removeChild(form.childNodes[form.childNodes.length-1]);
       }
 
     } else {
       const message = document.createElement("p");
-      message.innerHTML = "Review cannot be empty!"
-      if (form.childNodes[form.childNodes.length-1].textContent !== "Review cannot be empty!") {
+      message.setAttribute("class", "empty-error-msg");
+      message.innerHTML = "* Review cannot be empty!"
+      if (form.childNodes[form.childNodes.length-1].textContent !== "* Review cannot be empty!") {
         form.appendChild(message);
       }
     }
