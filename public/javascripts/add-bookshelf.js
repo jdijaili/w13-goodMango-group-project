@@ -3,6 +3,8 @@ window.addEventListener('DOMContentLoaded', e => {
     addBookshelfBtn.addEventListener("click", (e) => {
 
         const addButton = document.getElementById("add-button")
+        addButton.setAttribute("class", "addBookshelf");
+
         addButton.style.display = "none"
 
         // const addShelfText = document.createElement('p')
@@ -23,6 +25,8 @@ window.addEventListener('DOMContentLoaded', e => {
         const addShelfText = document.getElementById("addShelf-text");
         addShelfText.style.display = "block";
         const cancelBookshelfBtn = document.getElementById("cancelAddBookshelf");
+        cancelBookshelfBtn.setAttribute("class", "cancelAddBookshelf");
+
         cancelBookshelfBtn.style.display = "inline-block";
 
         // cancel add bookshelf button
@@ -39,6 +43,7 @@ window.addEventListener('DOMContentLoaded', e => {
     })
 
     const submitBtn = document.getElementById("submit-button");
+    submitBtn.setAttribute("class", "submitAddBookshelf");
     submitBtn.addEventListener('click', async (e) => {
         e.preventDefault();
 

@@ -12,14 +12,14 @@ block content
     div
         button(id="add-button" type="submit") 🥭 Add Bookshelf 🥭
     div(class="newBookshelfDiv")
-        p(id="addShelf-text" style="display: none;") Add a shelf:
-    div(class="cancelButtonDiv")
-        button(id="cancelAddBookshelf" style="display: none;") Cancel
-    div
+        p(id="addShelf-text" style="display: none;") Add a shelf
+    div(class="add-bookshelf-form")
         form(action="/bookshelves" method="post" id="form")
             label(for="name")
             input(class="label" type="text" name="name" id="add-bookshelf")
-            button(type="submit" id="submit-button") add
+            button(type="submit" id="submit-button") Add
+        div(class="cancelButtonDiv")
+            button(id="cancelAddBookshelf" style="display: none;") Cancel
 
 
 

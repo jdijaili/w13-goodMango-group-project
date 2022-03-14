@@ -46,6 +46,36 @@ h2 {
     align-content: center;
 }
 
+#add-bookshelf{
+    border-radius: 3px;
+    height: 28px;
+}
+
+
+.add-bookshelf-form {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+}
+
+.submitAddBookshelf, .cancelAddBookshelf {
+    margin: 0;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    transition: all 0.1s ease-in-out;
+    border: 1px solid gray;
+    border-radius: 3px;
+
+}
+
+.submitAddBookshelf:hover, .cancelAddBookshelf:hover {
+cursor: pointer;
+background-color: rgb(248, 66, 0);
+color: white;
+}
+
 #bookshelf-display {
     height: 100%;
     padding-left: 20%;
