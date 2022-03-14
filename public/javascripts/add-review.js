@@ -3,7 +3,7 @@ window.addEventListener('DOMContentLoaded', e => {
   const submitReviewBtn = document.querySelector(".submitReview");
 
   // When we submit a review, fetch the api to make POST a new review
-  submitReviewBtn.addEventListener("click", async (e) => {
+  submitReviewBtn?.addEventListener("click", async (e) => {
     e.preventDefault();
     const form = document.getElementById("addReviewForm");
 
