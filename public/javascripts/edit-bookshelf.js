@@ -2,7 +2,7 @@ window.addEventListener('DOMContentLoaded', e => {
     const editBtn = document.querySelectorAll('.edit-btn');
     for (let i = 0; i < editBtn.length; i++) {
         const btn = editBtn[i];
-
+        btn.setAttribute("class", "editBookshelf");
         btn.addEventListener('click', async (e) => {
             e.preventDefault();
 
@@ -30,6 +30,8 @@ window.addEventListener('DOMContentLoaded', e => {
     const submits = document.querySelectorAll('.submit-btn');
     for (let i = 0; i < submits.length; i++) {
         const btn = submits[i];
+        btn.setAttribute("class", "submitEditBookshelf");
+
 
         btn.addEventListener('click', async (e) => {
             e.preventDefault();
