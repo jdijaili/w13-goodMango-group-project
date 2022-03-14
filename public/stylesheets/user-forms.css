@@ -62,7 +62,7 @@ input, textarea {
 }
 
 button {
-  width: 50%;
+  width: 65%;
   border-radius: 3px;
   color:white;
   background-color: rgb(214, 57, 0);
@@ -108,4 +108,21 @@ a:hover {
     width: 70%;
     display: flex;
     justify-content: center;
+}
+
+#demo-button {
+  background-color: rgb(214, 57, 0);
+  color: white;
+  width: 65%;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  border-radius: 3px;
+  padding: 5px 10px;
+  text-align: center;
+  font-size: 14pt;
+}
+
+#demo-button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }
