@@ -229,6 +229,7 @@ textarea {
   border: 1px solid gray;
   border-radius: 3px;
   padding: 5px 10px;
+  z-index: 3;
   transition: all 0.2s ease-in-out;
 }
 
@@ -271,6 +272,8 @@ textarea {
   transition: all .2s ease-in-out;
   border: 1px solid gray;
   border-radius: 3px;
+  z-index: 3;
+
 }
 
 .cancelEditReview:hover, .submitEditReview:hover {
