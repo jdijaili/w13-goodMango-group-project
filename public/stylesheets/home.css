@@ -317,3 +317,19 @@ body, html {
     /* 90% { transform: translate(1px, 2px) rotate(0deg); } */
     100% { transform: translate(1px, -2px) rotate(-1deg); }
   }
+
+.error-message-div {
+    color:rgba(248, 66, 0, 0.911);
+    text-align: center;
+    margin-top: 50px;
+}
+
+.error-message-div h1 {
+    font-weight: bold;
+}
+
+.error-message-div h2 {
+    margin-top: 20px;
+    font-weight: bold;
+
+}
