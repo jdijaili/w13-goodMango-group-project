@@ -25,6 +25,7 @@ html {
 }
 
 .form-container {
+
   margin: 0 auto;
   max-width: 550px;
   padding: 100px;
@@ -44,7 +45,8 @@ html {
 
 .form-group {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 15px;
 }
 
@@ -54,23 +56,36 @@ html {
   padding-top: 25px;
 }
 
+input, textarea {
+  border: none;
+  border-radius: 3px;
+}
+
 button {
-  color: white;
+  width: 50%;
+  border-radius: 3px;
+  color:white;
+  background-color: rgb(214, 57, 0);
   font-size: 14pt;
   margin: 0;
   border: none;
-  background: none;
+  padding: 5px 10px;
+  transition: all 0.2s ease-in-out;
 }
 
 button:hover {
+  background-color: rgb(214, 57, 0);
   cursor: pointer;
+  color: white;
   transform: scale(1.1);
-  color: rgb(214, 57, 0);
 }
 
 .labels {
   color: white;
-  padding-left: 95px;
+  display: flex;
+  padding-bottom: 7px;
+  width: 70%;
+
 }
 
 p {
@@ -89,5 +104,8 @@ a:hover {
 }
 
 .form-control {
-    height: 5%;
+    height: 25px;
+    width: 70%;
+    display: flex;
+    justify-content: center;
 }
