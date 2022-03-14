@@ -99,14 +99,14 @@ window.addEventListener('DOMContentLoaded', e => {
                 const submitBtn = document.createElement('button');
                 submitBtn.setAttribute("id", `submit-${data.bookshelfId}`);
                 submitBtn.setAttribute("name", `${data.bookshelfId}`);
-                submitBtn.setAttribute("class", "submit-btn");
+                submitBtn.setAttribute("class", "submitEditBookshelf");
                 submitBtn.style.display = "none";
                 submitBtn.innerText = "Submit";
 
                 // create edit button and hide it at the time of creation
                 const editBtn = document.createElement('button');
                 editBtn.setAttribute("id", `edit-${data.bookshelfId}`);
-                editBtn.setAttribute("class", "edit-btn");
+                editBtn.setAttribute("class", "editBookshelf");
                 editBtn.setAttribute("name", `${data.bookshelfId}`);
                 editBtn.innerText = 'Edit';
 
@@ -115,7 +115,7 @@ window.addEventListener('DOMContentLoaded', e => {
                 delteBtn.setAttribute("id", `delete-${data.bookshelfId}`);
                 delteBtn.setAttribute("class", "delete-btn");
                 delteBtn.setAttribute("name", `${data.bookshelfId}`);
-                delteBtn.setAttribute("class", "delete-btn");
+                delteBtn.setAttribute("class", "deleteBookshelf");
                 delteBtn.innerText = "Delete";
 
                 const bookshelfId = data.bookshelfId;
@@ -195,7 +195,20 @@ window.addEventListener('DOMContentLoaded', e => {
                 const form = document.getElementById("form");
                 form.reset();
             }
+
+            // if (submitBtn.childNodes[submitBtn.childNodes.length-1].textContent === "* Bookshelf name cannot be empty!") {
+            //     submitBtn.removeChild(submitBtn.childNodes[submitBtn.childNodes.length-1]);
+            // }
         }
+        // else {
+        //     const message = document.createElement("p");
+        //     message.setAttribute("class", "empty-error-msg");
+        //     message.innerHTML = "* Bookshelf name cannot be empty!"
+        //     if (submitBtn.childNodes[submitBtn.childNodes.length-1].textContent !== "* Bookshelf name cannot be empty!") {
+        //         submitBtn.appendChild(message);
+        //         message.style.display = "block";
+        //     }
+        // }
 
 
     })
