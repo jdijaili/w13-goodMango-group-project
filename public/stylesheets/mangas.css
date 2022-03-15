@@ -11,6 +11,50 @@ html {
   background-size: cover;
 }
 
+.manga-page {
+  display: flex;
+}
+
+.genre-menu {
+  background-color: grey;
+  margin-top: 90px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
+}
+
+.genre-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.genre-block:hover {
+  background-color: rgb(66, 66, 66);
+}
+
+.genre-block a {
+  text-decoration: none;
+}
+
+.genre-block h3 {
+  color: white;
+}
+
+.genre-header {
+  font-weight: bold;
+  font-size: 30px;
+  color: orange;
+  margin-left: 35px;
+  margin-bottom: 25px;
+}
+
 .mangas-container {
   height: 100%;
   background-position: center;
