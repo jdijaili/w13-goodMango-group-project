@@ -221,9 +221,11 @@ textarea {
   background-color: white;
   padding-right: 0;
   padding-left: 20px;
-  border: 1px solid black;
-  padding-top: 25px;
-  padding-bottom: 45px;
+  border-radius: 3px;
+  border: none;
+  padding: 20px;
+  height: 3em;
+  height: fit-content;
 }
 .edit-delete-review-btns button {
   border: 1px solid gray;
@@ -256,7 +258,10 @@ textarea {
 }
 
 .editReviewArea {
+  height: 3.5em;
   width: 100%;
+  padding: 10px;
+  border-radius: 3px;
 }
 
 .submitCancelDiv {
@@ -360,10 +365,7 @@ textarea {
   }
 
   .actualReview {
-    padding-right: 0;
-    padding-left: 20px;
-    border: 1px solid black;
-    padding-top: 25px;
-    padding-bottom: 45px;
+    padding: 10px;
+    border-radius: 3px;
   }
 }
