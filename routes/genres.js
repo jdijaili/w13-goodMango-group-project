@@ -10,7 +10,7 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
     include: db.Manga
   });
   const mangas = genreMangas.Mangas;
-  res.render('mangas', { title: "Genres", mangas, genre: genreMangas});
+  res.render('mangagenres', { title: "Genres", mangas, genre: genreMangas});
 }));
 
 
