@@ -16,14 +16,22 @@ Here, you can find your favorite manga: [GoodMango](https://goodmango.herokuapp.
 
 ![mangabookshelves]
 
+### Manga Details
+
+![manga-details]
+
 ### Database Schema 
 
 ![database-schema]
 
 ## Features
-- Sign up/in and guest/demo login  
-- Manga Bookshelves to view a collection of manga
-- Upvote and downvote for specific manga 
+
+- Create an account 
+- Log in/out and demo user
+- Read important details of mangas 
+- Search mangas with different genres 
+- Logged in users can add bookshelves to view a collection of mangas
+- Logged in users can add reviews to mangas
 
 
 ## Installation
@@ -67,4 +75,5 @@ Here, you can find your favorite manga: [GoodMango](https://goodmango.herokuapp.
 [welcome]: ./images/welcome.png
 [browsemangas]: ./images/browsemangas.png
 [mangabookshelves]: ./images/mangabookshelves.png
+[manga-details]: ./images/manga-details.png
 [database-schema]: ./images/database-schema.png

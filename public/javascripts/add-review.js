@@ -58,12 +58,16 @@ window.addEventListener('DOMContentLoaded', e => {
       deleteReviewBtn.innerText = "delete";
 
 
+      const editDeleteReviewDiv = document.createElement("div");
+      editDeleteReviewDiv.setAttribute("class", "edit-delete-review-btns");
+      editDeleteReviewDiv.appendChild(editReviewBtn);
+      editDeleteReviewDiv.appendChild(deleteReviewBtn);
+
       reviewsContainer.prepend(reviewBoxEle);
       reviewBoxEle.appendChild(userEle);
       userEle.appendChild(updatedAtEle);
       reviewBoxEle.appendChild(reviewEle);
-      reviewBoxEle.appendChild(editReviewBtn);
-      reviewBoxEle.appendChild(deleteReviewBtn);
+      reviewBoxEle.appendChild(editDeleteReviewDiv);
 
       // event listener for delete review button
       deleteReviewBtn.addEventListener('click', async(e) => {
@@ -93,6 +97,7 @@ window.addEventListener('DOMContentLoaded', e => {
 
         const theReview = document.getElementById(`review-${data.reviewId}`);
         const editReviewArea = document.createElement("textarea");
+        editReviewArea.setAttribute("class", "editReviewArea");
         editReviewArea.setAttribute("name", "review");
         editReviewArea.setAttribute("value", reviewEle.innerText)
 
@@ -139,9 +144,13 @@ window.addEventListener('DOMContentLoaded', e => {
           deleteReviewBtn.style.display = "inline-block";
         })
 
+        const submitCancelDiv = document.createElement("div");
+        submitCancelDiv.setAttribute("class", "submitCancelDiv");
+
+        submitCancelDiv.appendChild(cancelEditBtn);
+        submitCancelDiv.appendChild(submitEditBtn);
         editForm.appendChild(editReviewArea);
-        editForm.appendChild(submitEditBtn);
-        editForm.appendChild(cancelEditBtn);
+        editForm.appendChild(submitCancelDiv);
         reviewBoxEle.appendChild(editForm);
 
         editReviewBtn.style.display = "none";

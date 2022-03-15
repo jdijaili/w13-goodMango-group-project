@@ -14,9 +14,11 @@ window.addEventListener('DOMContentLoaded', e => {
             const theReview = document.getElementById(`review-${reviewId}`);
 
             const editForm = document.createElement("form");
+            editForm.setAttribute("class", "editReviewForm");
             editForm.setAttribute("id", `editForm-${reviewId}`);
 
             const editReviewArea = document.createElement("textarea");
+            editReviewArea.setAttribute("class", "editReviewArea");
             editReviewArea.setAttribute("name", "review");
             editReviewArea.setAttribute("value", theReview.innerText);
             editReviewArea.innerText = theReview.innerText;
@@ -63,9 +65,14 @@ window.addEventListener('DOMContentLoaded', e => {
                 editFormDelete.remove();
             });
 
+            const submitCancelDiv = document.createElement("div");
+            submitCancelDiv.setAttribute("class", "submitCancelDiv");
+
+
+            submitCancelDiv.appendChild(cancelEditBtn);
+            submitCancelDiv.appendChild(submitEditBtn);
             editForm.appendChild(editReviewArea);
-            editForm.appendChild(submitEditBtn);
-            editForm.appendChild(cancelEditBtn);
+            editForm.appendChild(submitCancelDiv);
             reviewBoxEle.appendChild(editForm);
 
             // when edit button is clicked, hide the edit and delete buttons

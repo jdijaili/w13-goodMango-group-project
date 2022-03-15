@@ -42,10 +42,16 @@ label {
 
 .reviews {
   border: 2px rgb(248, 66, 0) solid;
+  margin-top: 50px;
+  border-radius: 3px;
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 10px;
-  background-color: rgba(206, 206, 206, 0.616)
+  background-color: rgba(206, 206, 206, 0.616);
+}
+
+.bottom-margin {
+  height: 50px;
 }
 
 .container {
@@ -55,6 +61,7 @@ label {
   justify-content: center;
   padding: 100px 600px;
 }
+
 
 .genre-label {
   margin-top: 5%;
@@ -125,6 +132,7 @@ select, button {
 
 .addReviewForm {
   padding-top: 50px;
+  width: 100%;
 }
 
 textarea {
@@ -132,7 +140,7 @@ textarea {
   margin-top: 10px;
   margin-bottom: 5px;
   height: 15%;
-  width: 69%;
+  width: 100%;
 }
 
 .labels {
@@ -140,21 +148,36 @@ textarea {
   font-weight: bold;
 }
 
+.review-form-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.review-form-div .form-control {
+  width: 100%;
+}
+
 .submitReview {
-  padding-top: 3px;
-  padding-bottom: 3px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin-left: 63.5%;
-  margin-bottom: 40px;
-  border: none;
-  background: none;
+  margin: 0;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+  transition: all 0.1s ease-in-out;
+  border: 1px solid gray;
+  border-radius: 3px;
+
 }
 
 .submitReview:hover {
   cursor: pointer;
-  transform: scale(1.2);
-  color: rgb(248, 66, 0);
+  background-color: rgb(248, 66, 0);
+  color: white;
+}
+
+.submit-review-div {
+  display: flex;
+  justify-content: flex-end;
 }
 
 #review-heading {
@@ -196,57 +219,63 @@ textarea {
   padding-top: 25px;
   padding-bottom: 45px;
 }
-
-.editReview {
-  margin-left: 88%;
-  border: none;
-  background: none;
+.edit-delete-review-btns button {
+  border: 1px solid gray;
+  border-radius: 3px;
+  padding: 5px 10px;
+  transition: all 0.2s ease-in-out;
 }
 
-.deleteReview {
-  margin: 7px;
-  padding-left: 5px;
-  border: none;
-  background: none;
+.edit-delete-review-btns {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .deleteReview:hover {
   cursor: pointer;
-  transform: scale(1.2);
-  color: rgb(248, 66, 0);
+  background-color: rgb(248, 66, 0);
+  color: white;
 }
 
 .editReview:hover {
   cursor: pointer;
-  transform: scale(1.2);
-  color: rgb(248, 66, 0);
+  background-color: rgb(248, 66, 0);
+  color: white;
+}
+
+.editReviewForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.editReviewArea {
+  width: 100%;
+}
+
+.submitCancelDiv {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 
 .submitEditReview, .cancelEditReview {
-  font-size: 12pt;
-  border: none;
-  background: none;
+  padding: 5px 10px;
+  transition: all .2s ease-in-out;
+  border: 1px solid gray;
+  border-radius: 3px;
 }
 
-.submitEditReview:hover, .cancelEditReview:hover {
+.cancelEditReview:hover, .submitEditReview:hover {
   cursor: pointer;
-  transform: scale(1.2);
-  color: rgb(248, 66, 0);
+  background-color: rgb(248, 66, 0);
+  color: white;
 }
 
 /* Media queries */
 
 @media all and (orientation:portrait) {
-
-  .editReview {
-    margin-bottom: 25px;
-    margin-left: 65.5%;
-  }
-
-  .deleteReview {
-    padding-left: 0;
-  }
 
   body, html {
     height: 100%;
@@ -259,13 +288,6 @@ textarea {
     padding-right: 30%;
   }
 
-  .submitReview {
-    padding-top: 3px;
-    padding-bottom: 3px;
-    padding-left: 5px;
-    padding-right: 5px;
-    margin-left: 43.5%;
-  }
 
 }
 
@@ -292,11 +314,6 @@ textarea {
     height: 100%;
   }
 
-  .editReview {
-    margin-left: 88%;
-    margin-bottom: 35px;
-  }
-
   .reviewDate {
     margin-left: 55.2%;
   }
@@ -315,14 +332,6 @@ textarea {
     width: 69%;
   }
 
-  .submitReview {
-    padding-top: 3px;
-    padding-bottom: 3px;
-    padding-left: 5px;
-    padding-right: 5px;
-    margin-left: 64%;
-  }
-
 }
 
 @media screen and (min-width: 500px) and (max-height: 1210px) {
@@ -334,30 +343,11 @@ textarea {
     margin-left: 54%;
   }
 
-  .editReview {
-    margin-left: 76%;
-    justify-content: flex-end;
-  }
-
-  .deleteReview {
-    padding-left: 8px;
-    justify-content: flex-end;
-
-  }
-
   .container {
     display: flex;
     justify-content: center;
     padding: 100px 300px;
     height: 100%;
-  }
-
-  .submitReview {
-    padding-top: 3px;
-    padding-bottom: 3px;
-    padding-left: 5px;
-    padding-right: 5px;
-    margin-left: 70.5%;
   }
 
   .actualReview {

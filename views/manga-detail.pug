@@ -36,24 +36,29 @@ block content
               option(value=bookshelf.id) #{bookshelf.name}
           button(class="addMangaBtn" type="submit") ➕
       if locals.authenticated
-        form(id="addReviewForm" class="addReviewForm" method="post" action=`/api/reviews`)
-          input(type="hidden" name="_csrf" value=csrfToken)
-          input(type="hidden" id="reviewMangaId" name="mangaId" value=`${manga.id}`)
-          input(type="hidden" id="reviewUserId" name="mangaId" value=`${user.id}`)
-          +field("Add a Review", "review", null, fieldType="textarea", placeholder="Leave a Review...")
-        button(class="submitReview" type="submit") Submit
+        div(class="review-form-div")
+          form(id="addReviewForm" class="addReviewForm" method="post" action=`/api/reviews`)
+            input(type="hidden" name="_csrf" value=csrfToken)
+            input(type="hidden" id="reviewMangaId" name="mangaId" value=`${manga.id}`)
+            input(type="hidden" id="reviewUserId" name="mangaId" value=`${user.id}`)
+            +field("Add a Review", "review", null, fieldType="textarea", placeholder="Leave a Review...")
+            div(class="submit-review-div")
+              button(class="submitReview" type="submit") Submit
 
-      div(class="reviews")
-        h2(id="review-heading") Reviews (<span id="review-counter">#{reviews.length}</span>)
-        div(class="reviewbox")
-          ul(id="reviewsContainer")
-            each review in reviews
-              li(class="reviewBox" name=`${review.id}` id=`box-${review.id}`)
-                p(class="reviewUsernameDate") #{review.User.username} 🥭 <span class="reviewDate">#{review.updatedAt.toLocaleString()}</span>
-                  p(class="actualReview" id=`review-${review.id}`) #{review.review}
-                if locals.authenticated && user.id === review.userId
-                    button(class="editReview" name=`${review.id}` id=`edit-${review.id}`) edit
-                    button(class="deleteReview" name=`${review.id}` id=`delete-${review.id}`) delete
+
+        div(class="reviews")
+          h2(id="review-heading") Reviews (<span id="review-counter">#{reviews.length}</span>)
+          div(class="reviewbox")
+            ul(id="reviewsContainer")
+              each review in reviews
+                li(class="reviewBox" name=`${review.id}` id=`box-${review.id}`)
+                  p(class="reviewUsernameDate") #{review.User.username} 🥭 <span class="reviewDate">#{review.updatedAt.toLocaleString()}</span>
+                    p(class="actualReview" id=`review-${review.id}`) #{review.review}
+                  if locals.authenticated && user.id === review.userId
+                    div(class="edit-delete-review-btns")
+                      button(class="editReview" name=`${review.id}` id=`edit-${review.id}`) edit
+                      button(class="deleteReview" name=`${review.id}` id=`delete-${review.id}`) delete
+      div(class="bottom-margin")
   script(src='/javascripts/add-review.js' type='module')
   script(src='/javascripts/edit-review.js' type='module')
   script(src='/javascripts/delete-review.js' type='module')
