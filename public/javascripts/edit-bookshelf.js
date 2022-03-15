@@ -1,5 +1,7 @@
 window.addEventListener('DOMContentLoaded', e => {
     const editBtn = document.querySelectorAll('.edit-btn');
+
+
     for (let i = 0; i < editBtn.length; i++) {
         const btn = editBtn[i];
         btn.setAttribute("class", "editBookshelf");
@@ -38,33 +40,35 @@ window.addEventListener('DOMContentLoaded', e => {
 
             const bookshelfId = e.target.name;
             const val = document.getElementById(`input-${bookshelfId}`).value;
+            const input = document.getElementById(`input-${bookshelfId}`);
 
-            const res = await fetch(`/api/bookshelves/${bookshelfId}`, {
-                method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name: val })
-            })
+            if (val !== "") {
+                const res = await fetch(`/api/bookshelves/${bookshelfId}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name: val })
+                })
 
-            const data = await res.json();
-            console.log(data);
-            if (data.message === "Edit Successful") {
-                const bookshelf = document.getElementById(`bookshelfName-${bookshelfId}`);
-                console.log(bookshelf)
-                bookshelf.innerText = val;
+                const data = await res.json();
+                if (data.message === "Edit Successful") {
+                    const bookshelf = document.getElementById(`bookshelfName-${bookshelfId}`);
+                    bookshelf.innerText = val;
 
-                const inputEle = document.getElementById(`input-${bookshelfId}`);
-                inputEle.setAttribute("class", 'input-field');
-                inputEle.style.display = "none";
+                    const inputEle = document.getElementById(`input-${bookshelfId}`);
+                    inputEle.setAttribute("class", 'input-field');
+                    inputEle.style.display = "none";
 
-                const submitBtnEle = document.getElementById(`submit-${bookshelfId}`);
-                submitBtnEle.style.display = "none";
+                    const submitBtnEle = document.getElementById(`submit-${bookshelfId}`);
+                    submitBtnEle.style.display = "none";
 
-                const editBtnEle = document.getElementById(`edit-${bookshelfId}`);
-                editBtnEle.style.display = "inline";
+                    const editBtnEle = document.getElementById(`edit-${bookshelfId}`);
+                    editBtnEle.style.display = "inline";
 
-                const deleteBtnEle = document.getElementById(`delete-${bookshelfId}`);
-                deleteBtnEle.style.display = "inline";
+                    const deleteBtnEle = document.getElementById(`delete-${bookshelfId}`);
+                    deleteBtnEle.style.display = "inline";
+                }
             }
+
         })
     }
 })

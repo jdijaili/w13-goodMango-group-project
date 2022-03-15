@@ -1,6 +1,8 @@
 window.addEventListener('DOMContentLoaded', e => {
     const addBookshelfBtn = document.getElementById("add-button");
     addBookshelfBtn.addEventListener("click", (e) => {
+        const addBookshelfForm = document.getElementsByClassName("add-bookshelf-form-div")[0];
+
 
         const addButton = document.getElementById("add-button")
         addButton.setAttribute("class", "addBookshelf");
@@ -38,6 +40,10 @@ window.addEventListener('DOMContentLoaded', e => {
 
             // clear user input after submitting new bookshelf
             form.reset();
+
+            if (addBookshelfForm.childNodes[addBookshelfForm.childNodes.length-1].textContent === "* Bookshelf name cannot be empty!") {
+                addBookshelfForm.removeChild(addBookshelfForm.childNodes[addBookshelfForm.childNodes.length-1]);
+            }
         })
 
     })
@@ -48,6 +54,8 @@ window.addEventListener('DOMContentLoaded', e => {
         e.preventDefault();
 
         // hide add bookshelf elements: add a shelf text and cancel buttons
+        const addBookshelfForm = document.getElementsByClassName("add-bookshelf-form-div")[0];
+
 
         let val = document.getElementById('add-bookshelf').value;
         if (val !== "") {
@@ -99,14 +107,14 @@ window.addEventListener('DOMContentLoaded', e => {
                 const submitBtn = document.createElement('button');
                 submitBtn.setAttribute("id", `submit-${data.bookshelfId}`);
                 submitBtn.setAttribute("name", `${data.bookshelfId}`);
-                submitBtn.setAttribute("class", "submit-btn");
+                submitBtn.setAttribute("class", "submitEditBookshelf");
                 submitBtn.style.display = "none";
                 submitBtn.innerText = "Submit";
 
                 // create edit button and hide it at the time of creation
                 const editBtn = document.createElement('button');
                 editBtn.setAttribute("id", `edit-${data.bookshelfId}`);
-                editBtn.setAttribute("class", "edit-btn");
+                editBtn.setAttribute("class", "editBookshelf");
                 editBtn.setAttribute("name", `${data.bookshelfId}`);
                 editBtn.innerText = 'Edit';
 
@@ -115,7 +123,7 @@ window.addEventListener('DOMContentLoaded', e => {
                 delteBtn.setAttribute("id", `delete-${data.bookshelfId}`);
                 delteBtn.setAttribute("class", "delete-btn");
                 delteBtn.setAttribute("name", `${data.bookshelfId}`);
-                delteBtn.setAttribute("class", "delete-btn");
+                delteBtn.setAttribute("class", "deleteBookshelf");
                 delteBtn.innerText = "Delete";
 
                 const bookshelfId = data.bookshelfId;
@@ -136,31 +144,30 @@ window.addEventListener('DOMContentLoaded', e => {
                     submitBtn.addEventListener("click", async (e) => {
                         const val = document.getElementById(`input-${bookshelfId}`).value;
 
-                        const res = await fetch(`/api/bookshelves/${bookshelfId}`, {
-                            method: 'PUT',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ name: val })
-                        })
+                        if (val !== "") {
+                            const res = await fetch(`/api/bookshelves/${bookshelfId}`, {
+                                method: 'PUT',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({ name: val })
+                            })
 
-                        const data = await res.json();
-                        console.log(data)
-                        if (data.message === "Edit Successful") {
-                            const bookshelf = document.getElementById(`bookshelfName-${data.bookshelfId}`);
-                            console.log(bookshelf);
-                            bookshelf.innerText = val;
+                            const data = await res.json();
+                            if (data.message === "Edit Successful") {
+                                const bookshelf = document.getElementById(`bookshelfName-${data.bookshelfId}`);
+                                bookshelf.innerText = val;
 
-                            console.log(data.bookshelfId);
-                            console.log(input)
-                            input.style.display = "none";
-                            submitBtn.style.display = "none";
+                                input.style.display = "none";
+                                submitBtn.style.display = "none";
 
-                            editBtn.style.display = "inline"
-                            delteBtn.style.display = "inline";
+                                editBtn.style.display = "inline"
+                                delteBtn.style.display = "inline";
 
-                            // clear user input after submitting new bookshelf
-                            const form = document.getElementById("form");
-                            form.reset();
+                                // clear user input after submitting new bookshelf
+                                const form = document.getElementById("form");
+                                form.reset();
+                            }
                         }
+
                     });
 
                 });
@@ -173,7 +180,6 @@ window.addEventListener('DOMContentLoaded', e => {
 
                 // add event listener to the newly created bookshelf so that it can have the dynamic delete functionality as well
                 delteBtn.addEventListener('click', async (e) => {
-                    console.log("-------------", bookshelfId)
                     const res = await fetch(`/api/bookshelves/${bookshelfId}`, {
                         method: "DELETE"
                     });
@@ -181,7 +187,6 @@ window.addEventListener('DOMContentLoaded', e => {
                     const data = await res.json();
 
                     if (data.message === "Delete Successful") {
-                        console.log(bookshelfId);
                         const bookshelf = document.getElementById(`bookshelfBox-${bookshelfId}`);
 
                         bookshelf.remove();
@@ -200,6 +205,19 @@ window.addEventListener('DOMContentLoaded', e => {
                 // clear user input after submitting new bookshelf
                 const form = document.getElementById("form");
                 form.reset();
+            }
+
+            if (addBookshelfForm?.childNodes[addBookshelfForm.childNodes.length-1].textContent === "* Bookshelf name cannot be empty!") {
+                addBookshelfForm.removeChild(addBookshelfForm.childNodes[addBookshelfForm.childNodes.length-1]);
+            }
+        }
+        else {
+            const message = document.createElement("p");
+            message.setAttribute("class", "empty-error-msg");
+            message.innerHTML = "* Bookshelf name cannot be empty!"
+            if (addBookshelfForm?.childNodes[addBookshelfForm.childNodes.length-1].textContent !== "* Bookshelf name cannot be empty!") {
+                addBookshelfForm.appendChild(message);
+                message.style.display = "block";
             }
         }
 

@@ -36,7 +36,6 @@ router.post('/bookshelves', bookshelfValidators, asyncHandler(async (req, res) =
                 userId
             });
 
-            console.log(newBookshelf.id);
             res.json({ message: "Create Successful", bookshelfId: newBookshelf.id });
         } else {
             const errors = validatorErrors.array().map((error) => error.msg);
@@ -103,7 +102,7 @@ router.delete('/bookshelves/:id(\\d+)', asyncHandler( async(req, res) => {
             await bookshelf.destroy();
 
             res.json({ message: "Delete Successful" });
-            
+
         } else {
             res.json({ message: "This bookshelf does not exist"});
         }
@@ -129,7 +128,6 @@ router.delete('/bookshelves/:id(\\d+)/mangas/:manga(\\d+)', asyncHandler( async(
 
         if (mangaBookshelf) {
             const deletedRecord = await mangaBookshelf.destroy();
-            console.log(deletedRecord)
 
             res.json({ message: 'Delete Successful'})
         } else {
@@ -145,7 +143,6 @@ router.delete('/bookshelves/:id(\\d+)/mangas/:manga(\\d+)', asyncHandler( async(
 
 router.post('/reviews', reviewValidators, asyncHandler(async (req, res) => {
     let { mangaId, userId, review } = req.body;
-    console.log(req.body);
 
     mangaId = parseInt(mangaId, 10);
 
