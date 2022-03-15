@@ -10,6 +10,9 @@ block content
   if title === "Genres"
     h1(class="genre-heading") #{genre.name} Mangas (#{mangas.length})
   ul(class= "mangas-container")
+    each genre in genres
+      a(href=`/genres/${genre.id}`)
+        h3= genre.name 
     each manga in mangas
       div(class= "manga-box")
         a(href=`/mangas/${manga.id}`)
