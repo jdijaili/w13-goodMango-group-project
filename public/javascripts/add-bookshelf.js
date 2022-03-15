@@ -144,27 +144,30 @@ window.addEventListener('DOMContentLoaded', e => {
                     submitBtn.addEventListener("click", async (e) => {
                         const val = document.getElementById(`input-${bookshelfId}`).value;
 
-                        const res = await fetch(`/api/bookshelves/${bookshelfId}`, {
-                            method: 'PUT',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ name: val })
-                        })
+                        if (val !== "") {
+                            const res = await fetch(`/api/bookshelves/${bookshelfId}`, {
+                                method: 'PUT',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({ name: val })
+                            })
 
-                        const data = await res.json();
-                        if (data.message === "Edit Successful") {
-                            const bookshelf = document.getElementById(`bookshelfName-${data.bookshelfId}`);
-                            bookshelf.innerText = val;
+                            const data = await res.json();
+                            if (data.message === "Edit Successful") {
+                                const bookshelf = document.getElementById(`bookshelfName-${data.bookshelfId}`);
+                                bookshelf.innerText = val;
 
-                            input.style.display = "none";
-                            submitBtn.style.display = "none";
+                                input.style.display = "none";
+                                submitBtn.style.display = "none";
 
-                            editBtn.style.display = "inline"
-                            delteBtn.style.display = "inline";
+                                editBtn.style.display = "inline"
+                                delteBtn.style.display = "inline";
 
-                            // clear user input after submitting new bookshelf
-                            const form = document.getElementById("form");
-                            form.reset();
+                                // clear user input after submitting new bookshelf
+                                const form = document.getElementById("form");
+                                form.reset();
+                            }
                         }
+
                     });
 
                 });
