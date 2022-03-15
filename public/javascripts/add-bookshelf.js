@@ -1,6 +1,8 @@
 window.addEventListener('DOMContentLoaded', e => {
     const addBookshelfBtn = document.getElementById("add-button");
     addBookshelfBtn.addEventListener("click", (e) => {
+        const addBookshelfForm = document.getElementsByClassName("add-bookshelf-form-div")[0];
+
 
         const addButton = document.getElementById("add-button")
         addButton.setAttribute("class", "addBookshelf");
@@ -38,6 +40,10 @@ window.addEventListener('DOMContentLoaded', e => {
 
             // clear user input after submitting new bookshelf
             form.reset();
+
+            if (addBookshelfForm.childNodes[addBookshelfForm.childNodes.length-1].textContent === "* Bookshelf name cannot be empty!") {
+                addBookshelfForm.removeChild(addBookshelfForm.childNodes[addBookshelfForm.childNodes.length-1]);
+            }
         })
 
     })
@@ -48,6 +54,8 @@ window.addEventListener('DOMContentLoaded', e => {
         e.preventDefault();
 
         // hide add bookshelf elements: add a shelf text and cancel buttons
+        const addBookshelfForm = document.getElementsByClassName("add-bookshelf-form-div")[0];
+
 
         let val = document.getElementById('add-bookshelf').value;
         if (val !== "") {
@@ -196,19 +204,19 @@ window.addEventListener('DOMContentLoaded', e => {
                 form.reset();
             }
 
-            // if (submitBtn.childNodes[submitBtn.childNodes.length-1].textContent === "* Bookshelf name cannot be empty!") {
-            //     submitBtn.removeChild(submitBtn.childNodes[submitBtn.childNodes.length-1]);
-            // }
+            if (addBookshelfForm?.childNodes[addBookshelfForm.childNodes.length-1].textContent === "* Bookshelf name cannot be empty!") {
+                addBookshelfForm.removeChild(addBookshelfForm.childNodes[addBookshelfForm.childNodes.length-1]);
+            }
         }
-        // else {
-        //     const message = document.createElement("p");
-        //     message.setAttribute("class", "empty-error-msg");
-        //     message.innerHTML = "* Bookshelf name cannot be empty!"
-        //     if (submitBtn.childNodes[submitBtn.childNodes.length-1].textContent !== "* Bookshelf name cannot be empty!") {
-        //         submitBtn.appendChild(message);
-        //         message.style.display = "block";
-        //     }
-        // }
+        else {
+            const message = document.createElement("p");
+            message.setAttribute("class", "empty-error-msg");
+            message.innerHTML = "* Bookshelf name cannot be empty!"
+            if (addBookshelfForm?.childNodes[addBookshelfForm.childNodes.length-1].textContent !== "* Bookshelf name cannot be empty!") {
+                addBookshelfForm.appendChild(message);
+                message.style.display = "block";
+            }
+        }
 
 
     })
