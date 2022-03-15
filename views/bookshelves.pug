@@ -9,17 +9,18 @@ block head
 block content
     div(class="label" id="header")
         h1 My Mangas
-    div
+    div(class="add-bookshelf-div")
         button(id="add-button" type="submit") 🥭 Add Bookshelf 🥭
     div(class="newBookshelfDiv")
-        p(id="addShelf-text" style="display: none;") Add a shelf:
-    div(class="cancelButtonDiv")
-        button(id="cancelAddBookshelf" style="display: none;") Cancel
-    div
-        form(action="/bookshelves" method="post" id="form")
-            label(for="name")
-            input(class="label" type="text" name="name" id="add-bookshelf")
-            button(type="submit" id="submit-button") add
+        p(id="addShelf-text" style="display: none;") Add a shelf
+    div(class="add-bookshelf-form-div")
+        div(class="add-bookshelf-form")
+            form(action="/bookshelves" method="post" id="form")
+                label(for="name")
+                input(class="label" type="text" name="name" id="add-bookshelf")
+                button(type="submit" id="submit-button") Add
+            div(class="cancelButtonDiv")
+                button(id="cancelAddBookshelf" style="display: none;") Cancel
 
 
 
@@ -31,7 +32,7 @@ block content
                     h2(id=`bookshelfName-${bookshelf.id}`)= bookshelf.name
                     div(id=`bookshelfBox-${id=bookshelf.id}`).bookshelfBox
                         button(id=`edit-${bookshelf.id}` name=`${bookshelf.id}`).edit-btn Edit
-                        button(class="delete-button" id=`delete-${bookshelf.id}` name=`${bookshelf.id}`).delete-btn Delete
+                        button(class="delete-button" id=`delete-${bookshelf.id}` name=`${bookshelf.id}`).delete-bookshelf-btn Delete
                         input(type="text" id=`input-${bookshelf.id}` style="display: none")
                         button(type="submit" id=`submit-${bookshelf.id}` name=`${bookshelf.id}` style="display: none").submit-btn Submit
                     if (bookshelf.Mangas.length)

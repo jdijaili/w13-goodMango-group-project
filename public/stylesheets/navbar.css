@@ -121,7 +121,7 @@
     width: 100%;
 }
 
-#demo-button {
+/* #demo-button {
     font-size: 16pt;
     padding-left: 1%;
     text-decoration: none;
@@ -136,7 +136,7 @@
     color: white;
     transform: scale(1.2);
 
-}
+} */
 
 .login-button, .signup-button {
     text-decoration: none;

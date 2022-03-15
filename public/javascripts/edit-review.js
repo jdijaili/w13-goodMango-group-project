@@ -33,22 +33,38 @@ window.addEventListener('DOMContentLoaded', e => {
                 e.preventDefault();
                 let mangaId = document.getElementById('reviewMangaId').value;
                 let userId = document.getElementById('reviewUserId').value;
+                let actualReview = editReviewArea.value;
 
-                const res = await fetch(`/api/reviews/${reviewId}`, {
-                    method: 'PUT',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ review: editReviewArea.value, mangaId, userId })
-                });
+                if (actualReview !== "") {
+                    const res = await fetch(`/api/reviews/${reviewId}`, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ review: actualReview, mangaId, userId })
+                    });
 
-                const data = await res.json();
+                    const data = await res.json();
 
-                if (data.message === "Edit Successful") {
-                    theReview.innerText = editReviewArea.value;
-                    btn.style.display = "inline-block";
-                    deleteReviewBtn.style.display = "inline-block";
-                    const editFormDelete = document.getElementById(`editForm-${reviewId}`);
-                    editFormDelete.remove();
+                    if (data.message === "Edit Successful") {
+                        theReview.innerText = actualReview;
+                        btn.style.display = "inline-block";
+                        deleteReviewBtn.style.display = "inline-block";
+                        const editFormDelete = document.getElementById(`editForm-${reviewId}`);
+                        editFormDelete.remove();
+                    }
+
+                    if (editForm.childNodes[editForm.childNodes.length-1].textContent === "* Review cannot be empty!") {
+                        editForm.removeChild(editForm.childNodes[editForm.childNodes.length-1]);
+                    }
+                } else {
+                    const message = document.createElement("p");
+                    message.setAttribute("class", "empty-error-msg");
+                    message.innerHTML = "* Review cannot be empty!"
+                    if (editForm.childNodes[editForm.childNodes.length-1].textContent !== "* Review cannot be empty!") {
+                        editForm.appendChild(message);
+                    }
+
                 }
+
             });
 
             const cancelEditBtn = document.createElement("button");

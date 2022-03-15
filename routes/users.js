@@ -85,8 +85,7 @@ router.post('/signup', csrfProtection, userValidators, asyncHandler(async (req, 
     const hashedPassword = await bcrypt.hash(password, 10);
     user.hashedPassword = hashedPassword;
     await user.save();
-    loginUser(req, res, user);
-    res.redirect('/');
+    return loginUser(req, res, user);
   } else {
     const errors = validatorErrors.array().map((error) => error.msg);
     res.render('user-signup', {
