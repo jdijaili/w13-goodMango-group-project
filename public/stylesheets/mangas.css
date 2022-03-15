@@ -16,6 +16,8 @@ html {
 }
 
 .genre-menu {
+  position: absolute;
+  left: 0px;
   background-color: grey;
   margin-top: 90px;
   overflow: auto;
