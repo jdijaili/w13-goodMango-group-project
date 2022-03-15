@@ -101,16 +101,15 @@ label {
   margin-bottom: 40px;
   display: flex;
   list-style-type: none;
+  min-width: 415px;
 }
 
 .genreList a {
   text-decoration: none;
-}
-
-.genreList li {
   margin-right: 15px;
   border-bottom: 4px solid #409970;
 }
+
 
 .genreList li:hover {
   text-shadow: 0 0 1px #409970;
