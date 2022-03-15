@@ -11,6 +11,19 @@ html {
   background-size: cover;
 }
 
+.genremenu {
+  background-color: grey;
+  margin-top: 150px;
+  overflow: scroll;
+}
+
+.genremenu a {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
 .mangas-container {
   height: 100%;
   background-position: center;
