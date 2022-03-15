@@ -43,11 +43,11 @@ window.addEventListener('DOMContentLoaded', e => {
         reviewEle.innerText = data.review.review;
 
         const userEle = document.createElement("p");
-        userEle.setAttribute("class", "reviewUsernameDate");
-        userEle.innerText = data.user.username;
+        userEle.setAttribute("class", "review-username");
+        userEle.innerText = data.user.username + " 🥭";
 
         const updatedAtEle = document.createElement("span");
-        updatedAtEle.setAttribute("class", "reviewDate");
+        updatedAtEle.setAttribute("class", "review-date");
 
         const reviewDate = new Date(data.review.updatedAt);
 
@@ -64,9 +64,13 @@ window.addEventListener('DOMContentLoaded', e => {
         editDeleteReviewDiv.appendChild(editReviewBtn);
         editDeleteReviewDiv.appendChild(deleteReviewBtn);
 
+        const usernameDateDiv = document.createElement("div");
+        usernameDateDiv.setAttribute("class", "username-date-div");
+
         reviewsContainer.prepend(reviewBoxEle);
-        reviewBoxEle.appendChild(userEle);
-        userEle.appendChild(updatedAtEle);
+        usernameDateDiv.appendChild(userEle);
+        usernameDateDiv.appendChild(updatedAtEle);
+        reviewBoxEle.appendChild(usernameDateDiv);
         reviewBoxEle.appendChild(reviewEle);
         reviewBoxEle.appendChild(editDeleteReviewDiv);
 

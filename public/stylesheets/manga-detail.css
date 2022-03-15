@@ -29,7 +29,6 @@ label {
   text-shadow: 0 0.5px 0.5px rgb(0 0 0 / 50%);
   padding-right: 15px;
   font-size: 12pt;
-  /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
   font-weight: bold;
   color: rgb(214, 57, 0);
 }
@@ -92,7 +91,6 @@ label {
   text-shadow: 0 0.5px 0.5px rgb(0 0 0 / 50%);
   padding-right: 15px;
   font-size: 14pt;
-  /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
   font-weight: bold;
   color: rgb(214, 57, 0);
 }
@@ -192,10 +190,6 @@ textarea {
   padding-bottom: 10px;
 }
 
-.reviewDate {
-  margin-left: 55.2%;
-}
-
 .reviewBox {
   margin-top: 30px;
   list-style: none;
@@ -207,7 +201,7 @@ textarea {
   width: 2%;
 }
 
-.reviewUsernameDate {
+.review-username {
   font-size: 15pt;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: bold;
@@ -215,6 +209,13 @@ textarea {
   margin-left: 20px;
   padding: 0;
   margin: 0;
+}
+
+.review-date {
+  font-size: 10pt;
+  color:rgba(214, 57, 0, 0.7);
+  margin: 0;
+  margin-top: 5px;
 }
 
 .actualReview {
@@ -328,10 +329,6 @@ textarea {
     height: 100%;
   }
 
-  .reviewDate {
-    margin-left: 55.2%;
-  }
-
   .container {
     display: flex;
     justify-content: center;
@@ -351,10 +348,6 @@ textarea {
 @media screen and (min-width: 500px) and (max-height: 1210px) {
   body, html {
     background-color: rgba(128, 128, 128, 0.281);
-  }
-
-  .reviewDate {
-    margin-left: 54%;
   }
 
   .container {
