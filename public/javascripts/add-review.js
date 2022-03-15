@@ -43,11 +43,11 @@ window.addEventListener('DOMContentLoaded', e => {
         reviewEle.innerText = data.review.review;
 
         const userEle = document.createElement("p");
-        userEle.setAttribute("class", "reviewUsernameDate");
-        userEle.innerText = data.user.username;
+        userEle.setAttribute("class", "review-username");
+        userEle.innerText = data.user.username + " 🥭";
 
         const updatedAtEle = document.createElement("span");
-        updatedAtEle.setAttribute("class", "reviewDate");
+        updatedAtEle.setAttribute("class", "review-date");
 
         const reviewDate = new Date(data.review.updatedAt);
 
@@ -64,9 +64,13 @@ window.addEventListener('DOMContentLoaded', e => {
         editDeleteReviewDiv.appendChild(editReviewBtn);
         editDeleteReviewDiv.appendChild(deleteReviewBtn);
 
+        const usernameDateDiv = document.createElement("div");
+        usernameDateDiv.setAttribute("class", "username-date-div");
+
         reviewsContainer.prepend(reviewBoxEle);
-        reviewBoxEle.appendChild(userEle);
-        userEle.appendChild(updatedAtEle);
+        usernameDateDiv.appendChild(userEle);
+        usernameDateDiv.appendChild(updatedAtEle);
+        reviewBoxEle.appendChild(usernameDateDiv);
         reviewBoxEle.appendChild(reviewEle);
         reviewBoxEle.appendChild(editDeleteReviewDiv);
 
@@ -122,6 +126,7 @@ window.addEventListener('DOMContentLoaded', e => {
             const data = await res.json();
             if (data.message === "Edit Successful") {
               theReview.innerText = data.review;
+              theReview.style.display = "block";
               editForm.remove();
               editReviewBtn.style.display = "inline-block";
               deleteReviewBtn.style.display = "inline-block";
@@ -137,7 +142,7 @@ window.addEventListener('DOMContentLoaded', e => {
           cancelEditBtn.addEventListener("click", async (e) => {
             // remove the form we just created
             e.preventDefault();
-
+            theReview.style.display = "block";
             const editFormDelete = document.getElementById(`editForm-${data.reviewId}`);
 
             editFormDelete.remove();
@@ -153,6 +158,8 @@ window.addEventListener('DOMContentLoaded', e => {
           editForm.appendChild(editReviewArea);
           editForm.appendChild(submitCancelDiv);
           reviewBoxEle.appendChild(editForm);
+          theReview.style.display = "none";
+
 
           editReviewBtn.style.display = "none";
           deleteReviewBtn.style.display = "none";

@@ -52,8 +52,10 @@ block content
             ul(id="reviewsContainer")
               each review in reviews
                 li(class="reviewBox" name=`${review.id}` id=`box-${review.id}`)
-                  p(class="reviewUsernameDate") #{review.User.username} 🥭 <span class="reviewDate">#{review.updatedAt.toLocaleString()}</span>
-                    p(class="actualReview" id=`review-${review.id}`) #{review.review}
+                  div(class="username-date-div")
+                    p(class="review-username") #{review.User.username} 🥭
+                    p(class="review-date") #{review.updatedAt.toLocaleString()}
+                  p(class="actualReview" id=`review-${review.id}`) #{review.review}
                   if locals.authenticated && user.id === review.userId
                     div(class="edit-delete-review-btns")
                       button(class="editReview" name=`${review.id}` id=`edit-${review.id}`) edit

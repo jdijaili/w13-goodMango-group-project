@@ -127,6 +127,9 @@ h2 {
 .input-field {
     margin-top: 15px;
     margin-bottom: 15px;
+    border-radius: 3px;
+    border: 1px solid gray;
+    padding: 5px 10px;
 
 }
 
