@@ -13,7 +13,6 @@ html {
 
 .manga-page {
   display: flex;
-
 }
 
 .genre-menu {
@@ -25,25 +24,34 @@ html {
   padding-top: 30px;
 }
 
-
 .genre-block {
   display: flex;
+  justify-content: center;
   align-items: center;
   text-align: center;
-  margin-left: 30px;
-  margin-right: 30px;
-  margin-bottom: 40px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.genre-block:hover {
+  background-color: rgb(66, 66, 66);
 }
 
 .genre-block a {
   text-decoration: none;
 }
 
+.genre-block h3 {
+  color: white;
+}
+
 .genre-header {
   font-weight: bold;
   font-size: 30px;
-  color: white;
-  margin-left: 30px;
+  color: orange;
+  margin-left: 35px;
   margin-bottom: 25px;
 }
 
