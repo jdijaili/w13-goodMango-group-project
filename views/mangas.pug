@@ -7,15 +7,16 @@ block head
   link(rel='stylesheet' href='/stylesheets/mangas.css')
 
 block content
-  if title === "Genres"
-    h1(class="genre-heading") #{genre.name} Mangas (#{mangas.length})
-  div(class="genremenu")
-    each genre in genres
-          a(href=`/genres/${genre.id}`)
-            h3= genre.name
-  ul(class= "mangas-container")
-    each manga in mangas
-      div(class= "manga-box")
-        a(href=`/mangas/${manga.id}`)
-          li= manga.title
-          img(class= "manga-cover" src=`${manga.imgSrc}` alt=`${manga.title}'s manga cover`)
+  div(class="manga-page")
+    div(class="genre-menu")
+      h2(class='genre-header') Genres
+      each genre in genres
+          div(class="genre-block")
+            a(href=`/genres/${genre.id}`)
+              h3= genre.name
+    ul(class= "mangas-container")
+      each manga in mangas
+        div(class= "manga-box")
+          a(href=`/mangas/${manga.id}`)
+            li= manga.title
+            img(class= "manga-cover" src=`${manga.imgSrc}` alt=`${manga.title}'s manga cover`)
