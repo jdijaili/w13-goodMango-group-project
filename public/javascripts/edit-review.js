@@ -45,6 +45,7 @@ window.addEventListener('DOMContentLoaded', e => {
                     const data = await res.json();
 
                     if (data.message === "Edit Successful") {
+                        theReview.style.display = "block";
                         theReview.innerText = actualReview;
                         btn.style.display = "inline-block";
                         deleteReviewBtn.style.display = "inline-block";
@@ -75,6 +76,7 @@ window.addEventListener('DOMContentLoaded', e => {
             // cancel edit event listener
             cancelEditBtn.addEventListener("click", async(e) => {
                 e.preventDefault();
+                theReview.style.display = "block";
                 btn.style.display = "inline-block";
                 deleteReviewBtn.style.display = "inline-block";
                 const editFormDelete = document.getElementById(`editForm-${reviewId}`);
@@ -84,6 +86,7 @@ window.addEventListener('DOMContentLoaded', e => {
             const submitCancelDiv = document.createElement("div");
             submitCancelDiv.setAttribute("class", "submitCancelDiv");
 
+            theReview.style.display = "none";
 
             submitCancelDiv.appendChild(cancelEditBtn);
             submitCancelDiv.appendChild(submitEditBtn);
