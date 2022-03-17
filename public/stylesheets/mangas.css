@@ -92,7 +92,7 @@ html {
   margin: auto;
   display: block;
   transition-duration: 0.3s;
-  /* padding: 5px; */
+  margin: 7px;
   width: 250px;
   height: 400px;
 }
