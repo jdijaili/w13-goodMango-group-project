@@ -43,8 +43,6 @@
     color: rgb(248, 66, 0);
     font-size: 20pt;
     text-decoration: none;
-    /* padding-top: 10px; */
-    /* padding-bottom: 10px; */
     padding: 0px 15px;
 }
 
@@ -121,23 +119,6 @@
     width: 100%;
 }
 
-/* #demo-button {
-    font-size: 16pt;
-    padding-left: 1%;
-    text-decoration: none;
-    margin-top: 4.5px;
-    color: rgb(248, 66, 0);
-    display: flex;
-    justify-content: flex-end;
-}
-
-#demo-button:hover {
-    text-shadow: 3px 3px 20px rgba(0, 0, 0, 0.397);
-    color: white;
-    transform: scale(1.2);
-
-} */
-
 .login-button, .signup-button {
     text-decoration: none;
     margin-top: 7px;
@@ -176,7 +157,6 @@
 .logout-button {
     margin-top: 8px;
     font-size: 14pt;
-    /* margin: 0; */
     border: none;
     background:none;
 }
