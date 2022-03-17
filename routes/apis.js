@@ -1,12 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const { check, validationResult } = require('express-validator');
-const { loginUser, logoutUser } = require("../auth");
-
-const { csrfProtection, asyncHandler } = require('./utils');
+const { asyncHandler } = require('./utils');
 const db = require('../db/models');
-
-
 
 const bookshelfValidators = [
     check('name')
@@ -22,6 +18,7 @@ const reviewValidators = [
         .withMessage('Please provide a review'),
 ];
 
+// CREATE a bookshelf for the logged in user
 router.post('/bookshelves', bookshelfValidators, asyncHandler(async (req, res) => {
 
     if (req.session.auth) {
@@ -37,6 +34,7 @@ router.post('/bookshelves', bookshelfValidators, asyncHandler(async (req, res) =
             });
 
             res.json({ message: "Create Successful", bookshelfId: newBookshelf.id });
+
         } else {
             const errors = validatorErrors.array().map((error) => error.msg);
             res.render('/bookshelves', {
@@ -44,12 +42,14 @@ router.post('/bookshelves', bookshelfValidators, asyncHandler(async (req, res) =
                 errors
             });
         }
+
     } else {
         res.redirect('/users/login');
     }
 
 }));
 
+// UPDATE the bookshelf at the specified id
 router.put('/bookshelves/:id(\\d+)', bookshelfValidators, asyncHandler(async (req, res) => {
 
     if (req.session.auth) {
@@ -61,13 +61,14 @@ router.put('/bookshelves/:id(\\d+)', bookshelfValidators, asyncHandler(async (re
         const validatorErrors = validationResult(req);
 
         if (validatorErrors.isEmpty()) {
-            const update = await bookshelf.update({
+            await bookshelf.update({
                 name
             });
 
             await bookshelf.save();
 
             res.json({ message: "Edit Successful", bookshelfId: shelfId});
+
         } else {
             const errors = validatorErrors.array().map((error) => error.msg);
             res.render('/bookshelves', {
@@ -81,11 +82,11 @@ router.put('/bookshelves/:id(\\d+)', bookshelfValidators, asyncHandler(async (re
     }
 }));
 
+// DELETE the bookshelf at the specified id
 router.delete('/bookshelves/:id(\\d+)', asyncHandler( async(req, res) => {
 
     if (req.session.auth) {
         const bookshelfId = parseInt(req.params.id, 10);
-
         const bookshelf = await db.Bookshelf.findByPk(bookshelfId);
         const mangaBookshelf = await db.MangaBookshelfJoin.findAll({
             where: {
@@ -93,6 +94,7 @@ router.delete('/bookshelves/:id(\\d+)', asyncHandler( async(req, res) => {
             }
         });
 
+        // remove all mangas from manga bookshelf join before destroying bookshelf
         if (bookshelf && mangaBookshelf) {
             for (let i = 0; i < mangaBookshelf.length; i++) {
                 const manga = mangaBookshelf[i];
@@ -100,7 +102,6 @@ router.delete('/bookshelves/:id(\\d+)', asyncHandler( async(req, res) => {
             }
 
             await bookshelf.destroy();
-
             res.json({ message: "Delete Successful" });
 
         } else {
@@ -113,12 +114,12 @@ router.delete('/bookshelves/:id(\\d+)', asyncHandler( async(req, res) => {
 
 }));
 
+// DELETE the specific manga by id of a bookshelf by id
 router.delete('/bookshelves/:id(\\d+)/mangas/:manga(\\d+)', asyncHandler( async(req, res) => {
 
     if (req.session.auth) {
         const bookshelfId = parseInt(req.params.id, 10);
         const mangaId = parseInt(req.params.manga, 10);
-
         const mangaBookshelf = await db.MangaBookshelfJoin.findOne({
             where: {
                 mangaId,
@@ -127,9 +128,9 @@ router.delete('/bookshelves/:id(\\d+)/mangas/:manga(\\d+)', asyncHandler( async(
         })
 
         if (mangaBookshelf) {
-            const deletedRecord = await mangaBookshelf.destroy();
-
+            await mangaBookshelf.destroy();
             res.json({ message: 'Delete Successful'})
+
         } else {
             res.json({ message: "Delete Unsuccessful"})
         }
@@ -138,9 +139,9 @@ router.delete('/bookshelves/:id(\\d+)/mangas/:manga(\\d+)', asyncHandler( async(
         res.redirect('/users/login');
     }
 
-
 }));
 
+// CREATE a review for a specified manga by the logged in user
 router.post('/reviews', reviewValidators, asyncHandler(async (req, res) => {
     let { mangaId, userId, review } = req.body;
 
@@ -161,7 +162,8 @@ router.post('/reviews', reviewValidators, asyncHandler(async (req, res) => {
         });
         user = await db.User.findByPk(userId);
       }
-      // Find manga by mangaId and return associated genres
+
+      // Find manga by mangaId and get associated genres
       const mangaGenres = await db.Manga.findByPk(mangaId, {
         include: db.Genre
       });
@@ -187,15 +189,13 @@ router.post('/reviews', reviewValidators, asyncHandler(async (req, res) => {
             reviews,
             errors
         });
-
     }
-
 }));
 
+// UPDATE the review by review id
 router.put("/reviews/:id(\\d+)", reviewValidators, asyncHandler(async(req, res) => {
     let { review, mangaId, userId } = req.body;
     const reviewId = parseInt(req.params.id, 10);
-
     const reviewRecord = await db.Review.findByPk(reviewId);
 
     mangaId = parseInt(mangaId, 10);
@@ -223,13 +223,13 @@ router.put("/reviews/:id(\\d+)", reviewValidators, asyncHandler(async(req, res) 
     const validatorErrors = validationResult(req);
 
     if (validatorErrors.isEmpty()) {
-        const update = await reviewRecord.update({
+        await reviewRecord.update({
             review
         });
 
         await reviewRecord.save();
-
         res.json({ message: "Edit Successful", review });
+
     } else {
         const errors = validatorErrors.array().map((error) => error.msg);
         res.render( 'manga-detail', {
@@ -243,6 +243,7 @@ router.put("/reviews/:id(\\d+)", reviewValidators, asyncHandler(async(req, res) 
     }
 }));
 
+// DELETE the review by review id
 router.delete('/reviews/:id(\\d+)', asyncHandler( async(req, res) => {
     const reviewId = parseInt(req.params.id, 10);
     const review = await db.Review.findByPk(reviewId);
