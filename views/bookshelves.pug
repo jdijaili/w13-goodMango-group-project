@@ -38,7 +38,7 @@ block content
                     if (bookshelf.Mangas.length)
                         div(id=`manga-container-${bookshelf.id}` class="manga-container")
                             each manga in bookshelf.Mangas
-                                div(id=`manga-box-${manga.id}` class="manga-box")
+                                div(id=`bookshelf-${bookshelf.id}-manga-box-${manga.id}` class="manga-box")
                                     div
                                         a(href=`/mangas/${manga.id}`)
                                             img(src=manga.imgSrc, alt=`image of ${manga.title}'s manga cover` id="manga-image")
