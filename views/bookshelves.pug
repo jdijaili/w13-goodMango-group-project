@@ -22,9 +22,6 @@ block content
             div(class="cancelButtonDiv")
                 button(id="cancelAddBookshelf" style="display: none;") Cancel
 
-
-
-
     div(id="bookshelf-display")
         ul(id="manga-list")
             each bookshelf in bookshelves
@@ -53,7 +50,6 @@ block content
                                         p= manga.year
                                     div
                                         button(class="delete-btn" id=`delete-manga-${manga.id}` name=manga.id value=bookshelf.id).manga-delete-btn ❌
-                                            //- img(class="Ximg" src='../images/X.png')
 
     script(src='/javascripts/add-bookshelf.js' type='module')
     script(src='/javascripts/edit-bookshelf.js' type='module')
