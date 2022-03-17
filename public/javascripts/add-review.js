@@ -50,8 +50,8 @@ window.addEventListener('DOMContentLoaded', e => {
         updatedAtEle.setAttribute("class", "review-date");
 
         const reviewDate = new Date(data.review.updatedAt);
-
         updatedAtEle.innerText = reviewDate.toLocaleString();
+
         // create delete review button
         const deleteReviewBtn = document.createElement("button");
         deleteReviewBtn.setAttribute("name", data.reviewId);
@@ -93,7 +93,6 @@ window.addEventListener('DOMContentLoaded', e => {
           }
         });
 
-
         // On the edit review button
         editReviewBtn.addEventListener("click", async (e) => {
           // Create a form with textarea, submit and cancel buttons to edit our review
@@ -115,6 +114,7 @@ window.addEventListener('DOMContentLoaded', e => {
 
           const reviewId = data.reviewId;
 
+          // submit edit event listener
           submitEditBtn.addEventListener("click", async(e) => {
             e.preventDefault();
             const res = await fetch(`/api/reviews/${reviewId}`, {
@@ -138,7 +138,7 @@ window.addEventListener('DOMContentLoaded', e => {
           cancelEditBtn.setAttribute("name", data.reviewId);
           cancelEditBtn.innerText = "Cancel";
 
-          // cancel edit review button
+          // cancel edit event listener
           cancelEditBtn.addEventListener("click", async (e) => {
             // remove the form we just created
             e.preventDefault();
@@ -170,7 +170,7 @@ window.addEventListener('DOMContentLoaded', e => {
         form.removeChild(form.childNodes[form.childNodes.length-1]);
       }
 
-    } else {
+    } else { // review can't be empty
       const message = document.createElement("p");
       message.setAttribute("class", "empty-error-msg");
       message.innerHTML = "* Review cannot be empty!"

@@ -1,7 +1,7 @@
 window.addEventListener('DOMContentLoaded', e => {
     const editBtn = document.querySelectorAll('.edit-btn');
 
-
+    // for all edit bookshelf buttons
     for (let i = 0; i < editBtn.length; i++) {
         const btn = editBtn[i];
         btn.setAttribute("class", "editBookshelf");
@@ -19,16 +19,15 @@ window.addEventListener('DOMContentLoaded', e => {
 
             submitBtn.style.display = "block";
 
-            const delteBtn = document.getElementById(`delete-${bookshelfId}`);
+            const deleteBtn = document.getElementById(`delete-${bookshelfId}`);
 
             btn.style.display = "none";
-            delteBtn.style.display = "none";
+            deleteBtn.style.display = "none";
 
         })
-
     }
 
-
+    // for all submit edit bookshelf buttons
     const submits = document.querySelectorAll('.submit-btn');
     for (let i = 0; i < submits.length; i++) {
         const btn = submits[i];
@@ -42,7 +41,7 @@ window.addEventListener('DOMContentLoaded', e => {
             const val = document.getElementById(`input-${bookshelfId}`).value;
             const input = document.getElementById(`input-${bookshelfId}`);
 
-            if (val !== "") {
+            if (val !== "") { // only update bookshelf if name is not empty
                 const res = await fetch(`/api/bookshelves/${bookshelfId}`, {
                     method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },
