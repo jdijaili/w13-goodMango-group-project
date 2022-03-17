@@ -10,7 +10,7 @@ const db = require('../db/models');
 router.get('/', asyncHandler(async (req, res) => {
   const mangas = await db.Manga.findAll();
   const genres = await db.Genre.findAll();
-  res.render('mangas', { title: "Mangas", mangas, genres });
+  res.render('mangas', { title: "Manga", mangas, genres });
 }));
 
 router.get('/:id(\\d+)', csrfProtection, asyncHandler(async (req, res) => {

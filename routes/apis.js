@@ -40,7 +40,7 @@ router.post('/bookshelves', bookshelfValidators, asyncHandler(async (req, res) =
         } else {
             const errors = validatorErrors.array().map((error) => error.msg);
             res.render('/bookshelves', {
-                title: 'My Mangas',
+                title: 'My Manga',
                 errors
             });
         }
@@ -71,7 +71,7 @@ router.put('/bookshelves/:id(\\d+)', bookshelfValidators, asyncHandler(async (re
         } else {
             const errors = validatorErrors.array().map((error) => error.msg);
             res.render('/bookshelves', {
-                title: 'My Mangas',
+                title: 'My Manga',
                 errors
             });
         }

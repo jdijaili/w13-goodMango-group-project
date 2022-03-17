@@ -9,9 +9,9 @@ html
     nav(class='navbar')
       img(class="logo" src='../images/logo.png')
       a(class='home' href='/') GoodMango
-      a(class='mangas-button' href='/mangas') Browse Mangas
+      a(class='mangas-button' href='/mangas') Browse Manga
       if locals.authenticated
-        a(class='bookshelves-button' href='/bookshelves') My Mangas
+        a(class='bookshelves-button' href='/bookshelves') My Manga
         span(class="welcome-greeting") Welcome,
         span(class='greeting-name') #{user.username} !
         form(class='logout-form' action='/users/logout' method='post')

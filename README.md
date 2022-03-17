@@ -1,6 +1,6 @@
 ## GoodMango
 
-GoodMango is an online social platform, for members interested in Mangas, inspired by [Goodreads](https://www.goodreads.com/). On the website, you can read, review, and research different types of mangas.
+GoodMango is an online social platform, for members interested in Manga, inspired by [Goodreads](https://www.goodreads.com/). On the website, you can read, review, and research different types of manga.
 
 Here, you can find your favorite manga: [GoodMango](https://goodmango.herokuapp.com/)
 
@@ -14,11 +14,11 @@ The splash page displays a large banner video of the top anime battle scenes.  U
 
 Users can browse the different manga Good Mango has in its database here.  Clicking on a manga cover will redirect the user to the manga's details page.
 
-![browsemangas](./images//browse-manga.PNG)
+![browsemanga](./images/browse-manga.PNG)
 
 ### Manga Details
 
-This page displays a specific manga's details including its title, year, author, and description.  There is also a genre list where upon click will redirect the user to a list of mangas of that genre.  Below holds the reviews for that specific manga.
+This page displays a specific manga's details including its title, year, author, and description.  There is also a genre list where upon click will redirect the user to a list of manga of that genre.  Below holds the reviews for that specific manga.
 
 ![manga-details](./images/manga-details.PNG)
 
@@ -36,10 +36,10 @@ Users can create bookshelves via the "My Manga" link on the navigation bar.  Her
 
 - Create an account
 - Log in/out and demo user
-- Read important details of mangas
-- Search mangas with different genres
-- Logged in users can add bookshelves to view a collection of mangas
-- Logged in users can add reviews to mangas
+- Read important details of manga
+- Search manga with different genres
+- Logged in users can add bookshelves to view a collection of manga
+- Logged in users can add reviews to manga
 
 
 ## Installation
@@ -78,10 +78,3 @@ Users can create bookshelves via the "My Manga" link on the navigation bar.  Her
 - [Vivian Thach](https://github.com/bobaguardian)
 - [James Chen](https://github.com/jameschen56)
 - [Andres Soca](https://github.com/DevDre783)
-
-
-[welcome]: ./images/welcome.png
-[browsemangas]: ./images/browsemangas.png
-[mangabookshelves]: ./images/mangabookshelves.png
-[manga-details]: ./images/manga-details.png
-[database-schema]: ./images/database-schema.png
