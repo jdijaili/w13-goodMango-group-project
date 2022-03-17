@@ -1,10 +1,9 @@
 extends layout
 
 append head
-  //- add page specific styles by appending to the head
   link(rel="stylesheet" href="/stylesheets/index.css")
-  //- add page specific js
   script(src="/javascripts/index.js" type="module" defer)
+  script(src="https://kit.fontawesome.com/f7a45a1aff.js" crossorigin="anonymous")
 
 block content
   h1= title

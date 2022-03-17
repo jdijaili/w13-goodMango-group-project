@@ -1,15 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const { check, validationResult } = require('express-validator');
-const bcrypt = require('bcryptjs');
-const { loginUser, logoutUser } = require("../auth");
 
 const { csrfProtection, asyncHandler } = require('./utils');
 const db = require('../db/models');
-// const Manga = require('../db/models/manga')
 
+// READ all the logged in user's bookshelves
 router.get('/', csrfProtection, asyncHandler(async (req, res) => {
-
     if (req.session.auth) {
         const { userId } = req.session.auth;
 
@@ -22,12 +18,12 @@ router.get('/', csrfProtection, asyncHandler(async (req, res) => {
             }],
             order: [['createdAt', "DESC"]]
         });
-        
+
         res.render('bookshelves', { title: 'Bookshelves', bookshelves });
+
     } else {
         res.redirect('/users/login');
     }
-
 }));
 
 module.exports = router;

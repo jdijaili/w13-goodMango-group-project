@@ -1,16 +1,21 @@
 extends layout.pug
 include utils.pug
+
 block head
     link(rel='stylesheet' href='/stylesheets/user-forms.css')
     link(rel='stylesheet' href='/stylesheets/navbar.css')
+
 block content
     form(action="/users/login" method="post" class="form-container")
         input(type="hidden" name="_csrf" value=csrfToken)
-        h1(class="form-heading") Log into GoodMango
-        +field('Email', 'email', "", fieldtype='email', placeholder="you@yours.com")
-        +field('Password', 'password', "", fieldtype='password')
+        h1(class="form-heading") Login to GoodMango
+        div(class="form-fields")
+            +field('Email', 'email', "", fieldtype='email', placeholder="you@yours.com")
+            +field('Password', 'password', "", fieldtype='password')
         div(class="form-button")
             button(type='submit') Login
+        div(class="form-button")
+            a(id='demo-button' href='/users/login/demo') Demo
         div
             p: a(href='/users/signup') Not a member?
         +validationErrorSummary(errors)

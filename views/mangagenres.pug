@@ -1,0 +1,18 @@
+extends layout.pug
+
+block head
+  title=title
+  link(rel='stylesheet' href='/stylesheets/reset.css')
+  link(rel='stylesheet' href='/stylesheets/navbar.css')
+  link(rel='stylesheet' href='/stylesheets/mangas.css')
+
+block content
+  if title === "Genres"
+    h1(class="genre-heading") #{genre.name} Manga (#{mangas.length})
+
+  ul(class= "mangas-container")
+    each manga in mangas
+      div(class= "manga-box")
+        a(href=`/mangas/${manga.id}`)
+          li= manga.title
+          img(class= "manga-cover" src=`${manga.imgSrc}` alt=`${manga.title}'s manga cover`)

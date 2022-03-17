@@ -27,7 +27,6 @@ const loginValidators = [
     .withMessage('Please provide a value for Password'),
 ]
 
-
 const userValidators = [
   check('username')
     .exists({ checkFalsy: true })
@@ -69,6 +68,7 @@ const userValidators = [
     }),
 ]
 
+// CREATE a new user
 router.post('/signup', csrfProtection, userValidators, asyncHandler(async (req, res) => {
   const { username, email, password, confirmPassword } = req.body;
 
@@ -85,8 +85,7 @@ router.post('/signup', csrfProtection, userValidators, asyncHandler(async (req, 
     const hashedPassword = await bcrypt.hash(password, 10);
     user.hashedPassword = hashedPassword;
     await user.save();
-    loginUser(req, res, user);
-    res.redirect('/');
+    return loginUser(req, res, user);
   } else {
     const errors = validatorErrors.array().map((error) => error.msg);
     res.render('user-signup', {
@@ -99,10 +98,12 @@ router.post('/signup', csrfProtection, userValidators, asyncHandler(async (req, 
 
 }))
 
+// Render login page
 router.get("/login", csrfProtection, (req, res) => {
   res.render("user-login", { csrfToken: req.csrfToken(), title: "Login" })
 })
 
+// Login the user
 router.post("/login", csrfProtection, loginValidators, asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
@@ -134,6 +135,7 @@ router.post("/login", csrfProtection, loginValidators, asyncHandler(async (req, 
   });
 }))
 
+// logout the user
 router.post("/logout", (req, res) => {
   logoutUser(req, res);
 });

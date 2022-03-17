@@ -1,5 +1,7 @@
 window.addEventListener('DOMContentLoaded', e => {
   const deleteReviewBtn = document.querySelectorAll('.deleteReview');
+
+  // for all delete review buttons
   for (let i = 0; i < deleteReviewBtn.length; i++) {
     const btn = deleteReviewBtn[i];
 

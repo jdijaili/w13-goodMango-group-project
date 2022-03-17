@@ -14,9 +14,11 @@ window.addEventListener('DOMContentLoaded', e => {
             const theReview = document.getElementById(`review-${reviewId}`);
 
             const editForm = document.createElement("form");
+            editForm.setAttribute("class", "editReviewForm");
             editForm.setAttribute("id", `editForm-${reviewId}`);
 
             const editReviewArea = document.createElement("textarea");
+            editReviewArea.setAttribute("class", "editReviewArea");
             editReviewArea.setAttribute("name", "review");
             editReviewArea.setAttribute("value", theReview.innerText);
             editReviewArea.innerText = theReview.innerText;
@@ -31,22 +33,39 @@ window.addEventListener('DOMContentLoaded', e => {
                 e.preventDefault();
                 let mangaId = document.getElementById('reviewMangaId').value;
                 let userId = document.getElementById('reviewUserId').value;
+                let actualReview = editReviewArea.value;
 
-                const res = await fetch(`/api/reviews/${reviewId}`, {
-                    method: 'PUT',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ review: editReviewArea.value, mangaId, userId })
-                });
+                if (actualReview !== "") { // only edit review if review is not empty
+                    const res = await fetch(`/api/reviews/${reviewId}`, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ review: actualReview, mangaId, userId })
+                    });
 
-                const data = await res.json();
+                    const data = await res.json();
 
-                if (data.message === "Edit Successful") {
-                    theReview.innerText = editReviewArea.value;
-                    btn.style.display = "inline-block";
-                    deleteReviewBtn.style.display = "inline-block";
-                    const editFormDelete = document.getElementById(`editForm-${reviewId}`);
-                    editFormDelete.remove();
+                    if (data.message === "Edit Successful") {
+                        theReview.style.display = "block";
+                        theReview.innerText = actualReview;
+                        btn.style.display = "inline-block";
+                        deleteReviewBtn.style.display = "inline-block";
+                        const editFormDelete = document.getElementById(`editForm-${reviewId}`);
+                        editFormDelete.remove();
+                    }
+
+                    if (editForm.childNodes[editForm.childNodes.length-1].textContent === "* Review cannot be empty!") {
+                        editForm.removeChild(editForm.childNodes[editForm.childNodes.length-1]);
+                    }
+                } else { // error message for empty review
+                    const message = document.createElement("p");
+                    message.setAttribute("class", "empty-error-msg");
+                    message.innerHTML = "* Review cannot be empty!"
+                    if (editForm.childNodes[editForm.childNodes.length-1].textContent !== "* Review cannot be empty!") {
+                        editForm.appendChild(message);
+                    }
+
                 }
+
             });
 
             const cancelEditBtn = document.createElement("button");
@@ -57,15 +76,22 @@ window.addEventListener('DOMContentLoaded', e => {
             // cancel edit event listener
             cancelEditBtn.addEventListener("click", async(e) => {
                 e.preventDefault();
+                theReview.style.display = "block";
                 btn.style.display = "inline-block";
                 deleteReviewBtn.style.display = "inline-block";
                 const editFormDelete = document.getElementById(`editForm-${reviewId}`);
                 editFormDelete.remove();
             });
 
+            const submitCancelDiv = document.createElement("div");
+            submitCancelDiv.setAttribute("class", "submitCancelDiv");
+
+            theReview.style.display = "none";
+
+            submitCancelDiv.appendChild(cancelEditBtn);
+            submitCancelDiv.appendChild(submitEditBtn);
             editForm.appendChild(editReviewArea);
-            editForm.appendChild(submitEditBtn);
-            editForm.appendChild(cancelEditBtn);
+            editForm.appendChild(submitCancelDiv);
             reviewBoxEle.appendChild(editForm);
 
             // when edit button is clicked, hide the edit and delete buttons

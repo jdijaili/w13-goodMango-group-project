@@ -2,10 +2,49 @@ extends layout.pug
 
 block head
     link(rel='stylesheet' href='/stylesheets/home.css')
-    //- link(rel='stylesheet' href='/stylesheets/navbar.css')
+
 block content
     div(class="video")
         iframe(class="anime-video" width="100%" height="100%" src="https://www.youtube.com/embed/gYaJoFGHcNo?controls=0&mute=1&autoplay=1&loop=1", frameborder="0" allowfullscreen)
+    div(class="footer-container")
+        ul(class="footer-list")
+            div(class="footer-devs")
+                div(class="dev-container")
+                    li(class="dev-text") Vivian Thach
+                    li(class="dev-icons")
+                        a(href="https://github.com/bobaguardian")
+                            img(src="https://res.cloudinary.com/jenn/image/upload/v1646960705/icons8-github-30_1_zr2mgx.png", alt="github-icon", class="icon")
+                        a(href="https://www.linkedin.com/in/vivianthach1023/")
+                            img(src="https://res.cloudinary.com/jenn/image/upload/v1646960705/icons8-linkedin-30_cuqr3r.png", alt="linkedin-icon", class="icon")
+                div(class="dev-container")
+                    li(class="dev-text") Andres Soca
+                    li(class="dev-icons")
+                        a(href="https://github.com/DevDre783")
+                            img(src="https://res.cloudinary.com/jenn/image/upload/v1646960705/icons8-github-30_1_zr2mgx.png", alt="github-icon", class="icon")
+                        a(href="https://www.linkedin.com/in/andres-soca-23852aab/")
+                            img(src="https://res.cloudinary.com/jenn/image/upload/v1646960705/icons8-linkedin-30_cuqr3r.png", alt="linkedin-icon", class="icon")
+                div(class="dev-container")
+                    li(class="dev-text") Jennifer Dijaili
+                    li(class="dev-icons")
+                        a(href="https://github.com/jdijaili")
+                            img(src="https://res.cloudinary.com/jenn/image/upload/v1646960705/icons8-github-30_1_zr2mgx.png", alt="github-icon", class="icon")
+                        a(href="https://www.linkedin.com/in/jennifer-dijaili/")
+                            img(src="https://res.cloudinary.com/jenn/image/upload/v1646960705/icons8-linkedin-30_cuqr3r.png", alt="linkedin-icon", class="icon")
+                div(class="dev-container")
+                    li(class="dev-text") James Chen
+                    li(class="dev-icons")
+                        a(href="https://github.com/jameschen56")
+                            img(src="https://res.cloudinary.com/jenn/image/upload/v1646960705/icons8-github-30_1_zr2mgx.png", alt="github-icon", class="icon")
+                        a(href="https://www.linkedin.com/in/james-chen56/")
+                            img(src="https://res.cloudinary.com/jenn/image/upload/v1646960705/icons8-linkedin-30_cuqr3r.png", alt="linkedin-icon", class="icon")
+        div(class='footer-tech')
+            ul(class="tech-list")
+                li Javascript
+                li Express
+                li Sequelize
+                li PostgreSQL
+                li Pug
+                li CSS
     if !locals.authenticated
       div(class="scroll-container")
           div(id="scroll-text") Welcome To GoodMango ! Enjoy your Manga's

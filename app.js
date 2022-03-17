@@ -6,7 +6,6 @@ const logger = require('morgan');
 const { sequelize } = require('./db/models');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
-const bcrypt = require('bcryptjs');
 const { sessionSecret } = require('./config');
 const { restoreUser } = require("./auth");
 
@@ -29,9 +28,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser(sessionSecret));
 app.use(express.static(path.join(__dirname, 'public')));
-// app.use(cors({ origin: "http://localhost:8080"}))
-// app.use(express.static(path.join(__dirname, 'images')));
-
 
 // set up session middleware
 const store = new SequelizeStore({ db: sequelize });
