@@ -1,6 +1,6 @@
 ## GoodMango
 
-GoodMango is an online social platform, for members interested in Manga, inspired by [Goodreads](https://www.goodreads.com/). On the website, you can read, review, and research different types of manga.
+GoodMango is an online social platform for users interested in Manga, inspired by [Goodreads](https://www.goodreads.com/). On the website, you can read, review, and research different types of manga.
 
 Here, you can find your favorite manga: [GoodMango](https://goodmango.herokuapp.com/)
 

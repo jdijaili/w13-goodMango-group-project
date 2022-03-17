@@ -3,7 +3,11 @@ html
   head
       title=title
       link(rel='stylesheet' href='/stylesheets/reset.css')
-      //- link(rel='stylesheet' href='/stylesheets/navbar.css')
+      meta(name="title" property="og:title" content="GoodMango")
+      meta(property="og:type" content="Website")
+      meta(name="image" property="og:image" content="https://raw.githubusercontent.com/jdijaili/w13-goodMango-group-project/main/images/browse-manga.PNG")
+      meta(name="description" property="og:description" content="A GoodReads clone for manga enthusiasts to browse manga, add them to their bookshelves, and leave reviews for manga.")
+      meta(name="author" content="Andres Soca, Jennifer Dijaili, James Chen, Vivian Thach")
       block head
   body
     nav(class='navbar')
@@ -19,5 +23,4 @@ html
       else
           a(class='login-button' href='/users/login') Login
           a(class='signup-button' href='/users/signup') Sign Up
-          //- a(id='demo-button' href='/users/login/demo') Demo
     block content
