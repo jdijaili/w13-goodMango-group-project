@@ -17,7 +17,7 @@ html
       if locals.authenticated
         a(class='bookshelves-button' href='/bookshelves') My Manga
         span(class="welcome-greeting") Welcome,
-        span(class='greeting-name') #{user.username} !
+        span(class='greeting-name') #{user.username}!
         form(class='logout-form' action='/users/logout' method='post')
           button(class='logout-button' type='submit') logout
       else

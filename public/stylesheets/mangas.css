@@ -67,7 +67,7 @@ html {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   list-style-type: none;
-  margin: 0;
+  margin: 0 auto;
 }
 
 .manga-box li{
@@ -133,7 +133,7 @@ html {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     list-style-type: none;
-    margin: 0;
+    margin: 0 auto;
   }
 
 }
@@ -163,7 +163,7 @@ html {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     list-style-type: none;
-    margin: 0;
+    margin: 0 auto;
   }
 
 }
@@ -180,13 +180,19 @@ html {
 
   .mangas-container {
     padding-top: 80px;
-    padding-left: 15%;
-    padding-right: 15%;
+    padding-left: 7%;
+    padding-right: 7%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     list-style-type: none;
-    margin: 0;
+    margin: 0 auto;
   }
 
+}
+
+@media screen and (max-width: 1400px) {
+  .genre-menu {
+    display: none;
+  }
 }
