@@ -26,6 +26,7 @@ block content
           each genre in genres
             a(href=`/genres/${genre.id}`)
               li= genre.name
+
       if (bookshelves.length)
         form(class="addToBookshelfForm" method="post" action="/mangaBookshelfJoins")
           input(type="hidden" name="_csrf" value=csrfToken)
@@ -35,6 +36,7 @@ block content
             each bookshelf in bookshelves
               option(value=bookshelf.id) #{bookshelf.name}
           button(class="addMangaBtn" type="submit") ➕
+
       if locals.authenticated
         div(class="review-form-div")
           form(id="addReviewForm" class="addReviewForm" method="post" action=`/api/reviews`)
@@ -60,7 +62,9 @@ block content
                     div(class="edit-delete-review-btns")
                       button(class="editReview" name=`${review.id}` id=`edit-${review.id}`) edit
                       button(class="deleteReview" name=`${review.id}` id=`delete-${review.id}`) delete
+
       div(class="bottom-margin")
+
   script(src='/javascripts/add-review.js' type='module')
   script(src='/javascripts/edit-review.js' type='module')
   script(src='/javascripts/delete-review.js' type='module')

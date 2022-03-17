@@ -3,10 +3,6 @@ body::-webkit-scrollbar {
 }
 
 .video {
-    /* display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 75px; */
     position: static;
     z-index: -99;
     width: 100%;
@@ -71,12 +67,6 @@ h1 {
 }
 
 .welcome {
-    /* text-shadow: 0 3px 3px rgb(0 0 0 / 55%);
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 75px; */
     display: flex;
     justify-content: left;
 }
@@ -95,10 +85,7 @@ body, html {
     height: 100%
 }
 
-
-
-
-/* // scrolling text animation */
+/* scrolling text animation */
 
 #scroll-container {
     overflow: hidden;
@@ -202,8 +189,6 @@ body, html {
     color: rgb(248, 66, 0);
     font-size: 20pt;
     text-decoration: none;
-    /* padding-top: 10px; */
-    /* padding-bottom: 10px; */
     padding: 0px 15px;
 }
 
@@ -279,23 +264,6 @@ body, html {
 .logout-button:hover::after {
     width: 100%;
 }
-
-/* #demo-button {
-    font-size: 16pt;
-    padding-left: 1%;
-    text-decoration: none;
-    margin-top: 4.5px;
-    color: rgb(248, 66, 0);
-    display: flex;
-    justify-content: flex-end;
-}
-
-#demo-button:hover {
-    text-shadow: 3px 3px 20px rgba(0, 0, 0, 0.397);
-    color: white;
-    transform: scale(1.2);
-
-} */
 
 .login-button, .signup-button {
     text-decoration: none;
@@ -397,9 +365,9 @@ body, html {
     }
 
     /* 90% { transform: translate(1px, 2px) rotate(0deg); } */
-  
-    100% { 
-      transform: translate(1px, -2px) rotate(-1deg); 
+
+    100% {
+      transform: translate(1px, -2px) rotate(-1deg);
     }
   }
 

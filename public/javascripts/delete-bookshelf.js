@@ -1,6 +1,7 @@
 window.addEventListener("DOMContentLoaded", e => {
     const deleteBtns = document.querySelectorAll(".delete-bookshelf-btn");
 
+    // for all delete bookshelf buttons, add event listener to delete bookshelf
     for (let i = 0; i < deleteBtns.length; i++) {
         const btn = deleteBtns[i];
         btn.setAttribute("class", "deleteBookshelf");
@@ -20,7 +21,5 @@ window.addEventListener("DOMContentLoaded", e => {
                 bookshelf.remove();
             }
         })
-
     }
-
 })

@@ -8,7 +8,8 @@ block head
 
 block content
   if title === "Genres"
-    h1(class="genre-heading") #{genre.name} Mangas (#{mangas.length})
+    h1(class="genre-heading") #{genre.name} Manga (#{mangas.length})
+
   ul(class= "mangas-container")
     each manga in mangas
       div(class= "manga-box")

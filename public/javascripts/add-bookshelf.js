@@ -1,38 +1,28 @@
 window.addEventListener('DOMContentLoaded', e => {
+
+    // add bookshelf button to show form
     const addBookshelfBtn = document.getElementById("add-button");
     addBookshelfBtn.addEventListener("click", (e) => {
         const addBookshelfForm = document.getElementsByClassName("add-bookshelf-form-div")[0];
 
-
         const addButton = document.getElementById("add-button")
         addButton.setAttribute("class", "addBookshelf");
-
         addButton.style.display = "none"
-
-        // const addShelfText = document.createElement('p')
-        // addShelfText.setAttribute("id", "addShelf-text");
-        // const header = document.getElementById("header")
-        // header.appendChild(addShelfText)
-        // addShelfText.innerText = 'Add a shelf:'
 
         const form = document.getElementById("form")
         form.style.display = "block"
 
-        // const cancelBookshelfBtn = document.createElement("button");
-        // cancelBookshelfBtn.setAttribute("id", "cancelAddBookshelf");
-        // cancelBookshelfBtn.innerText = "Cancel";
-
-        // header.appendChild(cancelBookshelfBtn);
-
         const addShelfText = document.getElementById("addShelf-text");
         addShelfText.style.display = "block";
+
         const cancelBookshelfBtn = document.getElementById("cancelAddBookshelf");
         cancelBookshelfBtn.setAttribute("class", "cancelAddBookshelf");
-
         cancelBookshelfBtn.style.display = "inline-block";
 
-        // cancel add bookshelf button
+        // cancel add bookshelf event listener
         cancelBookshelfBtn.addEventListener("click", async (e) => {
+
+            // hide add bookshelf form and redisplay add bookshelf button
             form.style.display = "none";
             addShelfText.style.display = "none";
             cancelBookshelfBtn.style.display = "none";
@@ -48,6 +38,7 @@ window.addEventListener('DOMContentLoaded', e => {
 
     })
 
+    // add bookshelf submit button
     const submitBtn = document.getElementById("submit-button");
     submitBtn.setAttribute("class", "submitAddBookshelf");
     submitBtn.addEventListener('click', async (e) => {
@@ -56,8 +47,9 @@ window.addEventListener('DOMContentLoaded', e => {
         // hide add bookshelf elements: add a shelf text and cancel buttons
         const addBookshelfForm = document.getElementsByClassName("add-bookshelf-form-div")[0];
 
-
         let val = document.getElementById('add-bookshelf').value;
+
+        // only add if the value is not empty
         if (val !== "") {
             const cancelBookshelfBtn = document.getElementById("cancelAddBookshelf");
             cancelBookshelfBtn.style.display = "none";
@@ -135,15 +127,14 @@ window.addEventListener('DOMContentLoaded', e => {
                     input.style.display = "block";
 
                     submitBtn.style.display = "inline";
-
                     delteBtn.style.display = "none";
-
                     editBtn.style.display = "none";
 
                     // add event listener to the newly created bookshelf so that it can have the dynamic submit functionality as well
                     submitBtn.addEventListener("click", async (e) => {
                         const val = document.getElementById(`input-${bookshelfId}`).value;
 
+                        // only update bookshelf if the name is not empty
                         if (val !== "") {
                             const res = await fetch(`/api/bookshelves/${bookshelfId}`, {
                                 method: 'PUT',
@@ -210,7 +201,7 @@ window.addEventListener('DOMContentLoaded', e => {
             if (addBookshelfForm?.childNodes[addBookshelfForm.childNodes.length-1].textContent === "* Bookshelf name cannot be empty!") {
                 addBookshelfForm.removeChild(addBookshelfForm.childNodes[addBookshelfForm.childNodes.length-1]);
             }
-        }
+        } // else if the bookshelf name is empty
         else {
             const message = document.createElement("p");
             message.setAttribute("class", "empty-error-msg");
@@ -220,7 +211,5 @@ window.addEventListener('DOMContentLoaded', e => {
                 message.style.display = "block";
             }
         }
-
-
     })
 })

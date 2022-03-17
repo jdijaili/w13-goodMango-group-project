@@ -27,7 +27,6 @@ const loginValidators = [
     .withMessage('Please provide a value for Password'),
 ]
 
-
 const userValidators = [
   check('username')
     .exists({ checkFalsy: true })
@@ -69,6 +68,7 @@ const userValidators = [
     }),
 ]
 
+// CREATE a new user
 router.post('/signup', csrfProtection, userValidators, asyncHandler(async (req, res) => {
   const { username, email, password, confirmPassword } = req.body;
 
@@ -98,10 +98,12 @@ router.post('/signup', csrfProtection, userValidators, asyncHandler(async (req, 
 
 }))
 
+// Render login page
 router.get("/login", csrfProtection, (req, res) => {
   res.render("user-login", { csrfToken: req.csrfToken(), title: "Login" })
 })
 
+// Login the user
 router.post("/login", csrfProtection, loginValidators, asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
@@ -133,6 +135,7 @@ router.post("/login", csrfProtection, loginValidators, asyncHandler(async (req, 
   });
 }))
 
+// logout the user
 router.post("/logout", (req, res) => {
   logoutUser(req, res);
 });

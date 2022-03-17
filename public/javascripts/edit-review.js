@@ -35,7 +35,7 @@ window.addEventListener('DOMContentLoaded', e => {
                 let userId = document.getElementById('reviewUserId').value;
                 let actualReview = editReviewArea.value;
 
-                if (actualReview !== "") {
+                if (actualReview !== "") { // only edit review if review is not empty
                     const res = await fetch(`/api/reviews/${reviewId}`, {
                         method: 'PUT',
                         headers: { 'Content-Type': 'application/json' },
@@ -56,7 +56,7 @@ window.addEventListener('DOMContentLoaded', e => {
                     if (editForm.childNodes[editForm.childNodes.length-1].textContent === "* Review cannot be empty!") {
                         editForm.removeChild(editForm.childNodes[editForm.childNodes.length-1]);
                     }
-                } else {
+                } else { // error message for empty review
                     const message = document.createElement("p");
                     message.setAttribute("class", "empty-error-msg");
                     message.innerHTML = "* Review cannot be empty!"
