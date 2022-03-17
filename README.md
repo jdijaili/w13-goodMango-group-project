@@ -1,35 +1,43 @@
 ## GoodMango
 
-GoodMango is an online social platform, for members interested in Mangas, inspired by [Goodreads](https://www.goodreads.com/). On the website, you can read, review, and research different types of mangas. 
+GoodMango is an online social platform, for members interested in Mangas, inspired by [Goodreads](https://www.goodreads.com/). On the website, you can read, review, and research different types of mangas.
 
 Here, you can find your favorite manga: [GoodMango](https://goodmango.herokuapp.com/)
 
-### Welcome View 
+### Splash Page
 
-![welcome]
+The splash page displays a large banner video of the top anime battle scenes.  Users can log into an existing account or sign up to create a new account.  There is an option to demo the site through the login and signup pages.
 
-### Browse Mangas
+![Splash Page](./images/splash-page.PNG)
 
-![browsemangas]
+### Browse Manga
 
-### Manga Bookshelves
+Users can browse the different manga Good Mango has in its database here.  Clicking on a manga cover will redirect the user to the manga's details page.
 
-![mangabookshelves]
+![browsemangas](./images//browse-manga.PNG)
 
 ### Manga Details
 
-![manga-details]
+This page displays a specific manga's details including its title, year, author, and description.  There is also a genre list where upon click will redirect the user to a list of mangas of that genre.  Below holds the reviews for that specific manga.
 
-### Database Schema 
+![manga-details](./images/manga-details.PNG)
 
-![database-schema]
+### Manga Bookshelves
+
+Users can create bookshelves via the "My Manga" link on the navigation bar.  Here, users can keep track of book lists and add manga to them via their manga detail page.
+
+![mangabookshelves](./images/manga-bookshelves.PNG)
+
+### Database Schema
+
+![database-schema](./images/database-schema.png)
 
 ## Features
 
-- Create an account 
+- Create an account
 - Log in/out and demo user
-- Read important details of mangas 
-- Search mangas with different genres 
+- Read important details of mangas
+- Search mangas with different genres
 - Logged in users can add bookshelves to view a collection of mangas
 - Logged in users can add reviews to mangas
 
@@ -44,11 +52,11 @@ Here, you can find your favorite manga: [GoodMango](https://goodmango.herokuapp.
   6. Run migrations and seed data: ` npx dotenv sequelize db:migrate ` && `npx dotenv sequelize db:seed:all `
   7. Start the server: `npm start`
 
-## Techologies Used 
+## Techologies Used
 
 - JavaScript
 - Express
-- Git 
+- Git
 - Pug
 - CSS
 - BCrypt
