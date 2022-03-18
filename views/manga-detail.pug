@@ -48,20 +48,20 @@ block content
               button(class="submitReview" type="submit") Submit
 
 
-        div(class="reviews")
-          h2(id="review-heading") Reviews (<span id="review-counter">#{reviews.length}</span>)
-          div(class="reviewbox")
-            ul(id="reviewsContainer")
-              each review in reviews
-                li(class="reviewBox" name=`${review.id}` id=`box-${review.id}`)
-                  div(class="username-date-div")
-                    p(class="review-username") #{review.User.username} 🥭
-                    p(class="review-date") #{review.updatedAt.toLocaleString()}
-                  p(class="actualReview" id=`review-${review.id}`) #{review.review}
-                  if locals.authenticated && user.id === review.userId
-                    div(class="edit-delete-review-btns")
-                      button(class="editReview" name=`${review.id}` id=`edit-${review.id}`) edit
-                      button(class="deleteReview" name=`${review.id}` id=`delete-${review.id}`) delete
+      div(class="reviews")
+        h2(id="review-heading") Reviews (<span id="review-counter">#{reviews.length}</span>)
+        div(class="reviewbox")
+          ul(id="reviewsContainer")
+            each review in reviews
+              li(class="reviewBox" name=`${review.id}` id=`box-${review.id}`)
+                div(class="username-date-div")
+                  p(class="review-username") #{review.User.username} 🥭
+                  p(class="review-date") #{review.updatedAt.toLocaleString()}
+                p(class="actualReview" id=`review-${review.id}`) #{review.review}
+                if locals.authenticated && user.id === review.userId
+                  div(class="edit-delete-review-btns")
+                    button(class="editReview" name=`${review.id}` id=`edit-${review.id}`) edit
+                    button(class="deleteReview" name=`${review.id}` id=`delete-${review.id}`) delete
 
       div(class="bottom-margin")
 
